@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "e:/lbe/leetcode/2342",
-      "program": "e:/lbe/leetcode/2342/build/Debug/outDebug",
+      "cwd": "e:/lbe/c#/chat",
+      "program": "e:/lbe/c#/chat/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
