@@ -13,7 +13,7 @@ class user:
     num=0#数量
     def buy(self,i,gnum):
         self.upri=glist[i-1][1]*gnum
-        return self.spri
+        return self.upri
 glist=[["1 iphone15",8999],["2 小米6 ",3699],["3 华为NOVA 11 SE",1999]]
 blist=[]
 for i in glist:
@@ -38,7 +38,7 @@ while True:
         input()
     else:
         user1=user()
-        user1.buy(goodid.goodnum)
+        user1.buy(goodid,goodnum)
         str1=str(glist[goodid-1]+"数量："+sgnum)
         blist.append(str1)
     finalpri=finalpri+int(user1.upri)
