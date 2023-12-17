@@ -2,7 +2,7 @@ import login
 import book as book
 import os
 import csv 
-# 检查文件是否存在
+# 检查文件存在
 def check_file_exists():
     # 获取当前文件路径
     user_csv_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'users.csv')
