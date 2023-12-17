@@ -2,15 +2,19 @@ import login
 import book as book
 import os
 import csv 
+# 检查文件是否存在
 def check_file_exists():
+    # 获取当前文件路径
     user_csv_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'users.csv')
     books_csv_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'books.csv')
 
+    # 如果用户csv文件不存在，则创建
     if not os.path.isfile(user_csv_path):
         with open(user_csv_path, 'w', newline='') as f:
             writer = csv.writer(f)
             writer.writerow(["用户名", "密码", "姓名", "班级", "电话号码"])
 
+    # 如果书籍csv文件不存在，则创建
     if not os.path.isfile(books_csv_path):
         with open(books_csv_path, 'w', newline='') as f:
             writer = csv.writer(f)
@@ -18,13 +22,24 @@ def check_file_exists():
 
 def main():
     # 检查并初始化用户和书籍信息
-    check_file_exists()
-    
-
-    while True:
-        print("1. 登录")
-        print("2. 注册")
-        print("3. 退出")
+    check_file_exists()    
+    # 定义主函数
+while True:
+        print(
+"""
+快和坤坤一起来图书馆学习吧！
+    ⠀⠀⠀⠀⠰⢷⢿⠄
+    ⠀⠀⠀⠀⠀⣼⣷⣄
+    ⠀⠀⣤⣿⣇⣿⣿⣧⣿⡄
+    ⢴⠾⠋⠀⠀⠻⣿⣷⣿⣿⡀
+    🏀⠀⢀⣿⣿⡿⢿⠈⣿
+    ⠀⠀⠀⢠⣿⡿⠁⠀⡊⠀⠙
+    ⠀⠀⠀⢿⣿⠀⠀⠹⣿   
+    ⠀⠀⠀⠀⠹⣷⡀⠀⣿⡄
+    ⠀⠀⠀⠀⣀⣼⣿⠀⢈⣧
+🏀登录 🏀🏀注册 🏀🏀🏀退出
+"""
+              )
         choice = input("请选择：")
 
         if choice == '1':
