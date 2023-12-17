@@ -12,7 +12,7 @@ def check_file_exists():
     if not os.path.isfile(user_csv_path):
         with open(user_csv_path, 'w', newline='') as f:
             writer = csv.writer(f)
-            writer.writerow(["UID", "PSK", "Name", "cid", "Phone","Title","Num"])
+            writer.writerow(["UID", "PSK", "Name", "cid", "Phone"])
 
     # 如果书籍csv文件不存在，则创建
     if not os.path.isfile(books_csv_path):
@@ -24,7 +24,7 @@ def main():
     # 检查并初始化用户和书籍信息
     check_file_exists()    
     # 定义主函数
-while True:
+    while True:
         print(
 """
 快和坤坤一起来图书馆学习吧！

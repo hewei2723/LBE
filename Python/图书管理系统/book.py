@@ -74,7 +74,6 @@ def update_book():
 def borrow_book():
     # 输入要借阅的书名
     book_name = input("请输入要借阅的书名：")
-
     # 创建一个空列表，用于存储处理后的数据
     lines = []
     # 以只读的方式打开books_csv_path文件，以读取的方式
@@ -83,7 +82,6 @@ def borrow_book():
         reader = csv.reader(f)
         # 遍历每一行，如果书名等于要借阅的书名，则将该行添加到lines列表中
         lines = [row for row in reader]
-
     # 遍历每一行，如果书名等于要借阅的书名，且数量大于0，则将该行数量减1，并打印借书成功
     for row in lines:
         if row[0] == book_name:
@@ -93,15 +91,12 @@ def borrow_book():
             else:
                 print("这本书已经被借完了。")
             break
-
     # 以写入的方式打开books_csv_path文件，以写入的方式
     with open(books_csv_path, 'w', newline='') as f:
         # 创建csv.writer对象，用于写入csv文件
         writer = csv.writer(f)
         # 将处理后的数据写入csv文件
         writer.writerows(lines)
-
-
 def return_book():
     # 输入要归还的书名
     book_name = input("请输入要归还的书名：")
