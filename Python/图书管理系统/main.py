@@ -1,5 +1,5 @@
 import login
-import book_operations
+import book as book
 import os
 import csv 
 def check_file_exists():
@@ -39,11 +39,11 @@ def main():
                     choice = input("请选择：")
 
                     if choice == '1':
-                        book_operations.list_books()
+                        book.list_books()
                     elif choice == '2':
-                        book_operations.borrow_book()
+                        book.borrow_book()
                     elif choice == '3':
-                        book_operations.return_book()
+                        book.return_book()
                     elif choice == '4':
                         break
             elif user_type == 'admin':
@@ -57,13 +57,13 @@ def main():
                     choice = input("请选择：")
 
                     if choice == '1':
-                        book_operations.list_books()
+                        book.list_books()
                     elif choice == '2':
-                        book_operations.add_book()
+                        book.add_book()
                     elif choice == '3':
-                        book_operations.update_book()
+                        book.update_book()
                     elif choice == '4':
-                        book_operations.delete_book()
+                        book.delete_book()
                     elif choice == '5':
                         break
             else:
