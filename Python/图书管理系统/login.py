@@ -12,9 +12,9 @@ class User:
         # 班级名
         self.class_name = class_name
         # 手机号
+        # 初始化类
         self.phone_number = phone_number
 
-    @staticmethod
    # 定义注册函数，用于注册新用户
     def register():
         # 获取用户输入的参数
@@ -33,7 +33,6 @@ class User:
         # 返回新用户
         return new_user
 
-    @staticmethod
     # 定义登录函数
     def login():
         # 输入用户名
