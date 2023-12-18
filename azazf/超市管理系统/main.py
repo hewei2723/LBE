@@ -53,16 +53,43 @@ def main():
                         print("2. 修改员工信息")
                         print("3. 删除员工信息")
                         print("4. 列出所有员工信息")
+                        menu = input("请选择：")
+                        if menu == '1':
+                            pass
+                        elif menu == '2':
+                            pass
+                        elif menu == '3':
+                            pass
+                        elif menu == '4':
+                            pass
                     elif choice == '2':
                         print("1. 商品入库")
                         print("2. 商品出库")
                         print("3. 商品库存")
                         print("4. 列出所有商品")
+                        menu = input("请选择：")
+                        if menu == '1':
+                            pass
+                        elif menu == '2':
+                            pass
+                        elif menu == '3':
+                            pass
+                        elif menu == '4':
+                            pass
                     elif choice == '3':
                         print("1. 增加会员信息")
                         print("2. 删除会员信息")
                         print("3. 修改会员信息")
                         print("4. 列出所有会员信息")
+                        menu = input("请选择：")
+                        if menu == '1':
+                            pass
+                        elif menu == '2':
+                            pass
+                        elif menu == '3':
+                            pass
+                        elif menu == '4':
+                            pass
                     elif choice == '4':
                         break
             else:
