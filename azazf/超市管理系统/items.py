@@ -5,13 +5,13 @@ class items:
         self.num = Snum
         self.pri = Spri
 
-    def add_S():
+    def add_S(): #增加商品
         pass
-    def del_S():
+    def del_S(): #删除商品
         pass    
-    def rep_S():
+    def rep_S(): #库存商品
         pass
-    def list_S():
+    def list_S(): #列出库存
         pass
-    def update_S():
+    def update_S(): #修改商品
         pass
