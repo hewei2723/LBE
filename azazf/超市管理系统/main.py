@@ -1,6 +1,7 @@
 import login
 import os
 import csv 
+import person
 # 检查文件存在
 def check_file_exists():
     # 获取当前文件路径
@@ -55,7 +56,7 @@ def main():
                         print("4. 列出所有员工信息")
                         menu = input("请选择：")
                         if menu == '1':
-                            pass
+                            person.Employ.add_E()
                         elif menu == '2':
                             pass
                         elif menu == '3':
