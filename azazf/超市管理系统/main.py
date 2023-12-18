@@ -58,39 +58,42 @@ def main():
                         if menu == '1':
                             person.Employ.add_E()
                         elif menu == '2':
-                            pass
+                            person.Employ.update_E()
                         elif menu == '3':
-                            pass
+                            person.Employ.del_E()
                         elif menu == '4':
-                            pass
+                            person.Employ.list_E()
                     elif choice == '2':
                         print("1. 商品入库")
                         print("2. 商品出库")
                         print("3. 商品库存")
                         print("4. 列出所有商品")
+                        print("5. 修改商品")
                         menu = input("请选择：")
                         if menu == '1':
-                            pass
+                            items.items.add_S()
                         elif menu == '2':
-                            pass
+                            items.items.del_S()
                         elif menu == '3':
-                            pass
+                            items.items.rep_S()
                         elif menu == '4':
-                            pass
+                            items.items.list_S()
+                        elif menu == '5':
+                            items.items.update_S()
                     elif choice == '3':
                         print("1. 增加会员信息")
-                        print("2. 删除会员信息")
-                        print("3. 修改会员信息")
+                        print("2. 删除会员息")
+                        print("3. 修改会员信信息")
                         print("4. 列出所有会员信息")
                         menu = input("请选择：")
                         if menu == '1':
-                            pass
+                            person.vip.add_V()
                         elif menu == '2':
-                            pass
+                            person.vip.del_V()
                         elif menu == '3':
-                            pass
+                            person.vip.update_V()
                         elif menu == '4':
-                            pass
+                            person.vip.list_V()
                     elif choice == '4':
                         break
             else:
