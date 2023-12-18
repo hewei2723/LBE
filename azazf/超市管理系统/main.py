@@ -2,6 +2,7 @@ import login
 import os
 import csv 
 import person
+import items
 # 检查文件存在
 def check_file_exists():
     # 获取当前文件路径
@@ -26,7 +27,7 @@ def check_file_exists():
     if not os.path.isfile(vip_csv_path):
         with open(vip_csv_path, 'w', newline='') as f:
             writer = csv.writer(f)
-            writer.writerow(["Vname", "Vid", "Vpoint"])
+            writer.writerow(["Vpnum","Vname",  "Vpoint"])
 def main():
     check_file_exists()    
     while True:
