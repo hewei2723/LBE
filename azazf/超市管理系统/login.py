@@ -13,6 +13,6 @@ class User:
         password = input("请输入密码：")
 
         # 如果用户名和密码正确，返回admin
-        if username == 'admin' and password == '123456':
+        if username == '1' and password == '1':
             return 'success'
         return None
