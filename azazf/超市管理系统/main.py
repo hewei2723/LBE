@@ -49,11 +49,20 @@ def main():
                     choice = input("请选择：")
 
                     if choice == '1':
-                        book.list_books()
+                        print("增加员工信息")
+                        print("修改员工信息")
+                        print("删除员工信息")
+                        print("列出所有员工信息")
                     elif choice == '2':
-                        book.borrow_book()
+                        print("商品入库")
+                        print("商品出库")
+                        print("商品库存")
+                        print("列出所有商品")
                     elif choice == '3':
-                        book.return_book()
+                        print("增加会员信息")
+                        print("删除会员信息")
+                        print("修改会员信息")
+                        print("列出所有会员信息")
                     elif choice == '4':
                         break
             else:
