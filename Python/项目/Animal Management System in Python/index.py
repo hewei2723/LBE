@@ -3,15 +3,24 @@ check2=0
 check3=0 
 check4=0 
 opp='a'  
+# 循环，当opp不等于c时，执行循环体
 while opp!='c': 
+    # 获取用户输入
     opp=input("===== ANIMAL MANAGEMENT SYSTEM ===== \nAdd Animal Record[a]\
     \nUpdate Record[e] \nDisplay Record[v] \nSearch a Record[s] \nExit Application[c]\n :") 
+    # 判断用户输入是否正确
     if opp=='a' or opp=='e' or opp=='v' or opp=='s' or opp=='c':
+        # 如果输入正确，执行以下操作
         if opp=='a':
+            # 获取用户输入的记录数
             num=eval(input("How many records do you want to enter (max entries= 4)"))
+            # 判断记录数是否在1-4之间
             if num>=1 and num<=4:
+                # 初始化计数器
                 i=1
+                # 循环，当用户输入的记录数不等于计数器时，执行循环体
                 while num!=i-1:
+                    # 如果计数器为1，获取用户输入的记录
                     if i==1:
                         animal_name1=input("Enter 1st Animal name :")
                         cage_no1=input("Enter 1st Cage number :")
