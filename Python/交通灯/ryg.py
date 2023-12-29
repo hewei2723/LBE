@@ -14,23 +14,24 @@ def rbb():
     draw_traffic_light(50, 100, traffic_light_radius, "red")
     draw_traffic_light(150, 100, traffic_light_radius, "gray")
     draw_traffic_light(250, 100, traffic_light_radius, "gray")
-    countdown_timer(3)#设置红灯时间刻
+    countdown_timer(5)#设置红灯时间刻
     byb()
+    bbg()
 
 def byb():
     draw_traffic_light(50, 100, traffic_light_radius, "gray")
     draw_traffic_light(150, 100, traffic_light_radius, "yellow")
     draw_traffic_light(250, 100, traffic_light_radius, "gray")
-    countdown_timer(1)#设置黄灯时间刻
-    bbg()
+    countdown_timer(3)#设置黄灯时间刻
 
 def bbg():
     draw_traffic_light(50, 100, traffic_light_radius, "gray")
     draw_traffic_light(150, 100, traffic_light_radius, "gray")
     draw_traffic_light(250, 100, traffic_light_radius, "green")
-    countdown_timer(3)#设置绿灯时间刻
+    countdown_timer(5)#设置绿灯时间刻
+    byb()
     rbb()
-#这里绘制七段管
+
 def drawGap():
     turtle.penup()
     turtle.fd(5)
@@ -70,26 +71,16 @@ def drawDate(date, start_position=(330, 100)):
         turtle.goto(start_position)  # Return to starting position for next number
         #screen.update()
 
-#画数码管
 def countdown_timer(time, start_position=(330, 100)):
     turtle.pensize(5)
     turtle.speed(50)#调整画管子的速度刻
     drawDate(time, start_position)
-#    turtle.done()
-# 设置Turtle
 t = turtle.Turtle()
 t.hideturtle()
-# 设置窗口大小
 width = 500
 height = 200
 turtle.setup(width, height)
 turtle.setworldcoordinates(0, 0, width, height)
-
-# 获取屏幕对象并关闭动画
-#screen = turtle.Screen()
-#screen.tracer(0, 0)
-
-# 画四条竖线，将方框分成5部分
 num_lines = 4
 line_spacing = width / (num_lines + 1)
 t.speed(100)
