@@ -1,34 +1,43 @@
 import turtle
 import time
-def draw_traffic_light(x, y, radius, color):
+
+def draw_traffic_light(x, y, radius, color, label):
     t.penup()
     t.goto(x, y - radius)  # 移动到圆心位置
     t.pendown()
-    t.speed(50)
+    t.speed(100)
+    
+    # 画圆
     t.color("black", color)
     t.begin_fill()
-    t.circle(radius)  # 画圆
+    t.circle(radius)
     t.end_fill()
+    
+    # 添加文字说明
+    t.penup()
+    t.goto(x, y - radius - 20)  # 调整文字位置
+    t.pendown()
+    t.write(label, align="center", font=("Arial", 10, "normal"))
 
 def rbb():
-    draw_traffic_light(50, 100, traffic_light_radius, "red")
-    draw_traffic_light(150, 100, traffic_light_radius, "gray")
-    draw_traffic_light(250, 100, traffic_light_radius, "gray")
-    countdown_timer(5)#设置红灯时间刻
+    draw_traffic_light(50, 100, traffic_light_radius, "red", "红灯禁止通行\nhewei2723制作")
+    draw_traffic_light(150, 100, traffic_light_radius, "gray", "")
+    draw_traffic_light(250, 100, traffic_light_radius, "gray", "")
+    countdown_timer(5)
     byb()
     bbg()
 
 def byb():
-    draw_traffic_light(50, 100, traffic_light_radius, "gray")
-    draw_traffic_light(150, 100, traffic_light_radius, "yellow")
-    draw_traffic_light(250, 100, traffic_light_radius, "gray")
-    countdown_timer(3)#设置黄灯时间刻
+    draw_traffic_light(50, 100, traffic_light_radius, "gray", "")
+    draw_traffic_light(150, 100, traffic_light_radius, "yellow", "黄灯请等待\nhewei2723制作")
+    draw_traffic_light(250, 100, traffic_light_radius, "gray", "")
+    countdown_timer(3)
 
 def bbg():
-    draw_traffic_light(50, 100, traffic_light_radius, "gray")
-    draw_traffic_light(150, 100, traffic_light_radius, "gray")
-    draw_traffic_light(250, 100, traffic_light_radius, "green")
-    countdown_timer(5)#设置绿灯时间刻
+    draw_traffic_light(50, 100, traffic_light_radius, "gray", "")
+    draw_traffic_light(150, 100, traffic_light_radius, "gray", "")
+    draw_traffic_light(250, 100, traffic_light_radius, "green", "绿灯可以通行\nhewei2723制作")
+    countdown_timer(5)
     byb()
     rbb()
 
@@ -58,23 +67,23 @@ def drawDigits(digit):
 
 def drawDate(date, start_position=(330, 100)):
     turtle.penup()
-    turtle.goto(start_position)  # Move to starting position before loop
+    turtle.goto(start_position)
     turtle.pencolor("red")
     for i in reversed(range(date + 1)):
         num = str(i)
         for n in num:
             drawDigits(eval(n))
-            turtle.penup()  # Lift pen after drawing each digit
-            turtle.forward(40)  # Move forward for next digit
+            turtle.penup()
+            turtle.forward(40)
         turtle.clear()
-        turtle.penup()  # Lift pen before returning to starting position
-        turtle.goto(start_position)  # Return to starting position for next number
-        #screen.update()
+        turtle.penup()
+        turtle.goto(start_position)
 
 def countdown_timer(time, start_position=(330, 100)):
     turtle.pensize(5)
-    turtle.speed(50)#调整画管子的速度刻
+    turtle.speed(50)
     drawDate(time, start_position)
+
 t = turtle.Turtle()
 t.hideturtle()
 width = 500
@@ -84,6 +93,7 @@ turtle.setworldcoordinates(0, 0, width, height)
 num_lines = 4
 line_spacing = width / (num_lines + 1)
 t.speed(100)
+
 for i in range(1, num_lines + 1):
     x = i * line_spacing
     t.penup()
@@ -92,10 +102,7 @@ for i in range(1, num_lines + 1):
     t.left(90)
     t.forward(height)
     t.right(90)
-# 交通信号灯的半径
+
 traffic_light_radius = 30
-# 绘制红色交通灯
 rbb()
-#screen.update()
-# 关闭窗口时保持窗口打开
 turtle.mainloop()
