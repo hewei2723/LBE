@@ -2,7 +2,7 @@ class SchoolMember:
     # 定义一个Person类，构造函数接收三个参数name, age, gender
     def __init__(self, name, age, gender):
         self.name = name
-        self.age = age
+        self.age = ages
         self.gender = gender
 # 定义一个show方法，用于显示Person类的属性
     def show(self):
