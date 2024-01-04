@@ -11,12 +11,10 @@ class Line:
     def __init__(self, point1, point2):
         self.point1 = point1
         self.point2 = point2
-
     # 计算线段长度
     def _calculate_length(self):
         # 计算线段长度
         return math.sqrt((self.point2.x - self.point1.x)**2 + (self.point2.y - self.point1.y)**2)
-
     # 输出线段信息
     def __str__(self):
         # 输出属性的值
@@ -24,9 +22,7 @@ class Line:
     # 创建两个Point对象
 point1 = Point(1, 2)
 point2 = Point(4, 6)
-
     # 创建Line对象
 line = Line(point1, point2)
-
     # 输出线段信息
 print(line)

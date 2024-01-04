@@ -2,12 +2,11 @@ class Person:
     def __init__(self, name, age):
         self.name = name
         self._age = age  # _age为私有属性
-    # 访问私有属性的方法
     def get_age(self):
         return self._age
     # 设置私有属性的方法
     def set_age(self, age):
-        self._age = age
+        self._age = age #_age为私类
     # 输出所有属性的值的方法
     def display_info(self):
         print(f"姓名: {self.name}, 年龄: {self._age}")
