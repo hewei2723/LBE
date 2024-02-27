@@ -7,35 +7,6 @@ import json
 current_directory = os.path.dirname(os.path.abspath(__file__))
 # 构建字体文件的完整路径
 font_path = os.path.join(current_directory, "DS-DIGI-1.ttf")
-def get_weather():
-    url = 'http://t.weather.sojson.com/api/weather/city/'
-
-    # 输入城市中文
-    city_name = input("请输入你要查询的城市：")
-
-    # 读取json文件
-    city_file_path = os.path.join(current_directory, "city.json")
-    with open(city_file_path, 'r', encoding='utf-8') as f:
-        cities = json.load(f)
-
-    # 通过城市的中文获取城市代码
-    city_code = cities.get(city_name)
-
-    # 网络请求，传入请求api+城市代码
-    response = requests.get(url + str(city_code))
-
-    # 将数据以json形式返回
-    weather_data = response.json()
-
-    # 获取城市名称
-    city_info = weather_data["cityInfo"]
-    city = city_info['city']
-
-    # 获取温度信息
-    forecast_info = weather_data["data"]["forecast"][0]
-    temperature = forecast_info["high"]
-
-    return {"city": city, "weather": forecast_info["type"], "temperature": temperature}
 def drawNumber(number):
     for n in str(number):
         drawDigits(int(n))
