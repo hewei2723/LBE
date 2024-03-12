@@ -80,5 +80,5 @@
   "python.analysis.extraPaths": [
     "c:/Users/HEWEI/.vscode/extensions/rt-thread.rt-thread-micropython-1.0.11/microExamples/code-completion"
   ],
-  "livePreview.defaultPreviewPath": "/index.html"
+  "livePreview.defaultPreviewPath": "/html/tiananmen/index.html"
 }
