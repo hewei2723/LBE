@@ -1,6 +1,6 @@
 # LBE - Learn By Example
 
-欢迎来到 Learn By Example（LBE）仓库！这里是我在学习过程中编写的代码示例的存储库。在这里，我记录了我学习 Python、C、HTML 等编程语言和技术时创建的示例代码。
+欢迎来到 Learn By Example（LBE）仓库！这里是我在学习过程中编写的代码示例的存储库。在这里，我记录了我学习 Python、C、Java 等编程语言和技术时创建的示例代码。
 
 ## 仓库目的
 
