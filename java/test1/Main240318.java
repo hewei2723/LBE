@@ -1,3 +1,4 @@
+import java.security.cert.TrustAnchor;
 import java.util.Scanner;
 public class Main240318 {
     public static void main(String[] args) {
@@ -85,13 +86,17 @@ public class Main240318 {
     }
 
     public static void zhengshu() {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("请输入一个正整数 n：");
-        int n = scanner.nextInt();
-
-        System.out.println("结果为：" + calculateSns(n));
-        waitForNegativeInput();
+        while(true) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("请输入一个正整数 n：");
+            int n = scanner.nextInt();
+            if (n>0) {
+                System.out.println("结果为：" + calculateSns(n));
+                waitForNegativeInput();
+            }else{
+                return;
+            }
+        }
     }
 
     public static int calculateSns(int n) {
