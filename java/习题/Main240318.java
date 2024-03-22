@@ -60,15 +60,17 @@ public class Main240318 {
             }
         }
     }
-    public static void sum() {;
-        int n=1;
+
+    public static void sum() {
+        int n;
         int sum=0;
         for (n=1;n<=1000;n++) {
             sum+=n;
         }
         System.out.println("1+....+1000="+sum);
     }
-    public static void nine() {;
+
+    public static void nine() {
         int m;
         int n;
         int start=0;
