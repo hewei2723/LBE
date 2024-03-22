@@ -12,6 +12,7 @@
 
 - Python
 - C
+- Java
 - HTML
 
 ## 仓库结构
