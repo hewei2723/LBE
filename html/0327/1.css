@@ -1,0 +1,8 @@
+* {
+    color: red;
+    font-size: 20px;
+}/*全局选择器*/
+p {
+    color: blue;
+    font-size: 16px;
+}/*元素选择器*/
