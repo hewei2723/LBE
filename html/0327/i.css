@@ -1,0 +1,11 @@
+.box{
+    width: auto;
+    height: auto;
+    background-color: rgb(50, 25, 192);
+    background-image: url(low.webp)
+
+}
+h1,p{
+    color: #e01111;
+    text-align: center;
+}
