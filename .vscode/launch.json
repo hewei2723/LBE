@@ -2,28 +2,14 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "java",
-<<<<<<< HEAD
-      "name": "<unnamed_class$A>",
-      "request": "launch",
-      "mainClass": "java.a.<unnamed_class$A>",
-      "projectName": "lbe-1_ea4d14ba"
-=======
-      "name": "HelloWorld",
-      "request": "launch",
-      "mainClass": "java.test1.HelloWorld",
-      "projectName": "lbe_7906b535"
->>>>>>> 8ee3fdc31f6774fc5633161660d5da7a3ee7d159
-    },
-    {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "e:/lbe/c#/chat",
-      "program": "e:/lbe/c#/chat/build/Debug/outDebug",
+      "cwd": "e:/lbe/data structure/1",
+      "program": "e:/lbe/data structure/1/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
