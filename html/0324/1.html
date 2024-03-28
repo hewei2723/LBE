@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人信息</title>
+</head>
+<body>
+    <h1>个人信息</h1>
+
+    <table border="2" height="200" width="50%">
+        <tr>
+            <th colspan="6">个人信息</th>
+        </tr>
+        <tr>
+            <td>姓名</td>
+            <td></td>
+            <td>性别</td>
+            <td></td>
+            <td>政治面貌</td>
+            <td>帅气</td>
+        </tr>
+        <tr>
+            <td>身份证号</td>
+            <td colspan="3"></td>
+            <td>籍贯</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>专业</td>
+            <td colspan="2"></td>
+            <td>家庭住址</td>
+            <td colspan="2"></td>
+        </tr>
+        <tr>
+            <td rowspan="2">主修课程</td>
+            <td>公选课</td>
+            <td colspan="4"></td>
+        </tr>
+        <tr>
+            <td>专业课</td>
+            <td colspan="4"></td>
+        </tr>
+    </table>
+
+    <ol type="1">
+        <li>学校：
+            <ol type="A">
+                <li>新乡工程学院
+                    <ol type="a">
+                        <li>信息工程学院</li>
+                        <li>机电学院</li>
+                    </ol>
+                </li>
+                <li>河南师范大学
+                    <ol type="i">
+                        <li>教育学院</li>
+                        <li>外国语学院</li>
+                    </ol>
+                </li>
+                <li>新乡学院</li>
+            </ol>
+        </li>
+        <li>院系：
+            <ol type="a">
+                <li>信息工程学院</li>
+                <li>机电工程系</li>
+            </ol>
+        </li>
+        <li>资助类型：
+            <ul type="none">
+                <li>校内奖学金</li>
+                <li>助学金</li>
+                <li>国家励志奖学金</li>
+                <li>国家奖学金</li>
+            </ul>
+        </li>
+    </ol>
+
+    <form action="login.php" method="post">
+        <label for="username">账号：</label>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">密码：</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <input type="submit" value="登录">
+        <input type="button" value="注册">
+        <a href="#">忘记密码</a>
+    </form>
+</body>
+</html>

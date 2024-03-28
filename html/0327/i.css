@@ -1,0 +1,23 @@
+h1,p{
+    color: #d13838;
+    text-align: center;
+    font-size: 16px;
+}
+.box{
+        background-image: url(moon.png);
+        background-size: cover;
+        background-position: center;
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            filter: blur(20px);        }
+} 
+.box1 {
+    background-image: url(low.webp);
+    background-size: cover;
+    background-position: center;
+  }
