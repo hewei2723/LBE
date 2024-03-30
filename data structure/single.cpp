@@ -38,7 +38,6 @@ Node *FindNode(int data) {
   }
   return cur;
 }
-
 // 打印链表
 void PrintList() {
   Node *cur = head;
