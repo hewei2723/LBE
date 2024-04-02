@@ -52,16 +52,13 @@ public class Main240318 {
     }
 
     public static void sum() {
-<<<<<<< HEAD:java/习题/Main240318.java
         int n;
         int sum=0;
         for (n=1;n<=1000;n++) {
             sum+=n;
-=======
         int sum = 0;
         for (int n = 1; n <= 1000; n++) {
             sum += n;
->>>>>>> 9eb0cca76bb7cd9b42690029c0f05851340763fc:java/test1/Main240318.java
         }
         System.out.println("1+....+1000=" + sum);
         // 等待用户输入负数来退出
@@ -77,11 +74,9 @@ public class Main240318 {
         for(m=start;m<=count;m++){
             for(n=1;n<m+1;n++){
                 System.out.print(m+"*"+n+"="+m*n+"    ");
-=======
         for (int m = 1; m <= 9; m++) {
             for (int n = 1; n <= m; n++) {
                 System.out.print(m + "*" + n + "=" + m * n + "    ");
->>>>>>> 9eb0cca76bb7cd9b42690029c0f05851340763fc:java/test1/Main240318.java
             }
             System.out.println();
         }
