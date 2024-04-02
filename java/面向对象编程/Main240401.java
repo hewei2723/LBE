@@ -120,22 +120,22 @@ public class Main240401 {
 
         // 输出课程信息
         System.out.println("课程信息：");
-        System.out.println("课程号  课程名\t先行课\t学分");
-        System.out.println(course1.getCno() + " \t" + course1.getCname() + "\t" + course1.getCpno() + "\t" + course1.getCcredit());
-        System.out.println(course2.getCno() + " \t" + course2.getCname() + "\t" + course2.getCpno() + "\t" + course2.getCcredit());
-        System.out.println(course3.getCno() + " \t" + course3.getCname() + "\t" + course3.getCpno() + "\t" + course3.getCcredit());
-        System.out.println(course4.getCno() + " \t" + course4.getCname() + "\t" + course4.getCpno() + "\t" + course4.getCcredit());
-        System.out.println(course5.getCno() + " \t" + course5.getCname() + "\t" + course5.getCpno() + "\t" + course5.getCcredit());
-        System.out.println(course6.getCno() + " \t" + course6.getCname() + "\t" + course6.getCpno() + "\t" + course6.getCcredit());
-        System.out.println(course7.getCno() + " \t" + course7.getCname() + "\t" + course7.getCpno() + "\t" + course7.getCcredit());
+        System.out.println("课程号   课程名\t  先行课\t学分");
+        System.out.println(course1.getCno() + "   \t" + course1.getCname() + "    \t" + course1.getCpno() + "  \t" + course1.getCcredit());
+        System.out.println(course2.getCno() + "   \t" + course2.getCname() + "      \t" + course2.getCpno() + " \t" + course2.getCcredit());
+        System.out.println(course3.getCno() + "   \t" + course3.getCname() + "   \t" + course3.getCpno() + "  \t" + course3.getCcredit());
+        System.out.println(course4.getCno() + "   \t" + course4.getCname() + "   \t" + course4.getCpno() + "  \t" + course4.getCcredit());
+        System.out.println(course5.getCno() + "   \t" + course5.getCname() + "   \t" + course5.getCpno() + "  \t" + course5.getCcredit());
+        System.out.println(course6.getCno() + "   \t" + course6.getCname() + "   \t" + course6.getCpno() + "  \t" + course6.getCcredit());
+        System.out.println(course7.getCno() + "   \t" + course7.getCname() + " \t" + course7.getCpno() + "  \t" + course7.getCcredit());
 
         // 输出学生成绩信息
         System.out.println("学生成绩信息：");
-        System.out.println("姓名\t学号\t课程号\t成绩");
-        System.out.println(student1.getSname() + "\t" + sc1.getSno() + "\t" + sc1.getCno()+ "\t" + sc1.getGrade());
-        System.out.println(student1.getSname() + "\t" + student1.getSno() + "\t" + sc2.getCno()+ "\t" + sc2.getGrade());
-        System.out.println(student2.getSname() + "\t" + student2.getSno() + "\t" + sc3.getCno()+ "\t" + sc3.getGrade());
-        System.out.println(student2.getSname() + "\t" + student2.getSno() + "\t" + sc2.getCno()+ "\t" + sc2.getGrade());
-        System.out.println(student2.getSname() + "\t" + student2.getSno() + "\t" + sc3.getCno()+ "\t" + sc4.getGrade());
+        System.out.println("姓名\t学号\t        课程号\t成绩");
+        System.out.println(student1.getSname() + "\t" + sc1.getSno() + "\t" + sc1.getCno()+ "   \t" + sc1.getGrade());
+        System.out.println(student1.getSname() + "\t" + student1.getSno() + "\t" + sc2.getCno()+ "   \t" + sc2.getGrade());
+        System.out.println(student2.getSname() + "\t" + student2.getSno() + "\t" + sc3.getCno()+ "   \t" + sc3.getGrade());
+        System.out.println(student2.getSname() + "\t" + student2.getSno() + "\t" + sc2.getCno()+ "   \t" + sc2.getGrade());
+        System.out.println(student2.getSname() + "\t" + student2.getSno() + "\t" + sc3.getCno()+ "   \t" + sc4.getGrade());
     }
 }
