@@ -16,5 +16,6 @@
             "command": "extension.execute",
             "priority": 4
         }
-    ]
+    ],
+    "livePreview.defaultPreviewPath": "/html/0402/index.html"
 }
