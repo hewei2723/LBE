@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搪瓷杯信息展示</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        .info div span.recommend{
+            background-color: orange;
+        }
+        .info div span.new{
+            background-color: red;
+        }
+        .info div span.hot{
+            background-color: green;
+        }
+        .info div:first-child span{
+            color: white;
+            padding: 2px 6px; /* 内边距，两个值分别是上下和左右 */
+        }
+        div+p{
+            font-size: 18px;
+            margin-bottom: 10px;/* 外边距，可分别设置上下左右，也可设置多个值*/
+        }
+        p+span{ /* span行内元素，不能设置宽高和父元素相同，margin上下不能设置，左右可以设置*/
+            color: #666;
+            font-size: 14px;
+        }
+        .info div:last-child{
+            font-size: 26px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .info div:last-child span {
+            font-size: 14px;
+            vertical-align: text-top; /*与父元素字体顶部对齐 */
+            margin-top: 2px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+      <div><img src="./images/1.jpg" alt="余弦定理搪瓷杯" width="260px"></div>
+      <div class="info">
+        <div>
+          <span class="recommend">推荐</span>
+          <span class="new">新品</span>
+          <span class="hot">热销</span>
+        </div>
+        <p>余弦定理搪瓷杯</p>
+        <span>LAW OF COSINES</span>
+        <div><span>￥</span>49<span>.90</span></div>
+      </div>
+</body>
+</html>
