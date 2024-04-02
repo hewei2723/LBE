@@ -89,7 +89,7 @@ class SC {
     }
 }
 public class Main240401 {
-    public void main(String[] args) {
+    public static void main(String[] args) {
         // 创建学生对象
         Student student1 = new Student("202101", "张三", "男", 20, "计算机系");
         Student student2 = new Student("202102", "李四", "男", 21, "数学系");
@@ -127,3 +127,4 @@ public class Main240401 {
         System.out.println(sc3.getSno() + "\t" + sc3.getCno() + "\t" + sc3.getGrade());
     }
 }
+
