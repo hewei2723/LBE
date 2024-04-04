@@ -2,7 +2,7 @@ import consoleInputManager
 
 
 def main():
-    """ Main program """
+    """ Main1231 program """
     runner = consoleInputManager.ConsoleInputManager()
     runner.run()
     return 0

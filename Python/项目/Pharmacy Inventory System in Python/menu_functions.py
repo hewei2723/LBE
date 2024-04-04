@@ -15,7 +15,7 @@ def medicine_menu():
         print('---------------------------------------------') 
         print('|Enter 4 for medicines to be purchased list |')
         print('---------------------------------------------')
-        print('|Enter 5 to go back to Main Menu            |')
+        print('|Enter 5 to go back to Main1231 Menu            |')
         print('---------------------------------------------')
         m_menu_choice=int(input("Enter Your Choice!\n"))
         if(m_menu_choice==1):
@@ -65,7 +65,7 @@ def supplier_menu():
         print('----------------------------------') 
         print('|Enter 4 to go back to main menu |')
         print('----------------------------------')
-        print("Enter 1 to search supplier. \nEnter 2 to create new supplier. \nEnter 3 to update supplier information. \nEnter 4 to go back to Main Menu.")
+        print("Enter 1 to search supplier. \nEnter 2 to create new supplier. \nEnter 3 to update supplier information. \nEnter 4 to go back to Main1231 Menu.")
         s_menu_choice=int(input("Enter Your Choice!\n"))
         if(s_menu_choice==1):
             supplier_functions.search_supplier()

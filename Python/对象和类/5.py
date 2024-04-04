@@ -44,7 +44,7 @@ class School:
         print("\n学生列表:")
         for student in self.students:
             student.show()
-school = School(name="XYZ School", address="123 Main Street")
+school = School(name="XYZ School", address="123 Main1231 Street")
 teacher1 = Teacher(name="Mr. Smith", age=40, gender="Male", salary=50000, course="Math")
 teacher2 = Teacher(name="Ms. Johnson", age=35, gender="Female", salary=45000, course="English")
 student1 = Student(name="Alice", age=18, gender="Female", student_id="S001", tuition=8000, course="Math")

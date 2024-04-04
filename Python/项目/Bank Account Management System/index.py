@@ -5,7 +5,7 @@ import os
 volatile_data =[]
 recovery_image = []
 def back():
-    con = input("Back to Main Menu ? Y/n")
+    con = input("Back to Main1231 Menu ? Y/n")
     if con == "Y":
         main_menu()
     else:
@@ -131,7 +131,7 @@ def create_data():
 
 def main_menu():
 
-    print("Welcome to Bank Account Management System \n====Main menu====d\n 1: Enter Data \n 2: Update Data \n 3: Delete Data \n 4: View Data \n 5: Recover Data")
+    print("Welcome to Bank Account Management System \n====Main1231 menu====d\n 1: Enter Data \n 2: Update Data \n 3: Delete Data \n 4: View Data \n 5: Recover Data")
 
     opt = input("Please Choose the option : ");
     if opt == "1":
