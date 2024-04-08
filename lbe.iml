@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/java/习题" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/java/面向对象编程" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/java/对象" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java/chap4" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
