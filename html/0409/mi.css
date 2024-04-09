@@ -46,7 +46,7 @@
 }
 .cleft {
     background-color: rgba(105,101,101);
-    height: 424px;
+    height: 420px;
     width: 300px;
     color: #fff;
     margin-left: auto;
@@ -66,23 +66,25 @@
 }
 .foot {
     display: flex;
+    margin: auto;
+    margin-left: auto
 }
 .foot1 {
-    margin-left: auto; /* 将表格区域推向左边 */
+    margin: 10px ;
 }
-
 .fimg {
     display: flex;
-    margin-right: auto; /* 将图片区域推向右边 */
-    width: auto;
-    height: 257px;
+    margin: 10px 4px;
+    width: 20%;
+    height: 187px;
 }
 table {
     border-collapse: collapse;
+    margin-left: 239px;
 }
 th, td {
-    width: 120px;
-    height: 125px;
+    width: 90px;
+    height: 90px;
     border: 1px solid black;
     text-align: center;
 }
