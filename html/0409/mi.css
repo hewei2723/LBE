@@ -9,11 +9,12 @@
     margin: 0;
 }
 .cen {
+    display: flex;
     width: auto;
     font-size: 16px;
 }
 .cen1 {
-    margin-left: auto;
+    margin: auto;
     display: flex;
     align-items: center;
 }
@@ -40,14 +41,15 @@
     margin-left: 10px;
 }
 .cen2 {
-    display: flex; /* 将 .cen2 设置为 Flex 容器 */
+    display: flex;
+    align-items: center;
 }
 .cleft {
     background-color: rgba(105,101,101);
-    height: 420px;
-    width: 200px;
-    border: 100px;
+    height: 424px;
+    width: 300px;
     color: #fff;
+    margin-left: auto;
 }
 .cleft div {
     margin: 5px 10px;
@@ -55,26 +57,32 @@
     border-bottom: 1px solid #fff;
 }
 .cimg{
-    float: right;
+    margin-right: auto;
+    height: auto;
 }
 .cimg img {
-    max-width: 880; /* 图片宽度最大100% */
-    height: 420px; /* 保持图片高度自适应 */
+    width: auto;
+    height: 420px;
 }
-.foot{
+.foot {
     display: flex;
 }
-.foot img {
-    width: 343px;
-    height: 186px;
+.foot1 {
+    margin-left: auto; /* 将表格区域推向左边 */
+}
+
+.fimg {
+    display: flex;
+    margin-right: auto; /* 将图片区域推向右边 */
+    width: auto;
+    height: 257px;
 }
 table {
     border-collapse: collapse;
 }
-
 th, td {
-    width: 90px;
-    height: 90px;
+    width: 120px;
+    height: 125px;
     border: 1px solid black;
     text-align: center;
 }
