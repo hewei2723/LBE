@@ -1,4 +1,3 @@
-
 .top {
     display: flex;
     justify-content: space-between;
@@ -9,95 +8,73 @@
     background: #333;
     margin: 0;
 }
-.cen{
-    margin-left: auto;
+.cen {
+    width: auto;
+    font-size: 16px;
 }
-/* 设置 .cen1 类样式 */
 .cen1 {
-    display: flex; /* 使用 Flex 布局 */
-    align-items: center; /* 垂直方向居中对齐 */
-    margin: auto; /* 外边距为自动，使元素水平居中 */
+    margin-left: auto;
+    display: flex;
+    align-items: center;
 }
 
-/* 设置 .logo img 样式 */
 .logo img {
-    height: 100px; /* 图片高度为 100 像素 */
+    height: 100px;
 }
-
-/* 设置 .text1 类样式 */
 .text1 {
-    margin-left: 88px; /* 左边距为 88 像素 */
+    margin-left: 88px;
 }
-
-/* 设置 .so 类样式 */
 .so {
-    display: flex; /* 使用 Flex 布局 */
-    align-items: center; /* 垂直方向居中对齐 */
-    margin-left: 88px; /* 左边距为 88 像素 */
+    display: flex;
+    align-items: center;
+    margin-left: 88px;
 }
 
-/* 设置 .so button 样式 */
 .so button {
-    padding: 5px 10px; /* 内边距为 5px 上下，10px 左右 */
-    border: none; /* 去除边框 */
-    background-color: #007bff; /* 背景色为蓝色 */
-    color: #fff; /* 文字颜色为白色 */
-    border-radius: 5px; /* 圆角为 5px */
-    cursor: pointer; /* 鼠标指针样式为手型 */
-    margin-left: 10px; /* 左边距为 10px */
+    padding: 5px 10px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
 }
-
-/* 设置 .cen2 类样式 */
 .cen2 {
-    display: flex; /* 使用 Flex 布局 */
+    display: flex; /* 将 .cen2 设置为 Flex 容器 */
 }
-
-/* 设置 .cleft 类样式 */
 .cleft {
-    background-color: rgba(105,101,101); /* 背景颜色为灰色 */
-    height: 420px; /* 高度为 420 像素 */
-    width: 200px; /* 宽度为 200 像素 */
-    border: 100px; /* 边框宽度为 100 像素 */
-    color: #fff; /* 文字颜色为白色 */
+    background-color: rgba(105,101,101);
+    height: 420px;
+    width: 200px;
+    border: 100px;
+    color: #fff;
 }
-
-/* 设置 .cleft div 样式 */
 .cleft div {
-    margin: 5px 10px; /* 外边距为 5px 上下，10px 左右 */
-    padding: 5px 0; /* 内边距为 5px 上下，0 左右 */
-    border-bottom: 1px solid #fff; /* 底部边框为白色实线，厚度为 1px */
+    margin: 5px 10px;
+    padding: 5px 0;
+    border-bottom: 1px solid #fff;
 }
-
-/* 设置 .cimg 样式 */
 .cimg{
-    float: right; /* 右浮动 */
+    float: right;
 }
-
-/* 设置 .cimg img 样式 */
 .cimg img {
-    width: 50%; /* 图片宽度最大为父元素宽度的 50% */
-    height: 420px; /* 高度为 420 像素，保持高度自适应 */
+    max-width: 880; /* 图片宽度最大100% */
+    height: 420px; /* 保持图片高度自适应 */
 }
-
-/* 设置 .foot 类样式 */
 .foot{
-    display: flex; /* 使用 Flex 布局 */
+    display: flex;
 }
-
-/* 设置 .foot img 样式 */
 .foot img {
-    width: 170px; /* 图片宽度为 170 像素 */
-    height: 177px; /* 图片高度为 177 像素 */
+    width: 343px;
+    height: 186px;
 }
-
-/* 设置表格样式 */
 table {
-    border-collapse: collapse; /* 合并表格边框 */
+    border-collapse: collapse;
 }
 
 th, td {
-    width: 85px; /* 单元格宽度为 85 像素 */
-    height: 85px; /* 单元格高度为 85 像素 */
-    border: 1px solid black; /* 边框为黑色实线，厚度为 1px */
-    text-align: center; /* 文字水平居中对齐 */
+    width: 90px;
+    height: 90px;
+    border: 1px solid black;
+    text-align: center;
 }
