@@ -30,14 +30,11 @@
     align-items: center;
     margin-left: 88px;
 }
-
 .so button {
     padding: 5px 10px;
-    border: none;
     background-color: #007bff;
     color: #fff;
     border-radius: 5px;
-    cursor: pointer;
     margin-left: 10px;
 }
 .cen2 {
@@ -66,25 +63,23 @@
 }
 .foot {
     display: flex;
-    margin: auto;
-    margin-left: auto
+    margin-left: 482px;
 }
-.foot1 {
-    margin: 10px ;
+.foot1{
+    margin-right: 10px;
 }
-.fimg {
-    display: flex;
-    margin: 10px 4px;
-    width: 20%;
-    height: 187px;
+.fimg{
+    margin-left: 10px;
+    margin: auto 22px;
 }
 table {
     border-collapse: collapse;
-    margin-left: 239px;
 }
 th, td {
-    width: 90px;
+    width: 95px;
     height: 90px;
-    border: 1px solid black;
+    border: 1px solid #665e57;
     text-align: center;
+    color: #fff;
+    background-color: #665e57;
 }
