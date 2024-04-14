@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="图书管理系统">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/Python/图书管理系统.zip!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
