@@ -1,6 +1,20 @@
 {
     "configurations": [
         {
+            "type": "java",
+            "name": "Main240401",
+            "request": "launch",
+            "mainClass": "Main240401",
+            "projectName": "lbe_7751dc96"
+        },
+        {
+            "type": "java",
+            "name": "StudentTest",
+            "request": "launch",
+            "mainClass": "StudentManage.StudentTest",
+            "projectName": "lbe_7751dc96"
+        },
+        {
             "name": "C/C++: g++.exe 生成和调试活动文件",
             "type": "cppdbg",
             "request": "launch",
