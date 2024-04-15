@@ -1,4 +1,4 @@
-class Person:
+class 面向对象编程.own.Person:
     def __init__(self, name, age):
         self.name = name
         self._age = age  # _age为私有属性
@@ -10,7 +10,7 @@ class Person:
     # 输出所有属性的值的方法
     def display_info(self):
         print(f"姓名: {self.name}, 年龄: {self._age}")
-class Worker(Person):
+class Worker(面向对象编程.own.Person):
     def __init__(self, name, age, salary):
         super().__init__(name, age)
         self.salary = salary
@@ -19,7 +19,7 @@ class Worker(Person):
         super().display_info()
         print(f"薪水: {self.salary}")
     # 创建Person对象
-person = Person(name="John", age=25)
+person = 面向对象编程.own.Person(name="John", age=25)
     # 输出Person对象的属性值
 person.display_info()
     # 修改私有属性_age的值

@@ -20,7 +20,7 @@ class Library:
         self.books.append(bookName)
         print("Thanks for returning this book! Hope you enjoyed reading it. Have a great day!")
 
-class Student: 
+class 面向对象编程.own.Student:
     def requestBook(self):
         self.book = input("Enter the name of the book you want to borrow: ")
         return self.book
@@ -32,7 +32,7 @@ class Student:
 
 if __name__ == "__main__":
     centraLibrary = Library(["JavaScript", "PHP", "C++", "Python", "Java"])
-    student = Student()
+    student = 面向对象编程.own.Student()
     
     while(True):
         welcomeMsg = '''\n====== Welcome to Simple Library  System======

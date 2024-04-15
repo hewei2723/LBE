@@ -1,3 +1,7 @@
+package 面向对象编程.own;
+
+import 面向对象编程.own.MyDate;
+
 public class Person {
     //char-----'a';String -----"sdfjslkdjf"
     //成员变量和成员方法

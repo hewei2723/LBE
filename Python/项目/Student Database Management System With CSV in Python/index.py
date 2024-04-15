@@ -6,19 +6,19 @@ student_database = 'students.csv'
 
 def display_menu():
     print("---------------------------------------")
-    print(" Student Database Management System")
+    print(" 面向对象编程.own.Student Database Management System")
     print("---------------------------------------")
-    print("1. Add New Student")
+    print("1. Add New 面向对象编程.own.Student")
     print("2. View Students")
-    print("3. Search Student")
-    print("4. Update Student")
-    print("5. Delete Student")
+    print("3. Search 面向对象编程.own.Student")
+    print("4. Update 面向对象编程.own.Student")
+    print("5. Delete 面向对象编程.own.Student")
     print("6. Quit")
 
 
 def add_student():
     print("-------------------------")
-    print("Add Student Information")
+    print("Add 面向对象编程.own.Student Information")
     print("-------------------------")
     global student_fields
     global student_database
@@ -42,7 +42,7 @@ def view_students():
     global student_fields
     global student_database
 
-    print("--- Student Records ---")
+    print("--- 面向对象编程.own.Student Records ---")
 
     with open(student_database, "r", encoding="utf-8") as f:
         reader = csv.reader(f)
@@ -62,14 +62,14 @@ def search_student():
     global student_fields
     global student_database
 
-    print("--- Search Student ---")
+    print("--- Search 面向对象编程.own.Student ---")
     roll = input("Enter roll no. to search: ")
     with open(student_database, "r", encoding="utf-8") as f:
         reader = csv.reader(f)
         for row in reader:
             if len(row) > 0:
                 if roll == row[0]:
-                    print("----- Student Found -----")
+                    print("----- 面向对象编程.own.Student Found -----")
                     print("Roll: ", row[0])
                     print("Name: ", row[1])
                     print("Age: ", row[2])
@@ -85,7 +85,7 @@ def update_student():
     global student_fields
     global student_database
 
-    print("--- Update Student ---")
+    print("--- Update 面向对象编程.own.Student ---")
     roll = input("Enter roll no. to update: ")
     index_student = None
     updated_data = []
@@ -96,7 +96,7 @@ def update_student():
             if len(row) > 0:
                 if roll == row[0]:
                     index_student = counter
-                    print("Student Found: at index ",index_student)
+                    print("面向对象编程.own.Student Found: at index ",index_student)
                     student_data = []
                     for field in student_fields:
                         value = input("Enter " + field + ": ")
@@ -122,7 +122,7 @@ def delete_student():
     global student_fields
     global student_database
 
-    print("--- Delete Student ---")
+    print("--- Delete 面向对象编程.own.Student ---")
     roll = input("Enter roll no. to delete: ")
     student_found = False
     updated_data = []

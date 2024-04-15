@@ -7,7 +7,7 @@ frilist = [
 ]
 
 # 定义一个类
-class Person:
+class 面向对象编程.own.Person:
     def __init__(self, name, telnum):
         self.name = name
         self.telnum = telnum
@@ -50,18 +50,18 @@ while True:
     if choice == "1":
         sname = input("请输入姓名-->")
         telnum = input("请输入联系电话-->")
-        p = Person(sname, telnum)
+        p = 面向对象编程.own.Person(sname, telnum)
         p.addperson(sname, telnum)
 
     elif choice == "2":
         sname = input("请输入姓名-->")
-        p = Person(sname, "")
+        p = 面向对象编程.own.Person(sname, "")
         p.delperson(sname)
 
     elif choice == "3":
         sname = input("请输入姓名-->")
         telnum = input("请输入新的联系电话-->")
-        p = Person(sname, telnum)
+        p = 面向对象编程.own.Person(sname, telnum)
         p.alterperson(sname, telnum)
 
     elif choice == "4":
@@ -74,7 +74,7 @@ while True:
                 break
         if flag:
             snu = namelist.index(sname)
-            p = Person(sname, "")
+            p = 面向对象编程.own.Person(sname, "")
             p.saysome()
         else:
             print("Not in it")

@@ -14,7 +14,7 @@ class Teacher(SchoolMember):
         print(f"教师信息 - 姓名: {self.name}, 年龄: {self.age}, 性别: {self.gender}, 酬金: {self.salary}, 课程: {self.course}")
     def teach(self):
         print(f"{self.name} 正在教授 {self.course} 课程")
-class Student(SchoolMember):
+class 面向对象编程.own.Student(SchoolMember):
     def __init__(self, name, age, gender, student_id, tuition, course):
         super().__init__(name, age, gender)
         self.student_id = student_id
@@ -47,8 +47,8 @@ class School:
 school = School(name="XYZ School", address="123 Main1231 Street")
 teacher1 = Teacher(name="Mr. Smith", age=40, gender="Male", salary=50000, course="Math")
 teacher2 = Teacher(name="Ms. Johnson", age=35, gender="Female", salary=45000, course="English")
-student1 = Student(name="Alice", age=18, gender="Female", student_id="S001", tuition=8000, course="Math")
-student2 = Student(name="Bob", age=17, gender="Male", student_id="S002", tuition=7500, course="English")
+student1 = 面向对象编程.own.Student(name="Alice", age=18, gender="Female", student_id="S001", tuition=8000, course="Math")
+student2 = 面向对象编程.own.Student(name="Bob", age=17, gender="Male", student_id="S002", tuition=7500, course="English")
 school.enroll(student1)
 school.enroll(student2)
 school.hire(teacher1)

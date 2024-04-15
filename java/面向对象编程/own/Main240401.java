@@ -1,3 +1,5 @@
+package 面向对象编程.own;
+
 class Student {
     private String Sno;
     private String Sname;
