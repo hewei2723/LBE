@@ -1,0 +1,87 @@
+body, ul {
+  margin: 0;
+  padding: 0;
+}
+body { 
+  background-color: #f4f4f4; 
+}
+.fl { 
+  float: left; 
+}
+.fr { 
+  float: right;
+}
+/* 清除浮动 */
+.clearfix:after { 
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+.title {     
+  font-weight: 700;
+  font-size: 24px;
+  color: #333;
+  line-height: 32px; 
+  padding: 0 10px;;
+}
+.arrow {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-position: -16px 0;
+  background-image: url('./images/sprite@2x.png');
+  background-size: 32px 32px;
+  cursor: pointer;
+}
+.arrow:hover {
+  background-position: 0 0;
+}
+.wrap {
+  background: #fff;
+  width: 240px;
+  padding:10px;
+  box-shadow: 2px 2px 5px #999;
+  margin: 50px auto 0 auto;
+}
+ul { 
+  list-style: none;
+}
+li {
+  padding: 10px;
+  margin-top: 10px;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+li:first-of-type {
+  background: #f8f3f6;
+}
+li:last-of-type {
+  background: #f1f5f9;
+}
+.info {
+  width: 110px;
+}
+.item-title {
+  font-size: 12px;
+}
+.tag {
+  font-size: 12px;
+  text-align: center;
+  border-radius: 2px;
+  padding: 0 2px;
+  border: 1px solid #e2231a;
+  color: #e2231a;
+  display: inline-block;
+  margin: 5px 0 18px 0;
+}
+.attention {
+  color: #999;
+  font-size: 12px;
+}
+.cover {
+  width: 95px;
+  height: 95px;
+}

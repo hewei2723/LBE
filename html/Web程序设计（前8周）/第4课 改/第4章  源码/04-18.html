@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>结构伪类选择器</title>
+    <style>
+        h1:first-child, p:last-child{
+            background:#ccc;
+        }
+
+        p:nth-child(2),p:nth-last-child(2) {
+            border:1px solid #000;
+        }
+
+        p:first-of-type, p:nth-of-type(2){
+            font-weight:bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>这是标题</h1>
+    <p>第一个段落。</p>
+    <p>第二个段落。</p>
+    <p>第三个段落。</p>
+    <p>第四个段落。</p>
+</body>
+</html>

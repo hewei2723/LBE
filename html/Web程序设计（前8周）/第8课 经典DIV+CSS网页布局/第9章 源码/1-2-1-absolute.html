@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>两列布局-绝对定位法</title>
+<style>
+  body {
+    background: #FF9;
+    font: 13px/1.5 Arial;
+    padding:0;
+  }
+
+  p {
+    text-indent:2em;	
+  }
+
+  h2 {
+    margin: 0;
+  }
+
+  .rounded {
+    border-radius: 25px;
+    border: 2px solid #996600;
+    box-shadow: 6px 6px 10px #9f741e;
+    padding: 15px;
+    margin-bottom: 20px;
+    background: #fff;
+  }
+
+  .footer p {
+    text-align: right;
+    color: #888;
+    margin-bottom: 0;
+  }
+
+  #header, #pagefooter, #container {
+    margin:0 auto;
+    width:760px;
+  } 
+
+  #container {
+    position: relative;
+  }
+
+  #content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 490px;
+  }
+
+  #side{
+    margin-left: 510px;
+  }
+</style>
+</head>
+<body>
+  <div id="header">
+    <div class="rounded">
+      <h2>Page Header</h2>
+      <div class="main"></div>
+      <div class="footer">
+        <p>查看详细信息&gt;&gt;</p> 
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <div id="content">
+      <div class="rounded">
+        <h2>Page Content1 </h2>
+        <div class="main">
+          <p>这是圆角框中的示例文字，CSS的排版是一种很新的排版理念，完全有别于传统的排版习惯。这是圆角框中的示例文字。CSS的排版是一种很新的排版理念，完全有别于传统的排版习惯。</p>
+        </div>
+        <div class="footer">
+          <p>查看详细信息&gt;&gt;</p> 
+        </div>
+      </div>
+      <div class="rounded">
+        <h2>Page Content2 </h2>
+        <div class="main">
+          <p>这是圆角框中的示例文字，CSS的排版是一种很新的排版理念，完全有别于传统的排版习惯。这是圆角框中的示例文字。CSS的排版是一种很新的排版理念，完全有别于传统的排版习惯。</p>
+        </div>
+        <div class="footer">
+          <p>查看详细信息&gt;&gt;</p> 
+        </div>
+      </div>
+    </div>
+    <div id="side">
+      <div class="rounded">
+        <h2>Side Bar</h2>
+        <div class="main">
+          <p>这是圆角框中的示例文字，CSS的排版是一种很新的排版理念，完全有别于传统的排版习惯。这是圆角框中的示例文字。CSS的排版是一种很新的排版理念，完全有别于传统的排版习惯。CSS的功能十分强大而又灵活。</p>
+        </div>
+        <div class="footer">
+          <p>查看详细信息&gt;&gt;</p> 
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="pagefooter">
+    <div class="rounded">
+      <h2>Page Footer</h2>
+      <div class="main">
+        <p>这是一行文本，这里作为样例，显示在布局框中。</p>
+      </div>
+      <div class="footer">
+        <p>查看详细信息&gt;&gt;</p> 
+      </div>
+    </div>
+  </div>
+</body>
+</html>

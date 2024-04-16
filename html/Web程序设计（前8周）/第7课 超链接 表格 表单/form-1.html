@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>表单的使用实例</title>
+    <style type="text/css">
+        fieldset {
+            width: 400px;            
+            border: 2px double #003399;
+            padding:0 30px 30px;
+        }
+        div{
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+    <form name="form" method="post" action="">
+        <fieldset>
+            <legend>请填写个人信息</legend> <br>
+            姓名：
+            <input type="text"><br>
+            密码：
+            <input type="password"><br>
+
+            爱好：
+            <input type="checkbox" name="c1" value="读书">读书
+            <input type="checkbox" name="c2" value="唱歌" checked="checked">唱歌
+            <input type="checkbox" name="c3" value="游戏" checked="checked">游戏<br>
+            性别：
+            <input type="radio" name="sex" value="male" checked="checked">男性
+            <input type="radio" name="sex" value="female">女性
+            <h4>请选择文件：</h4>
+			<input type="file" name="file" size="40">
+            <h4>请选择您的课程:</h4>
+			<select name="course">
+				<option value="c1" selected>C/C++程序设计</option>
+				<option value="c2">计算机网络</option>
+				<option value="c3" >数据结构</option>
+				<option value="c4">Java程序设计</option>
+				<option value="c5">计算机组成原理</option>				
+			</select>
+            <h4>请您填写宝贵意见：</h4>
+			<textarea name="info" rows="4" cols="50" wrap="virtual">
+			</textarea><br><br>
+            <div>
+            <input type="submit" value="提交">
+            <input type="reset" value="重置">
+            <input type="button" name="button" value="注册新用户" onclick="javascript:alert('注册新用户');">
+            </div>
+            
+        </fieldset>
+    </form>
+</body>
+
+</html>

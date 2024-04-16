@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>伪元素选择器</title>
+    <style>
+        p:nth-of-type(odd)::before {
+            content:"甲：";
+        }
+        p:nth-of-type(even)::before {
+            content:"乙：";
+        }
+    </style>
+</head>
+<body>
+    <h1>《正反话》</h2>
+    <p>相声是一门语言艺术。</p>
+    <p>对。</p>
+    <p>相声演员讲究的是说学逗唱，这相声演员啊最擅长说长笑话，短笑话，俏皮话，反正话。</p>
+    <p>这是相声演员的基本功啊。</p>
+    <p>相声 演员啊，脑子得聪明。灵机一动马上通过嘴就要说出来。</p>
+    <p>对对对对。</p>
+</body>
+</html>
