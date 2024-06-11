@@ -1,0 +1,27 @@
+建立同学通讯录
+#include"stdio.h"
+#define NUM 3
+struct men
+{
+    char name[20];
+    char phone[10];
+};
+main()
+{
+
+
+
+
+
+
+
+
+
+
+
+
+}
+   要求：本程序中定义了一个结构men，它有两个成员name和phone用来表示
+姓名和电话号码。在主函数中定义man为具有men类型的结构数组。在
+for语句中，用gets函数分别输入各个元素中两个成员的值。然后又在
+for语句中用printf语句输出各元素中两个成员值。

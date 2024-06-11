@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>收货人信息</title>
+</head>
+<style>
+  input[type="checkbox"] {
+    margin: 0;
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: 14px;
+    display: inline-block;
+    margin-left: 50px;
+  }
+  li {
+    margin: 15px 0;
+  }
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  li:nth-last-of-type(2) label {
+    display: inline-block;
+    margin-bottom: 0;
+    margin-right: 5px;
+  }
+  input[type="text"],
+  input[type="number"] {
+    height: 35px;
+  }
+  input[type="text"],
+  input[type="number"],
+  textarea {
+    padding: 10px;
+    box-sizing: border-box;
+    width: 300px;
+    border-radius: 3px;
+    border: 1px solid #dfe3e9;
+    outline: none;
+  }
+  input[type="text"]:focus,
+  input[type="number"]:focus,
+  textarea:focus {
+    border-color: #1583db;
+  }
+  button {
+    background: #1583db;
+    color: #fff;
+    border-radius: 2px;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+</style>
+<body>
+  <ul>
+    <li>
+      <label for="">收货人</label>
+      <input type="text">
+    </li>
+    <li>
+      <label for="">手机号码</label>
+      <input type="number">
+    </li>
+    <li>
+      <label for="">所在地区</label>
+      <input type="text">
+    </li>
+    <li>
+      <label for="">详细地址</label>
+      <textarea name="" id="" cols="30" rows="10"></textarea>
+    </li>
+    <li>
+      <label for="">标签</label>
+      <input type="radio" name="tag" checked> 家
+      <input type="radio" name="tag"> 公司
+      <input type="radio" name="tag"> 学校
+    </li>
+    <li>
+      <label for="">设置为默认地址</label>
+      <input type="checkbox" name="isDefault" checked>
+    </li>
+    <li>
+      <button>提交</button>
+    </li>
+  </ul>
+</body>
+</html>

@@ -1,0 +1,55 @@
+# include <stdlib.h>
+# include <stdio.h>
+# define ElemType int
+
+//定义结点类型
+typedef struct BTNode
+{
+	char data;									//数据元素
+	struct BTNode *lchild, *rchild;				//指向左、右孩子的指针
+}BTNode, *BTree;
+
+//按先序算法建立二叉树
+void Create (BTree *T)
+{ 
+	char ch;
+	scanf ("%c", &ch);	
+	if (ch == '#')
+	{
+		*T = NULL;
+		return;
+}
+else
+{
+		*T = (BTree) malloc (sizeof (struct BTNode));
+		(*T) -> data = ch;
+		Create (&((*T) -> lchild));				//创建左子树
+		Create (&((*T) -> rchild));				//创建右子树
+}
+}
+
+//求二叉树的高度
+int Depth (BTree bt)
+{
+	int hl, hr;
+	if (bt == NULL)							//bt为空树，高度为0
+		return 0;
+	else										//bt为非空
+	{
+		hl = Depth (bt -> lchild);					//求左子树的高度
+		hr = Depth (bt -> rchild);					//求右子树的高度
+		if (hl > hr)
+			return (hl + 1);
+		else  return (hr + 1);
+}
+}
+
+void main ()
+{
+	BTree T;
+	int height;
+	printf ("输入二叉树中所有结点：\n");
+	Create (&T);
+	height = Depth (T);
+	printf ("该二叉树的高度为：%d\n", height);
+}

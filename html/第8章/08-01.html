@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>超链接各个状态的样式</title>
+<style>
+body{
+background-color:#99CCFF;
+}
+
+a{
+font-size:14px;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+a:link{						/* 超链接正常状态下的样式 */
+	color:red;				/* 红色 */
+	text-decoration:none;	/* 无下划线 */
+}
+a:visited{					/* 访问过的超链接 */
+	color:black;			/* 黑色 */
+	text-decoration:none;	/* 无下划线 */
+}
+a:hover{					/* 鼠标指针经过时的超链接 */
+	color:yellow;			/* 黄色 */
+	text-decoration:underline;	/* 下划线 */
+	background-color:blue;
+}
+</style>
+
+</head>
+<body>
+<a href="home.htm">Home</a> 
+<a href="east.htm">East</a>
+<a href="west.htm">West</a>
+<a href="north.htm">North</a>
+<a href="south.htm">South</a>
+</body>
+</html>

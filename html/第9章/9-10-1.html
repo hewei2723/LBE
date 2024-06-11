@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Language" content="zh-cn" />
+<title>position属性实验-相对定位左上移动</title>
+<style>
+body{
+	margin:20px;
+	font-family:Arial;
+	font-size:12px;
+}
+#father{
+	background-color:#a0c8ff;
+	border:1px dashed #000000;
+	padding:15px;
+}
+#father div{
+	background-color:#fff0ac;
+	border:1px dashed #000000;
+	padding:10px;
+}
+
+#block1{
+position:relative;
+bottom:30px;
+right:30px;
+}
+
+#block2{
+position:relative;
+top:30px;
+left:30px;
+}
+</style>
+</head>
+<body>
+	<div id="father">
+		<div id="block1">Box-1</div>
+		<div id="block2">Box-2</div>
+	</div>
+</body>
+</html>

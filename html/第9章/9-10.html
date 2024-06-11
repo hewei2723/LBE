@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>position属性实验-相对定位右下移动</title>
+<style type="text/css">
+body{
+	margin:20px;
+	font :Arial 12px;
+}
+#father{
+	background-color:#a0c8ff;
+	border:1px dashed #000000;
+	padding:15px;
+}
+
+#block1{
+	background-color:#fff0ac;
+	border:1px dashed #000000;
+	padding:10px;
+	position:relative;		/* relative相对定位 */
+	/* left:30px;
+	top:30px; */
+	right: 30px;
+	bottom: 30px;
+}
+</style>
+</head>
+<body>
+	<div id="father">
+		<div id="block1">Box-1</div>
+	</div>
+</body>
+</html>

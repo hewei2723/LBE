@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Language" content="zh-cn" />
+<title>浮动盒子的相对定位</title>
+<style type="text/css">
+body{
+  margin:20px;
+  font-family:Arial;
+  font-size:12px;
+}
+#father{
+  background-color:#a0c8ff;
+  border:1px dashed #000000;
+  padding:15px;
+  height: 72px;
+}
+#father div{
+  background-color:#fff0ac;
+  border:1px dashed #000000;
+  padding:10px;
+  width: 100px;
+  height: 50px;
+  float: left;
+}
+#block2{
+  position: relative;
+  left: 25px;
+  top: 35px;
+}
+</style>
+</head>
+<body>
+  <div id="father">
+    <div >Box-1</div>
+    <div id="block2">Box-2</div>
+    <div >Box-3</div>
+  </div>
+</body>
+</html>

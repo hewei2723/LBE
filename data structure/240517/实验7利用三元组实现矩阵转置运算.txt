@@ -1,0 +1,41 @@
+#include <stdio.h>
+typedef  struct {
+               int  row ;
+	       int  col ;
+	       int  val ;
+		 }THA ;
+
+#define	MAX  20
+main( )
+{
+  int  i, j, count=1 ;
+  int  col, row, val ;
+  THA  s[MAX];
+  THA t[MAX];
+  printf("input the number of row ,col and elements:");
+  scanf("%d,%d,%d",&s[0].row,&s[0].col,&s[0].val);
+  if(s[0].val==0) return ;   /*无非零元素返回*/
+  val =s[0].val;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ }

@@ -1,0 +1,3 @@
+interface CourseManagement {
+    void enroll();
+}

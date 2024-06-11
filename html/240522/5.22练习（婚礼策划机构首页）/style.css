@@ -1,0 +1,258 @@
+@charset "utf-8";
+/* CSS Document */
+/*对整体页面设置间距为0，边距为0*/
+*{
+	margin:0px;
+	padding:0px;
+	border:0;
+	font-size:12px;
+	font-family:"宋体";
+	
+}
+/*设置页面背景属性*/
+body{
+	background:#580000;
+}
+/*设置默认情况下层的属性*/
+#all{
+	width:1007px;
+	margin:0px auto;
+}
+/*设置头部相关属性*/
+#head{
+	width:960px;
+	height:110px;
+	margin:0 auto;
+}
+#head img{
+	float:left;}
+#head span{
+	float:right;
+	margin:40px 40px 0px 0px;
+	color:#FFFFFF;
+	font-size:36px;
+}
+/*导航部分设置*/
+#nav{
+	width:1007px;
+	height:65px;
+	background:url(images/dh.jpg) no-repeat top center;
+	clear:both;
+	margin:0 auto;
+}
+#nav ul{
+	height:35px;
+	padding-top:30px;
+	margin-left:80px;
+}
+#nav li{
+	list-style-type:none;
+	float:left;
+	width:80px;
+	margin-left:40px;
+	text-align:center;
+	font-family:"黑体";
+	font-size:14px;
+	line-height:22px;
+
+}
+#nav li a{
+	color:#fff7b3;
+	text-decoration:none;
+	display:block;
+}
+#nav li a:hover{
+	color:#8b1f1c;
+	background-image:url(images/nav_bj.gif);
+	background-repeat:no-repeat;
+	line-height:24px;
+	}
+/*设置主体页面结构属性*/
+#main{
+	width:960px;
+	background-color:#FFFAEA;
+	height:auto;
+	margin:0 auto;
+}
+/*设置页面底部结构属性*/
+#foot{
+	width:960px;
+	margin:0 auto;
+	background:url(images/down.jpg) no-repeat;
+	height:101px;
+	clear:both;
+	text-align:center;
+	font-size:12px;
+	line-height:25px;
+}
+#m1{
+	width:950px;
+	height:210px;
+	padding:5px;
+}
+.login{
+	background-image:url(images/login_bj.jpg);
+	background-repeat:no-repeat;
+	height:140px;
+	float:left;
+	width:177px;
+	padding:60px 10px 10px 20px;
+	text-align:center;
+}
+.login label{ 
+	display:block;
+	width:50px;
+	color:#6d520d;
+	line-height:24px;
+	text-align:right;
+}
+#user_pwd,#user_name{
+	border:1px solid #9c750e;
+	background-color:#c4a354;
+	width:110px;
+	line-height:24px;
+	height:24px;
+	color:#FFFFFF;
+	position:relative;
+	left:20px;
+	top:-20px;
+}
+#login_submit,#login_reset{
+	background:url(images/login_btn.jpg) no-repeat;
+	height:23px;
+	width:66px;
+	color:#FFFFFF;
+	border:none;
+}
+.ad{
+	width:725px;
+	height:210px;
+	float:left;
+	margin-left:10px;
+}
+#m2{
+	height:279px;
+	width:960px;
+}
+.hlzx{
+	width:596px;
+	float:left;
+	margin-left:6px;
+	background-color:#f7efca;
+	height:279px;
+}
+.hlzx_ad img{
+	width:118px;
+	height:145px;
+	border:1px solid #7b0002;
+	margin:20px 0px 0px 20px;
+	float:left;
+}
+.hlzx_ad dl{
+	float:left;
+	width:360px;
+	margin:5px 0px 0px 40px;
+}
+.hlzx_ad dt{
+	color:#582c00;
+	font-weight:bold;
+	line-height:30px;
+}
+.hlzx_ad dd{
+	color:#a1411d;
+	text-indent:20px;
+	line-height:24px;
+	margin-left:20px;
+}
+.hlzx_ad ul{
+	float:left;
+	width:300px;
+	margin-left:40px;
+}
+.hlzx_ad ul li{
+	list-style:none;
+	background:url(images/lbbj.gif) no-repeat;
+	height:25px;
+	line-height:25px;
+	color:#580c00;
+	text-indent:15px;
+}
+.hlzx_ad ul li a:link,.hlzx_ad ul li a:visited{
+	color:#580c00;
+	text-decoration:none;
+}
+.hlzx_ad ul li a:hover,.hlzx_ad ul li a:active{
+	color:#9e3423;
+	text-decoration:none;
+}
+.show{
+	width:335px;
+	float:right;
+	margin-right:6px;
+	background-color:#f7efca;
+	height:279px;
+} 
+.show .video{
+	margin-left:50px;
+	margin-top:20px;
+	border:#b69e63 6px solid;
+}
+#m3{
+	width:961px;
+	height:240px;
+}
+#m3 dl{
+	float:left;
+	margin-left:40px;
+	text-align:center;
+	width:190px;
+
+}
+#m3 dl img{
+	margin-top:8px;
+	border:3px solid #d1bd94;
+}
+#m3 dl dd{
+	line-height:35px;
+	color:#937943;
+	font-size:12px;
+	font-weight:bold;
+}
+#m3 dl dd a:link,#m3 dl p a:visited{
+	color:#937943;
+	text-decoration:none;
+}
+#m3 dl dd a:hover,.#m3 dl p a:active{
+	color:#a98c50;
+	text-decoration:none;
+}
+
+#link{
+	width:960px;
+	height:35px;
+	background-color:#f6e1b6;
+	margin:0 auto;
+}
+#link ul{
+	margin-left:150px;
+	width:680px;
+}
+#link li{
+	float:left;
+	list-style:none;
+	margin-left:40px;
+	line-height:30px;
+	color:#7b0000;
+	font-size:12px;
+}
+#link span{
+	font-weight:bold;
+}
+#link a:link,#link a:visited{
+	color:#580c00;
+	text-decoration:none;
+}
+#link ul li a:hover,#link a:active{
+	color:#9e3423;
+	text-decoration:none;
+}

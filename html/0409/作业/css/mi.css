@@ -1,0 +1,84 @@
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    font-size: 12px;
+    color: #b0b0b0;
+    background: #333;
+    margin: 0;
+}
+.cen {
+    display: flex;
+    width: auto;
+    font-size: 16px;
+}
+.cen1 {
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 100px;
+}
+.text1 {
+    margin-left: 88px;
+}
+.so {
+    display: flex;
+    align-items: center;
+    margin-left: 88px;
+}
+.so button {
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+.cen2 {
+    display: flex;
+    align-items: center;
+}
+.cleft {
+    background-color: rgba(105,101,101);
+    height: 420px;
+    width: 300px;
+    color: #fff;
+    margin-left: auto;
+}
+.cleft div {
+    margin: 5px 10px;
+    padding: 5px 0;
+    border-bottom: 1px solid #fff;
+}
+.cimg{
+    margin-right: auto;
+    height: auto;
+}
+.cimg img {
+    width: auto;
+    height: 420px;
+}
+.foot {
+    display: flex;
+    margin-left: 75px;
+}
+.foot1{
+    margin-right: 10px;
+}
+.fimg{
+    margin-left: 10px;
+    margin: auto 22px;
+}
+table {
+    border-collapse: collapse;
+}
+th, td {
+    width: 95px;
+    height: 90px;
+    border: 1px solid #61574f;
+    text-align: center;
+    color: #fff;
+    background-color: #665e57;
+}

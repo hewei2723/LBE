@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 8px;
+            font-weight:bold;
+            font-size: 14px;
+        }
+        input[type="text"],
+        input[type="number"] {
+        height: 35px;
+        }
+        input[type="text"],
+        input[type="number"],
+        textarea {
+        padding: 10px;
+        box-sizing: border-box;
+        width: 350px;
+        border-radius: 20px;
+        border: 1px solid #dfe3e9;
+        outline: none;
+        }
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        textarea:focus {
+        border-color: #1583db;
+        }
+        button{
+            background: #1187e7;
+            color: #fff;
+            border-radius: 50px;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <p>收货人</p>
+    <input type="text">
+    <p>手机号</p>
+    <input type="number">
+    <p>地区</p>
+    <input type="text">
+    <p>详细地址</p>
+    <textarea rows="10"></textarea>
+    <p>标签</p>
+    <input type="radio" name="ad">家
+    <input type="radio" name="ad">公司
+    <input type="radio" name="ad">学校<br>
+    设置为默认地址<input type="checkbox"><br>
+    <button>提交</button>
+</body>
+</html>

@@ -1,0 +1,40 @@
+.head{
+    width: 1000px;
+    text-align: center;
+}
+.head > *{
+    display: inline-block;
+}
+.nav{
+    width: 1000px;
+    height: 50px;
+    background-color: rgb(206, 21, 21);
+    box-shadow: 2px 2px 5px;
+    text-align: center;
+}
+.nav ul{
+    list-style: none;
+}
+.nav li{
+    margin: 10px;
+    float: left;
+    text-decoration: none;
+    background:url(./img/split.png) right bottom no-repeat;
+    position: relative;
+    width: 80px;
+}
+.nav a{
+    text-decoration: none;
+    color: white;
+}
+.player{
+    background-color: black;
+    height: 400px;
+    width: 1000px;
+}
+.content li{
+    display: inline-block;
+    margin-right: 10px;
+}
+
+

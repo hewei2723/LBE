@@ -1,0 +1,84 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <malloc.h>
+typedef struct  btnode
+	  {
+
+
+
+
+
+	   }NODE;
+main()
+{
+	NODE *root,*q,n;
+	NODE *create(NODE *p);
+	void preorder();
+	void inorder();
+	void postorder();
+    int t;
+	q=&n;
+	root=create(q);
+	printf("At  the first,we create   a tree\n");
+	printf("Please input nodes of tree\n");
+	if  (root==NULL)    printf("It's  an empty  tree!\n");
+	else
+	   {
+		printf("\n1.The preordetraverse  \n");
+	        printf("  2.The inordertraverse \n");
+	        printf("  3.The postordertraverse \n");
+		printf("  Please choose  a  kind  of  order\n");
+		scanf("%d",&t);
+		switch   (t)
+		   {
+			case 1: preorder(root);  break;
+			case 2: inorder(root);   break;
+			case 3:postorder(root);   break;
+			default: printf(" The error!");
+		   }
+		}
+}
+
+NODE  * create(NODE *p)    /*create the structure of binary tree */
+ {
+	
+
+
+
+
+
+
+
+
+
+
+ }
+void preorder(root)   /*travel the tree using preorder */
+NODE *root;
+ {
+
+
+
+
+
+
+ }
+void   inorder (root)  /*travel  the tree using inorder */
+NODE  *root;
+ {
+
+
+
+
+
+
+ }
+void postorder(root)  /*travel the tree using  postorder */
+NODE *root;
+{
+
+
+
+
+
+}

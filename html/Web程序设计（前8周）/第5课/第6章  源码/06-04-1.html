@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>文字环绕-图片居右</title>
+<style>
+body{
+	background-color:#EAECDF;	/* 页面背景颜色 */
+	margin:0px;
+	padding:0px;
+}
+img{
+	float: right;					/* 文字环绕图片 */
+}
+p{
+	color:#000000;				/* 文字颜色 */
+	margin:0px;
+	padding-top:10px;
+	padding-left:5px;
+	padding-right:5px;
+}
+p::first-letter{
+	float:left;					/* 首字放大 */
+	font-size:60px;
+	font-family:黑体;
+	margin:0px;
+	padding-right:5px;
+}
+</style>
+   </head>
+<body>
+	<img src="einstein.jpg" border="0">
+	<p>阿尔伯特·爱因斯坦（Albert Einstein, 1879年3月14日－1955年4月18日），是出生于德国、拥有瑞士和美国国籍的犹太裔理论物理学家，他创立了现代物理学的两大支柱之一的相对论，也是质能等价公式的发现者。他在科学哲学领域颇具影响力。因为“对理论物理的贡献，特别是发现了光电效应的原理”，他荣获1921年度的诺贝尔物理学奖（1922年颁发）。这一发现为量子理论的建立踏出了关键性的一步。</p>
+</body>
+</html>

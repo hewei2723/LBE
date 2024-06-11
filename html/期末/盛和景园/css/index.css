@@ -1,0 +1,452 @@
+@charset "utf-8";
+
+.header,.content{
+	width: 1000px;
+	margin:10px auto;
+}
+.header{
+	height:95px;
+	}
+.header>h1{
+	width:197px;/*设置h1的宽度为197px*/
+	height:93px;/*设置h1的高度为93px*/
+	background:url(../img/logo.png) 0 0 no-repeat;/*设置h1的背景图像*/
+	}
+.header>h1>span{
+	display:none;/*设置隐藏span的内容，即隐藏文字*/
+	}
+/*使用特殊字体*/
+@font-face
+{
+    font-family: myFont;/*设置字体名称为myFont*/
+    src: url(../fonts/华康瘦金体.TTF);/*设置字体路径*/
+}
+.header h2{
+	margin:30px 0 0 80px;/*设置h2上、左外边距分别为30px、80px*/
+	padding-left:90px;/*设置h2左内边距为90px*/
+	line-height: 40px;/*设置h2行间距为40px*/
+	font-size:35px;/*设置h2字体大小为35px*/
+	font-family:myFont;/*设置字体为引用字体myFont*/
+	font-weight:bolder;/*设置span字体为粗体*/
+	background:url(../img/tel2.png) 0 0 no-repeat;/*设置h2背景图像*/
+	}
+.header ol{
+	margin-top:5px;/*设置ol上外边距为5px*/
+	}
+.header ol li{
+	float:left;/*设置ol中立项向左浮动，实现在一行显示效果*/
+	margin-left:10px;/*设置li项左外边距为10px*/
+	text-align:center;/*设置li项中文本水平对齐方式为居中*/
+	line-height: 22px;/*设置li项行间距为22px*/
+	}
+.nav{
+	width:100%;/*设置nav的宽度为100%即全屏效果*/
+	height:50px;/*设置nav的高度为50px*/
+	filter: progid:DXImageTransform.Microsoft.gradient
+	(GradientType=0, startColorstr=#f42a28, endColorstr=#b90409);/*设置支持IE9以下的渐变*/
+	background:linear-gradient(#f42a28,#b90409);/*设置nav的从上到下的渐变效果*/
+	box-shadow:2px 2px 5px;/*设置nav的阴影效果*/
+	}
+.nav ol{
+	width:1000px;/*设置ol的宽度为1000px*/
+	margin:0 auto;/*设置ol水平方向上居中*/
+	
+	}
+.nav ol li{
+	float:left;/*设置ol中li项向左浮动即一行显示*/
+	margin:10px 3px;/*设置ol中li项外边距*/
+	background:url(../img/split.png) right bottom no-repeat;/*设置ol中li项背景图像即导航右侧分隔线*/
+	position: relative;
+	}
+.nav ol li a{
+	display:block;/*设置a转换为块元素*/
+	height:28px;/*设置a块高度为28px*/
+	width:96px;/*设置a块宽度为28px*/
+	margin-right:8px;/*设置a块右外边距为8px，为分隔线腾出空间*/
+	line-height:28px;/*设置a块行间距为28px，实现文本垂直居中*/
+	font-family:"黑体";/*设置a的字体为黑体*/
+	color:#fff;/*设置a的字体颜色为白色*/
+	font-size:16px;/*设置a的字体大小为16px*/
+	font-weight: bolder;/*设置a的字体为粗体*/
+	text-align:center;/*设置a的文本为水平居中*/
+	}
+.nav ol li a:hover{
+	background:#fff;/*设置划上a后背景颜色为白色*/
+	color:#b10808;/*设置划上a后字体颜色为#b10808*/
+	}
+/*取消最后一个导航的分隔线*/
+.nav ol li.last{
+	background:none;
+	}
+.nav ol li ul{
+	display: none;/*设置ul初始隐藏*/
+	position: absolute;/*设置ul绝对定位布局*/
+	z-index: 99999;
+	}
+.nav ol li:hover ul{
+	display: block;/*设置划上一级导航二级导航ul显示*/
+	background:rgba(255,0,0,0.5);/*设置半透明的红色背景*/
+	}
+.nav ol li:hover ul li{
+	float: none;/*取消二级导航浮动*/
+	margin-left: 10px;/*设置二级导航项左外边距10px*/
+	background:none;/*设置无背景即取消二级导航右侧的分隔线*/
+	}
+.banner {
+	width: 100%;
+}
+.carousel-banner {
+	width: 100%;
+}
+.carousel-inner {
+	position: relative;
+	overflow: hidden;
+}
+.carousel-inner>.item {
+	position: relative;
+	display: none;
+	transition: .6s ease-in-out left;
+}
+.carousel-inner>.active {
+	display: block;
+	left: 0;
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+.carousel-inner>.item>a>img {
+	display: block;
+	width: 100%;
+	height: 420px;
+	line-height: 1;
+	vertical-align: middle;
+	border: 0;
+}
+.carousel-caption {
+	position: absolute;
+	right: 15%;
+	bottom: 40px;
+	left: 15%;
+	z-index: 10;
+	padding: 20px 0;
+	color: #fff;
+	text-align: center;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+}
+.carousel-indicators {
+	position: absolute;
+	bottom: 10px;
+	left: 50%;
+	z-index: 15;
+	width: 60%;
+	padding-left: 0;
+	margin-left: -30%;
+	text-align: center;
+	list-style: none;
+}
+.carousel-indicators>dd {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	margin: 1px;
+	text-indent: -999px;
+	cursor: pointer;
+	background-color: rgba(0, 0, 0, 0);
+	border: 1px solid #fff;
+	border-radius: 10px;
+}
+.carousel-indicators>dd.active {
+	width: 12px;
+	height: 12px;
+	margin: 0;
+	background-color: #fff;
+}
+.carousel-control {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #fff;
+	font-size: 72px;
+	line-height: 72px;
+	text-align: center;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+	width: 72px;
+	z-index: 10;
+	cursor: pointer;
+}
+.carousel-control.left {
+	left: 0;
+}
+.carousel-control.right {
+	right: 0;
+}
+.content-bg{
+	border:1px solid #F0EFEF;/*设置content-bg的边框为1px宽度#F0EFEF颜色实线*/
+	border-radius: 5px;/*设置content-bg的边框圆角半径为5px*/
+}
+.content-h2{
+	font-family:"黑体";/*设置content-h2字体为黑体*/
+	font-size: 16px;/*设置content-h2字体大小为16px*/
+	color: #fff;/*设置content-h2字体颜色为白色*/
+	line-height: 32px;/*设置content-h2行间距为32px*/
+	text-align: center;/*设置content-h2水平对齐方式为居中*/
+	background: #b10808;/*设置content-h2背景颜色为#b10808*/
+	border-radius: 5px 5px 0 0;/*设置content-h2左上、右上圆角半径为5px*/
+}
+.content-h3{
+	padding: 0 10px 0 30px;/*设置content-h3的内边距*/
+	font-family: "黑体";/*设置content-h3字体为黑体*/
+	font-size: 16px;/*设置content-h3字体大小为16px*/
+	line-height: 28px;/*设置content-h3行间距为28px*/
+	letter-spacing: 3px;/*设置content-h3字符间距为3px*/
+	border-bottom: 2px solid #b10808;/*设置content-h3下边框*/
+}
+.content-h3 span{
+	float: right;/*设置content-h3的span向右浮动*/
+}
+.content-h3 span a{
+	font-size: 12px;/*设置content-h3的span字体大小为12px*/
+	color: #ccc;/*设置content-h3的span字体颜色为#ccc*/
+}
+.content-h3 b{
+	font-size: 20px;/*设置content-h3的b字体大小为20px*/
+	color: #b10808;/*设置content-h3的b字体颜色为#b10808*/
+	font-weight: bolder;/*设置content-h3的b字体为粗体*/
+}
+.content-top-left{
+	width: 245px;/*设置content-top-left宽度为245px*/
+}
+.content-top-mid{
+	width: 490px;/*设置content-top-mid宽度为490px*/
+}
+.content-top-right{
+	width: 245px;/*设置content-top-right宽度为245px*/
+}
+.content-bottom{
+	padding-bottom: 10px;/*设置content-bottom下内边距为10px*/
+	border-bottom:1px dashed #F00;/*设置content-bottom下边框*/
+}
+.show{
+	height: 220px;
+}
+.show ul{
+	margin: 0 auto;/*设置show的ul水平居中*/
+	width: 195px;/*设置show的ul宽度为195px*/
+}
+.show ul li{
+	border: 1px solid #CCCCCC;/*设置show的ul列表项li边框*/
+	line-height: 23px;/*设置show的ul列表项li行间距为23px*/
+	margin-top:10px;/*设置show的ul列表项li上外边距为10px*/
+	border-radius: 50px;/*设置show的ul列表项li边框圆角半径为50px*/
+	padding-left: 50px;/*设置show的ul列表项li左内边距为50px*/
+	background:url(../img/show_icon.png) 15px 0 no-repeat;/*设置show的ul列表项li符号图标*/
+}
+.show ul li a{
+	color: #000;/*设置show的ul列表项li的文字颜色为黑色*/
+}
+.contact-us{
+	height: 215px;/*设置contact-us区域的高度为215px*/
+}
+.contact-us img,.contact-us ul{
+margin-top: 20px;/*设置contact-us区域的img和ul上外边距为20px*/
+}
+.contact-us ul{
+	margin-right: 10px;/*设置contact-us区域的ul右外边距为20px*/
+}
+.contact-us ul li{
+	line-height: 26px;/*设置contact-us区域的ul中li项行间距为26px*/
+}
+.tel-red{
+	color: #b10808;/*设置contact-us区域的tel-red字体颜色为#b10808*/
+}
+.contact-us>ol{
+	margin: 20px 0 0 20px;/*设置contact-us区域的ol上、左外边距都为20px*/
+}
+.contact-us>ol>li{
+	float: left;/*设置contact-us区域的ol中li项向左浮动*/
+	margin-right: 15px;	/*设置contact-us区域的ol中li项右外边距为15px*/
+}
+.contact-us>ol>li>a{
+	display: block;/*设置a转换为块元素*/
+	width: 95px;/*设置a的宽度为95px*/
+	height: 25px;/*设置a的高度为95px*/
+	color: #000;/*设置a的字体颜色为黑色*/
+	font-size: 12px;/*设置a的字体大小为12px*/
+	line-height: 25px;/*设置a的行间距为25px*/
+	text-align: center;/*设置a的文本水平方向居中*/
+	background: #fefdfd;/*设置a的背景颜色为#fefdfd*/
+	border-radius: 50px;/*设置a的圆角半径为50px*/
+	box-shadow: 1px 2px 2px;/*设置a的阴影*/
+}
+.contact-us>ol>li>a>span{
+	color: #b10808;/*设置a的span字体颜色为#b10808*/
+}
+.controduce{
+	height: 220px;/*设置controduce的高度为220px*/
+	border-bottom:1px dashed #F00;/*设置controduce的下边框为1px宽度红色虚线*/
+}
+.controduce img{
+	margin: 25px 0 0 10px;/*设置controduce的图像外边距*/
+	border: 1px solid #ccc;/*设置controduce的图像边框为1px宽度#ccc颜色实线*/
+}
+.controduce p{
+	margin: 25px 10px 0 0;/*设置controduce的文字段落外边距*/
+	width: 260px;/*设置controduce的文字段落宽度为260px*/
+	line-height: 28px;/*设置controduce的文字段落行间距为28px*/
+	text-indent: 2rem;/*设置controduce的文字段落首行缩进2字符*/
+}
+.news{
+	height:215px;/*设置news的高度为215px*/
+	border-bottom:1px dashed #F00;/*设置news的下边框为1px红色虚线*/
+}
+#Menubox{
+	height: 32px;/*设置Menubox的高度为32px*/
+	border-bottom: 2px solid #b10808;/*设置Menubox的下边框为2px宽度#b10808颜色实线*/	
+}
+#Menubox>ul>li{
+	float: left;/*设置Menubox的ul中li项向左浮动*/
+	display: block;/*设置Menubox的ul中li项转换为块*/
+	padding: 0 15px;/*设置Menubox的ul中li项内边距*/
+	margin-left:10px;/*设置Menubox的ul中li项左外边距*/
+	font-family: "黑体";/*设置Menubox的ul中li项字体为黑体*/
+	font-size: 16px;/*设置Menubox的ul中li项字体大小为16px*/
+	color: #000;/*设置Menubox的ul中li项字体颜色为黑色*/
+	line-height: 32px;/*设置Menubox的ul中li项行间距为32px*/
+}
+#Menubox>ul>li.hover{
+	background: #b10808;/*设置划上li项后背景颜色*/
+	color:#fff;/*设置划上li项后字体颜色*/
+	border-radius: 5px 5px 0 0;/
+	}
+#Contentbox{
+	width: 470px;/*设置Contentbox的宽度为470px*/
+	margin: 10px auto 0;/*设置Contentbox的外边距*/
+}
+#Contentbox ul li{
+	padding-left: 20px;/*设置Contentbox的ul中li项左内边距为20px*/
+	line-height: 30px;/*设置Contentbox的ul中li项行间距为30px*/
+	border-bottom: 1px dashed #ccc;/*设置Contentbox的ul中li项下边框线*/
+	background: url(../img/li_icon.gif) 5px 12px no-repeat;	/*设置Contentbox的ul中li项背景即图标*/
+}
+#Contentbox ul li a{
+	color:#000;/*设置Contentbox的ul中li项文字颜色为黑色*/
+	}
+#Contentbox ul li span{
+	float: right;/*设置Contentbox的ul中li项span向右浮动*/
+}
+.notice{
+	height: 220px;/*设置notice的高度为220px*/
+}
+/*设置公告列表项样式*/
+.notice-list{
+	margin:20px 5px;/*设置notice-list的外边距*/
+	height: 60px;/*设置notice-list的外边距*/
+	}
+.notice-list .notice-time{
+	float:left;/*设置notice-time向左浮动*/
+	width:60px;/*设置notice-time宽度为60px*/
+	height:60px;/*设置notice-time高度为60px*/
+	margin-right:10px;/*设置notice-time右外边距*/
+	font-size:16px;/*设置notice-time字体大小为16px*/
+	text-align:center;/*设置notice-time文本水平居中对齐*/
+	line-height:30px;/*设置notice-time行间距为30px*/
+	color:#fff;/*设置notice-time字体颜色为白色*/
+	background:#b10808;/*设置notice-time背景颜色*/
+	border-radius:4px;/*设置notice-time圆角半径*/
+	}
+.notice-list .notice-time .day{
+	font-size:24px;/*设置day的字体大小为24px*/
+	}
+.notice-list .notice-text{
+	float: right;/*设置notice-text向右浮动*/
+	width: 160px;/*设置notice-text宽度为160px*/
+	line-height: 28px;/*设置notice-text行间距为28px*/
+	}
+.notice-text span{
+	color:#F00;/*设置notice-text的span字体颜色为红色*/
+	}
+.login{
+	height: 215px;/*设置login的高度为215px*/
+}
+.login form{
+	margin: 20px auto 10px;/*设置login的表单域外边距*/
+	width: 210px;/*设置login的表单域宽度为210px*/
+}
+.login p{
+	height: 40px;/*设置login的p高度为40px*/
+}
+/*属性选择器*/
+.login>form input[type="text"],form input[type="password"]{
+	width: 140px;
+	height: 22px;
+	border: 1px solid #fc4f2d;
+	color:#555;
+}
+/*属性选择器*/
+input[type="image"]{
+	margin-left:25px;
+}
+.login h4{
+	margin-top:5px;/*设置login的h4上外边距为5px*/
+	font-family: myFont;/*设置字体为引用字体myFont*/
+	font-size: 18px;/*设置字体大小为18px*/
+	text-align:center;/*设置文本水平对齐方式为居中对齐*/
+	}
+.login h4 img{
+	margin-right: 15px;/*设置h4中图形右外边距为15px*/
+}	
+.login h4 a{
+	color: #f01a1a;/*设置h4中超链接字体颜色为#f01a1a*/
+	font-weight: 400;/*设置h4中超链接字体粗细为400*/
+	text-decoration: underline;/*设置h4中超链接*/
+}
+#content-bottom {
+	position: relative;/*设置位置为相对定位*/
+	width: 1000px;/*设置content-bottom的宽度为1000px*/
+	height: 225px;/*设置content-bottom的高度为240px*/
+	overflow: hidden;/*设置content-bottom部分溢出隐藏*/
+	border-bottom: 1px dashed #f00;/*设置content-bottom的边框效果*/
+}
+#content-bottom ul {
+	position: absolute/*设置位置为绝对定位*/
+}
+#content-bottom ul li {
+	position: relative;/*设置content-bottom的ul中li定位为相对定位*/
+	float: left;/*设置content-bottom的ul中li向左浮动，实现在一行显示效果*/
+	width: 235px;/*设置content-bottom的ul中li宽度为235px*/
+	margin-right:10px;/*设置content-bottom的ul中li右外边距为10px*/
+}
+#content-bottom ul li a img {
+	width:100%;/*设置content-bottom的ul中li图像宽度为100%*/
+	border-radius: 5px;/*设置content-bottom的ul中li图像圆角半径为5px*/
+}
+#content-bottom ul li p {
+	display: none;/*设置content-bottom的ul中li段落文字初始状态隐藏*/
+}
+#content-bottom ul li a:hover p {
+	position: absolute;/*设置content-bottom的ul中li段落文字为绝对定位*/
+			display: block;/*设置content-bottom的ul中li段落文字显示*/
+			width: 235px;/*设置content-bottom的ul中li段落文字宽度为235px*/
+			height:40px;/*设置content-bottom的ul中li段落文字高度为40px*/
+			bottom:0;/*设置content-bottom的ul中li段落文字定位在底端*/
+			padding: 0 6px;/*设置content-bottom的ul中li段落文字内边距*/
+			overflow:hidden;/*设置content-bottom的ul中li段落文字溢出部分被隐藏，内容不可见*/
+			white-space: nowrap;/*设置content-bottom的ul中li段落文字不换行，直到遇到<br>为止*/
+			text-overflow:ellipsis;/*设置显示省略号来代替被隐藏的文字*/
+			line-height:40px;/*设置content-bottom的ul中li段落文字行间距为40px*/
+			background:#fff;/*设置content-bottom的ul中li段落文字背景颜色为白色*/
+			opacity:.5;/*设置content-bottom的ul中li段落文字背景不透明度为50%*/
+			font-size: 12px;/*设置content-bottom的ul中li段落文字大小为12px*/
+}
+.footer{
+		height:70px;/*设置footer的高度为70px*/
+		width:100%;/*设置footer的宽度为100%即为全屏*/
+		filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#f42a28, endColorstr=#b90409);/*设置支持IE9以下的渐变*/
+		background:linear-gradient(#f42a28,#b90409);/*设置footer的背景为线性渐变*/
+		}
+.footer p{
+		line-height:28px;/*设置footer的p行间距为28px*/
+		font-size:12px;/*设置footer的p字体大小为12px*/
+		color:#fff;/*设置footer的p字体颜色为白色*/
+		text-align:center;/*设置footer的p水平对齐方式为居中*/
+		}
+

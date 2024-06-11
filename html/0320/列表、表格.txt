@@ -1,0 +1,24 @@
+有序列表（可以嵌套）  快捷键ol>li*数量
+<ol  type=”  ”>
+   <li>桌子</li>
+   <li>椅子</li>
+</ol >
+type属性
+1、a、A、i、I
+
+无序列表（可以嵌套）
+<ul type=”  ”></ul>  快捷键ul>li*数量
+type属性
+disc默认实心圆  circle 空心圆  square小方块  none不显示
+表格标签(快捷键 table>tr*数量>td*数量{内容}  )
+表格：<table></table>
+行： <tr></tr>
+单元格(列):<td></td>
+<table>
+   <tr><td></td></tr>
+</table>
+表格属性（form标签内）
+border 设置边框  width宽度   height 高度
+合并单元格(td标签内)
+水平合并：colspan  保留左边  删除右边
+垂直合并：rowspan 保留上边  删除下边

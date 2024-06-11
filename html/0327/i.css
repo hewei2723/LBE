@@ -1,0 +1,13 @@
+h1,p{
+    color: #310303;
+    text-align: center;
+    font-size: 16px;
+}
+.box{
+    background-image: url(low.webp);
+    background-size: cover;
+}
+.box1{
+    background-image: url(moon.png);
+    background-size: cover;
+}

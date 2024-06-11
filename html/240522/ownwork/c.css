@@ -1,0 +1,16 @@
+body{
+    background-color: #580000
+}
+.b{
+    margin-top: 0px;
+    background:url(images/dh.jpg) no-repeat;
+    height: 50px;
+    text-align: center;
+}
+.b ul li{
+    list-style: none;
+    display: inline;
+}
+.login{
+    
+}

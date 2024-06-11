@@ -1,0 +1,53 @@
+body {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    background-color: #f4f4f4;
+  }
+
+.top-nav{
+    background-color: rgb(252, 212, 199);
+    height: 40px;
+}
+header{
+    background-color: rgb(178, 182, 118);
+    height: 140px;
+    margin-bottom: 10px;
+}
+article{
+    width: 1190px;
+    margin: 0 auto;
+}
+section{
+    height: 480px;
+}
+.nav{
+    width: 190px;
+    background-color: cadetblue;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.banner .big{
+    width: 590px;
+    background-color: cornflowerblue;
+    height: 100%;
+}
+.banner .small span{
+    display: block;
+    width: 190px;
+    height: 152px;
+    background-color: darkseagreen;
+    margin-bottom: 12px;
+    margin-right: 10px;
+}
+.nav.fl{
+    margin-right: 10px;
+}
+.banner .big{
+    margin-right: 10px;
+
+}

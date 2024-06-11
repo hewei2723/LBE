@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>杨辉三角</title>
+<script>
+function Combination(m,n){
+	if(n==0) return 1;			//每行第一个数为1
+	else if(m==n) return 1;	//最后一个数为1
+	//其余都是上一行相邻元素相加而来
+	else return Combination(m-1,n-1)+Combination(m-1,n);
+}
+function Pascal(n){	//杨慧三角，n为行数
+	for(let i=0;i<n;i++){		//一共n行
+		for(let j=0;j<=i;j++)	//每行数字的个数即为行号，例如第一行1个数，第二行2个数
+			document.write(Combination(i,j)+"&nbsp;&nbsp;");
+		document.write("<br>");
+	}		
+}
+Pascal(10);		//直接传入希望得到的杨辉三角的行数
+</script>
+
+</head>
+<body>
+</body>
+</html>

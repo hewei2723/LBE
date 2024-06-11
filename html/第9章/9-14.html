@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>绝对定位实验-相对父元素</title>
+<style type="text/css">
+body{
+	margin:20px;
+	font-family:Arial;
+	font-size:12px;
+}
+#father{
+	background-color:#a0c8ff;
+	border:1px dashed #000000;
+	padding:15px;
+	position:relative;
+}
+#father div{
+	background-color:#fff0ac;
+	border:1px dashed #000000;
+	padding:10px;
+}
+#block2{
+	position:absolute;
+	top:30px;
+	right:30px;
+}
+</style>
+</head>
+<body>
+	<div id="father">
+		<div>Box-1</div>
+		<div id="block2">Box-2</div>
+		<div>Box-3</div>
+	</div>
+</body>
+</html>

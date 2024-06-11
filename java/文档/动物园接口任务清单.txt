@@ -1,0 +1,20 @@
+动物园项目
+
+1、创建bean
+1）Animal
+2)Bird
+3)Fish
+
+2、创建对bean进行操作的接口（放在Dao包中）
+接口名：AnimalDao
+接口中需要有以下抽象方法：
+ public abstract boolean addAnimal(Animal animal);
+ public abstract Animal[] getAllAnimal();
+
+3、创建接口的实现类，将实现类放在DaoImpl包中
+实现类名：AnimalDaoImpl
+1）实现类中需要实现接口中所有的抽象方法
+2）考虑是否需要定义属性
+
+4、创建应用层类Application，放在application包中
+在Application中调用AnimalDaoImpl中的各种方法实现对动物的操作。

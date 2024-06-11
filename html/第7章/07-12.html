@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>盒子模型的计算思考题</title>
+<style type="text/css">
+body{
+	margin:0 0 0 0;
+	font-family:宋体;
+}
+ul { 
+    background: #ddd; 
+    margin: 15px;
+    padding: 10px;
+	font-size:12px;
+	line-height:14px;
+}
+h1 { 
+    background: #ddd; 
+    margin: 15px;
+    padding: 10px;
+    height:30px;
+    font-size:25px;
+}
+p,li { 
+    color: black;                /* 黑色文本 */ 
+    background: #aaa;            /* 浅灰色背景 */
+    margin: 20px 20px 20px 20px; /* 左侧外边距为0，其余为20像素*/
+    padding: 10px 0px 10px 10px; /* 右侧内边距为0，其余10像素 */
+    list-style: none             /* 取消项目符号 */
+}
+.withborder {
+    border-style: dashed;
+    border-width: 5px;       	/* 设置边框为2像素 */
+    border-color: black;
+    margin-top:20px; 
+}
+</style>
+</head>
+  <body>
+   <h1>标准流中的盒子模型演示</h1>
+    <ul>
+      <li>第1个项目内容</li>      
+      <li class="withborder">第2个项目内容，第2个项目内容，第2个项目内容，第2个项目内容，第2个项目内容，第2个项目内容。</li>
+    </ul>
+  </body>
+</html>
+

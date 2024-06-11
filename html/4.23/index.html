@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>仿京东的逛好店模块</title>
+  <style>
+    ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body { 
+  background-color: #f4f4f4; 
+}
+.fl { 
+  float: left; 
+  width: 110px;
+}
+.fr { 
+  float: right;
+  width: 95px;
+  height: 95px;
+}
+/* 清除浮动 */
+.clearfix:after { 
+  visibility: hidden;
+  display: block;
+  content: " ";
+  clear: both;
+}
+.title {     
+  font-weight: 700px;
+  font-size: 24px;
+  color: #333;
+  height: 32px; 
+  padding: 0 10px;;
+}
+.wrap {
+  background: #fff;
+  width: 240px;
+  padding:10px;
+  box-shadow: 2px 2px 5px #999;
+  margin: 50px ;
+  
+}
+li {
+  padding: 10px;
+  margin-top: 10px;
+}
+li:first-of-type {
+  background: #db9dc2;
+}
+li:last-of-type {
+  background: #f1f5f9;
+}
+.item-title {
+  font-size: 12px;
+}
+.tag {
+  font-size: 12px;
+  text-align: center;
+  padding: 0 2px;
+  border: 1px solid #e2231a;
+  color: #e2231a;
+  display: inline-block;
+  margin: 5px 0 18px 0;
+}
+.attention {
+  color: #999;
+  font-size: 12px;
+}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="title">
+      <span>逛好店</span>
+    </div>
+    <ul>
+      <li class="clearfix">
+        <div class="info fl">
+          <div class="item-title">贝恩施京东自营官方旗舰店</div>
+          <span class="tag">自营</span>
+          <div class="attention">277.9万人关注</div>
+        </div>
+        <img class="cover fr" src="./images/1.jpg" alt="贝恩施京东自营官方旗舰店">
+      </li>
+      <li class="clearfix">
+        <div class="info fl">
+          <div class="item-title">美宝莲京东自营官方旗舰店</div>
+          <span class="tag">自营</span>
+          <div class="attention">192.9万人关注</div>
+        </div>
+        <img class="cover fr" src="./images/2.jpg" alt="美宝莲京东自营官方旗舰店">
+      </li>
+    </ul>
+  </div>
+</body>
+</html>
