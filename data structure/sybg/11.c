@@ -1,67 +1,68 @@
-#include <stdio.h>
-#include <string.h>
-#define MAX 50								//定义查找表的最大长度
-
-//定义结构体类型
-typedef struct	
-{ 
-	char no[5];								//学号
-	char name[10];							//姓名
-	int score;									//成绩
-}RecordType;
-typedef struct									//定义查找表的顺序存储结构
+# define MAX 128
+main()
 {
-	RecordType elem[MAX + 1];			
-	int length;								//查找表的长度
-}SeqList;
-
-//在顺序表L中折半查找关键字等于key的数据元素，若找到，返回值为该元素
-//在表中的位置，否则为0
-int BinSearch (SeqList L, char *key)
-{ 
-	int low, high, mid;
-	low = 1;
-	high = L.length;							//设置初始查找区间
-	while (low <= high)
-	{
-		mid = (low + high) / 2;					//求中间位置
-		if (strcmp (L.elem[mid].no, key) == 0)  
-			return mid;						//查找成功，返回该元素所在位置
-		else if (strcmp (L.elem[mid].no, key) > 0) 
-			high = mid - 1;						//查找区间为表的前半部分
-		else  low = mid + 1;					//查找区间为表的后半部分
-	}
-	return 0;									//查找不成功，返回0
+    int i,k,m,n,result;
+    int a[MAX];
+    printf("How many nodes in the array \n");
+    scanf("%d",&n);
+    printf("Please input the value of array element\n");
+    for(i=0;i<n;i++)
+        scanf("%d",&a[i]);
+    printf("The key word?");
+    scanf("%d",&k);
+    printf("Please Input Your Choice(1-2):");
+    scanf("%d",&m);
+    switch(m)
+    {
+        case 1:
+            printf("This is ShunXu Search!\n");
+	    result=shx(a,n,k);
+	    if(result>=0) 
+	    	printf("Found No.%d  elements of the array\n",result+1);
+	    else 
+	    	printf("Not found\n");
+	    break;
+        case 2:
+            printf("This is ErFen Search!\n");
+	    result=erfen(a,n,k);
+	    if(result>=0) 
+	    	printf("In the No. %d of the array\n",result+1);
+	    else 
+	    	printf("Not found\n");
+	    break;
+        default:
+            printf("1-------------------------ShunXu Search\n");
+	    printf("2-------------------------ErFen Search\n");
+	    return;
+    }
 }
 
-void main ()
+int  shx (array, n, k)
+	/*find the subscript of an element's which value is k in array[n]*/
+int  array[], n, k;
+{  
+    int  i;
+    array[n]=k;/*watch*/
+    i= 0;
+    while (array[i]!=k) i++;
+    if (i<n) return (i);
+    else return (-1);
+}
+
+int erfen(int array[],int n ,int key)
+ /*find key in array[] whose length is n,if it is found,then return its address,else return -1*/
 {
-	int N, i = 1, loc;
-	char key[5];
-	SeqList L;
-	printf ("请输入学生总数（1—%d）：", MAX);
-	scanf ("%d", &N);
-	L.length = N;
-	printf ("输入学生成绩表（按照学号递增有序）：\n");
-	printf ("输入第1个学生记录：");
-	scanf ("%s %s %d", &L.elem[i].no, &L.elem[i].name, &L.elem[i].score);
-	i ++;
-	while (i <= N)
-	{
-		printf ("输入第%d个学生记录：", i);
-		scanf ("%s %s %d", &L.elem[i].no, &L.elem[i].name, &L.elem[i].score);
-		if (strcmp (L.elem[i].no, L.elem[i - 1].no) > 0)	//使输入序列按学号递增有序
-			i ++;
-		else
-			printf ("你输入的记录不满足要求，请重新输入。\n");
-	}
-	printf ("输入要查找的学生的学号：");
-	scanf ("%s", key);
-	loc = BinSearch (L, key);
-	if (loc == 0)
-		printf ("未找到该学生的成绩！\n");
-	else
-	printf ("找到该学生的成绩，其学号为：%s，成绩为：%d\n", L.elem[loc].no, L.elem[loc].score);
-	printf ("程序运行结束。\n");
-	return;
+    int l, r,mid;
+    l=0; 
+    r=n-1;
+    while (l<=r)
+    {
+    	mid=(l+r)/2;
+   	if(key==array[mid])  
+   	    return mid;   /*it is found,return its address*/
+        else if(key<array[mid])   
+            r=mid-1;
+        else l=mid+1;
+    }
+    return -1;
 }

@@ -22,7 +22,7 @@ int main() {
 
     struct sockaddr_in server_addr;
     server_addr.sin_family = AF_INET;
-    server_addr.sin_addr.s_addr = inet_addr("192.168.1.100"); // 请替换为实际的服务器 IP 地址
+    server_addr.sin_addr.s_addr = inet_addr("192.168.1.100");
     server_addr.sin_port = htons(8888);
 
     if (connect(client_socket, (struct sockaddr *)&server_addr, sizeof(server_addr)) == SOCKET_ERROR) {
