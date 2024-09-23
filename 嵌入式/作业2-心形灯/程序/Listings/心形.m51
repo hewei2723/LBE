@@ -1,0 +1,108 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        09/24/2024  00:54:50  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\main.obj TO .\Objects\心形 PRINT (.\Listings\心形.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?ILDPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\心形 (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0010H     UNIT         ?DT?MAIN
+            DATA    0018H     0003H     UNIT         _DATA_GROUP_
+            IDATA   001BH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     008CH     UNIT         ?C_C51STARTUP
+            CODE    008FH     005DH     UNIT         ?PR?MAIN?MAIN
+            CODE    00ECH     002BH     UNIT         ?C?LIB_CODE
+            CODE    0117H     0013H     UNIT         ?C_INITSEG
+            CODE    012AH     000FH     UNIT         ?PR?_DELAY?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\心形 (MAIN)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN                  0018H    0003H
+  +--> ?PR?_DELAY?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\心形 (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/24/2024  00:54:50  PAGE 2
+
+
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:012EH         PUBLIC        _delay
+  C:008FH         PUBLIC        main
+  D:0008H         PUBLIC        led
+  C:012AH         SYMBOL        L?0010
+  -------         PROC          L?0009
+  -------         ENDPROC       L?0009
+  C:012AH         SYMBOL        L?0010
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        x
+  C:012EH         LINE#         3
+  C:012EH         LINE#         4
+  C:0138H         LINE#         5
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  -------         DO            
+  D:0018H         SYMBOL        l
+  -------         ENDDO         
+  C:008FH         LINE#         6
+  C:008FH         LINE#         8
+  C:0098H         LINE#         10
+  C:00A6H         LINE#         11
+  C:00B1H         LINE#         12
+  C:00B4H         LINE#         13
+  C:00BFH         LINE#         14
+  C:00C2H         LINE#         15
+  C:00CDH         LINE#         16
+  C:00D0H         LINE#         17
+  C:00DBH         LINE#         18
+  C:00DEH         LINE#         19
+  C:00E9H         LINE#         20
+  C:00EBH         LINE#         21
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        ?C?ILDPTR
+  C:00ECH         PUBLIC        ?C?ILDPTR
+  -------         ENDMOD        ?C?ILDPTR
+
+Program Size: data=28.0 xdata=0 code=313
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

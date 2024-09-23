@@ -1,0 +1,3 @@
+".\Objects\main.obj" 
+TO ".\Objects\心形" 
+PRINT(".\Listings\心形.m51")
