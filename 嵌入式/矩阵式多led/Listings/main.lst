@@ -1,4 +1,4 @@
-C51 COMPILER V9.54   MAIN                                                                  09/24/2024 22:00:20 PAGE 1   
+C51 COMPILER V9.54   MAIN                                                                  09/24/2024 23:20:13 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
@@ -8,33 +8,77 @@ COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE 
 
 line level    source
 
-   1          #include<reg51.h>
-   2          sbit x1=P0^0;
-   3          sbit x2=P0^1;
-   4          sbit x3=P0^2;
-   5          sbit x4=P0^3;
-   6          sbit x5=P0^4;
-   7          sbit x6=P0^5;
-   8          //Y
-   9          sbit y1=P2^0;
-  10          sbit y2=P2^1;
-  11          sbit y3=P2^2;
-  12          sbit y4=P2^3;
-  13          sbit y5=P2^4;
-  14          sbit y6=P2^5;
+   1          #include <reg51.h>
+   2          sbit x1 = P0^0;
+   3          sbit x2 = P0^1;
+   4          sbit x3 = P0^2;
+   5          sbit x4 = P0^3;
+   6          sbit x5 = P0^4;
+   7          sbit x6 = P0^5;
+   8          // Y
+   9          sbit y1 = P2^0;
+  10          sbit y2 = P2^1;
+  11          sbit y3 = P2^2;
+  12          sbit y4 = P2^3;
+  13          sbit y5 = P2^4;
+  14          sbit y6 = P2^5;
   15          
   16          void delay(unsigned int t)
   17          {
   18   1          while (t--);
   19   1      }
-  20          void main(){
-  21   1        x1=0;
-  22   1        y1=1;
-  23   1      }
+  20          //当y为高 x为低时，灯亮
+  21          void turn_on_led(int row, int col) {
+  22   1          x1 = x2 = x3 = x4 = x5 = x6 = 1;
+  23   1          y1 = y2 = y3 = y4 = y5 = y6 = 0;
+  24   1          switch(row) {
+  25   2              case 1: x1 = 0; break;
+  26   2              case 2: x2 = 0; break;
+  27   2              case 3: x3 = 0; break;
+  28   2              case 4: x4 = 0; break;
+  29   2              case 5: x5 = 0; break;
+  30   2              case 6: x6 = 0; break;
+  31   2          }
+  32   1          switch(col) {
+  33   2              case 1: y1 = 1; break;
+  34   2              case 2: y2 = 1; break;
+  35   2              case 3: y3 = 1; break;
+  36   2              case 4: y4 = 1; break;
+  37   2              case 5: y5 = 1; break;
+  38   2              case 6: y6 = 1; break;
+  39   2          }
+  40   1      }
+  41          //当x=y时不亮
+  42          void turn_off_led(int row, int col) {
+  43   1          switch(row) {
+  44   2              case 1: x1 = 1; break;
+  45   2              case 2: x2 = 1; break;
+  46   2              case 3: x3 = 1; break;
+  47   2              case 4: x4 = 1; break;
+  48   2              case 5: x5 = 1; break;
+  49   2              case 6: x6 = 1; break;
+  50   2          }
+  51   1          switch(col) {
+  52   2              case 1: y1 = 0; break;
+  53   2              case 2: y2 = 0; break;
+  54   2              case 3: y3 = 0; break;
+C51 COMPILER V9.54   MAIN                                                                  09/24/2024 23:20:13 PAGE 2   
+
+  55   2              case 4: y4 = 0; break;
+  56   2              case 5: y5 = 0; break;
+  57   2          }
+  58   1      }
+  59          void main() {
+  60   1          while (1) {
+  61   2              turn_on_led(1, 2);  // Turn on the LED at (x1, y1)
+  62   2              delay(1000);       // Wait for a while
+  63   2              turn_off_led(1, 2); // Turn off the LED at (x1, y1)
+  64   2          }
+  65   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =     16    ----
+   CODE SIZE        =    234    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
