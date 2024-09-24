@@ -13,7 +13,10 @@ sbit y3 = P2^2;
 sbit y4 = P2^3;
 sbit y5 = P2^4;
 sbit y6 = P2^5;
-
+//这里放字模
+//I x[1-6]y[6]
+//I x[3]y[1-6]
+//I x[1-6]y[1]
 void delay(unsigned int t)
 {
     while (t--);
