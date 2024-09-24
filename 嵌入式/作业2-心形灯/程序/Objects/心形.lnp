@@ -1,3 +1,4 @@
-".\Objects\main.obj" 
+".\Objects\main.obj",
+".\Objects\51two.obj" 
 TO ".\Objects\心形" 
 PRINT(".\Listings\心形.m51")
