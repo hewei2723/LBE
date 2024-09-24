@@ -1,4 +1,4 @@
-C51 COMPILER V9.54   MAIN                                                                  09/24/2024 00:54:50 PAGE 1   
+C51 COMPILER V9.54   MAIN                                                                  09/24/2024 14:11:29 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
@@ -9,37 +9,120 @@ COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE 
 line level    source
 
    1          #include <reg51.h>
-   2          int led[8] = {0Xfe, 0xfd, 0xfb, 0xf7, 0xef, 0xdf, 0xbf, 0x7f};
-   3          void delay(unsigned int x){
-   4   1        while(x--);
-   5   1      }
-   6          void main() {
-   7   1          int *l;
-   8   1          l = &led[0];
-   9   1          
-  10   1          while (l < &led[8]) { 
-  11   2              P0 = *l;
-  12   2                  delay(5000);
-  13   2              P1=*l;
-  14   2                  delay(5000);
-  15   2            P2=*l;
-  16   2                  delay(5000);
-  17   2            P3=*l;
-  18   2            delay(5000);
-  19   2              l++;
-  20   2          }
-  21   1      }
+   2          int led1[9] = {0Xfe, 0xfd, 0xfb, 0xf7, 0xef, 0xdf, 0xbf, 0x7f,0xff};
+   3          int led2[8] = {0Xfc, 0xf9, 0xf3, 0xe7, 0xcf, 0x9f, 0x3f,0xff};
+   4          int i, j;
+   5          void delay(unsigned int x)
+   6          {
+   7   1        while (x--)
+   8   1          ;
+   9   1      }
+  10          one()
+  11          {
+  12   1        for (i = 0; i <= 3; i++)
+  13   1        {
+  14   2          switch (i)
+  15   2          {
+  16   3          case 0:
+  17   3            for (j = 0; j < 8; j++)
+  18   3            {
+  19   4              P0=led1[j];
+  20   4              delay(5000);
+  21   4              P0=led1[8];
+  22   4            }
+  23   3            P0=led1[8];
+  24   3            break;
+  25   3          case 1:
+  26   3            for (j = 0; j < 8; j++)
+  27   3            {
+  28   4              P1=led1[j];
+  29   4              delay(5000);
+  30   4              P1=led1[8];
+  31   4            }
+  32   3            break;
+  33   3          case 2:
+  34   3            for (j = 0; j < 8; j++)
+  35   3            {
+  36   4                P2=led1[j];
+  37   4              delay(5000);
+  38   4              P2=led1[8];
+  39   4            }
+  40   3            break;
+  41   3          case 3:
+  42   3            for (j = 0; j < 8; j++)
+  43   3            {
+  44   4                P3=led1[j];
+  45   4              delay(5000);
+  46   4              P3=led1[8];
+  47   4            }
+  48   3            break;
+  49   3          }
+  50   2        }
+  51   1      }
+  52          two(){
+  53   1        for (i = 0; i <= 3; i++)
+  54   1        {
+C51 COMPILER V9.54   MAIN                                                                  09/24/2024 14:11:29 PAGE 2   
+
+  55   2          switch (i)
+  56   2          {
+  57   3          case 0:
+  58   3            for (j = 0; j < 8; j++)
+  59   3            {
+  60   4              P0=led2[j];
+  61   4              delay(5000);
+  62   4              P0=led2[7];
+  63   4            }
+  64   3            P0=led2[7];
+  65   3            break;
+  66   3          case 1:
+  67   3            for (j = 0; j < 7; j++)
+  68   3            {
+  69   4              P1=led2[j];
+  70   4              delay(5000);
+  71   4              P1=led2[7];
+  72   4            }
+  73   3            P1=led2[7];
+  74   3            break;
+  75   3          case 2:
+  76   3            for (j = 0; j < 7; j++)
+  77   3            {
+  78   4                P2=led2[j];
+  79   4              delay(5000);
+  80   4              P2=led2[7];
+  81   4            }
+  82   3            P2=led2[7];
+  83   3            break;
+  84   3          case 3:
+  85   3            for (j = 0; j < 7; j++)
+  86   3            {
+  87   4                P3=led2[j];
+  88   4              delay(5000);
+  89   4              P3=led2[7];
+  90   4            }
+  91   3            P3=led2[7];
+  92   3            break;
+  93   3          }
+  94   2        }
+  95   1      }
+  96          void main()
+  97            {
+  98   1          one();
+  99   1          two();
+ 100   1        }
+*** WARNING C290 IN LINE 51 OF main.c: missing return value
+*** WARNING C290 IN LINE 95 OF main.c: missing return value
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    108    ----
+   CODE SIZE        =    485    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =     16       3
+   DATA SIZE        =     38    ----
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.
 
 
-C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
+C51 COMPILATION COMPLETE.  2 WARNING(S),  0 ERROR(S)
