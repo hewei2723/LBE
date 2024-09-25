@@ -48,8 +48,6 @@ void delay(unsigned int t)
 }
 //当y为高 x为低时，灯亮
 void turn_on_led(int row, int col) {
-    int x1 = x2 = x3 = x4 = x5 = x6 = 1;
-    int y1 = y2 = y3 = y4 = y5 = y6 = 0;
     switch(row) {
         case 1: x1 = 0; break;
         case 2: x2 = 0; break;
@@ -86,14 +84,20 @@ void turn_off_led(int row, int col) {
     }
 }
 void main() {
-	int i;
-    while (1) {
-        I();
-        for ( i = 0; i <18; i++)
-        {
-             turn_on_led(result[i][0], result[i][1]);
-        }
+// 	int i;
+//   int x1 = x2 = x3 = x4 = x5 = x6 = 1;
+//   int y1 = y2 = y3 = y4 = y5 = y6 = 0;
+//     while (1) {
+//         I();
+//         for ( i = 0; i <18; i++)
+//         {
+//              turn_on_led(result[i][0], result[i][1]);
+//              delay(1000);
+//         }
         
        
-    }
+//     }
+// int y1=y6=1;
+// int x3=x4=0;
+int x1=x2=x3=x4=x5=x6=0;
 }
