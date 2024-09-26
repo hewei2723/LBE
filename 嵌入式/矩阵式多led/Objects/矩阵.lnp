@@ -1,4 +1,3 @@
-".\Objects\STARTUP.obj",
 ".\Objects\main.obj" 
 TO ".\Objects\æÿ’Û" 
 PRINT(".\Listings\æÿ’Û.m51")

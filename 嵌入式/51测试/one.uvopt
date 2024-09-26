@@ -26,7 +26,7 @@
     <ToolsetNumber>0x0</ToolsetNumber>
     <ToolsetName>MCS-51</ToolsetName>
     <TargetOption>
-      <CLK51>44000000</CLK51>
+      <CLK51>24000000</CLK51>
       <OPTTT>
         <gFlags>1</gFlags>
         <BeepAtEnd>1</BeepAtEnd>
@@ -81,23 +81,13 @@
       <Books>
         <Book>
           <Number>0</Number>
-          <Title>Architectural Overview</Title>
-          <Path>DATASHTS\ATMEL\C51_AO.PDF</Path>
+          <Title>Data Sheet</Title>
+          <Path>DATASHTS\ATMEL\AT89C51_DS.PDF</Path>
         </Book>
         <Book>
           <Number>1</Number>
-          <Title>Data Sheet</Title>
-          <Path>DATASHTS\ATMEL\TSC80C51.PDF</Path>
-        </Book>
-        <Book>
-          <Number>2</Number>
-          <Title>Hardware Description</Title>
-          <Path>DATASHTS\ATMEL\C51_HD.PDF</Path>
-        </Book>
-        <Book>
-          <Number>3</Number>
-          <Title>Programmer's Guide</Title>
-          <Path>DATASHTS\ATMEL\C51_PG.PDF</Path>
+          <Title>Instruction Set Manual</Title>
+          <Path>DATASHTS\ATMEL\AT_C51ISM.PDF</Path>
         </Book>
       </Books>
       <DebugOpt>
@@ -180,6 +170,19 @@
     <File>
       <GroupNumber>1</GroupNumber>
       <FileNumber>1</FileNumber>
+      <FileType>2</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\STARTUP.A51</PathWithFileName>
+      <FilenameWithoutPath>STARTUP.A51</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>1</GroupNumber>
+      <FileNumber>2</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>

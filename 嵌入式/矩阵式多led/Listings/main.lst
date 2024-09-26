@@ -1,4 +1,4 @@
-C51 COMPILER V9.54   MAIN                                                                  09/25/2024 10:08:28 PAGE 1   
+C51 COMPILER V9.54   MAIN                                                                  09/26/2024 21:09:22 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
@@ -8,123 +8,38 @@ COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE 
 
 line level    source
 
-   1          
-   2          #include <reg51.h>
-   3          sbit x1 = P0^0;
-   4          sbit x2 = P0^1;
-   5          sbit x3 = P0^2;
-   6          sbit x4 = P0^3;
-   7          sbit x5 = P0^4;
-   8          sbit x6 = P0^5;
-   9          // Y
-  10          sbit y1 = P2^0;
-  11          sbit y2 = P2^1;
-  12          sbit y3 = P2^2;
-  13          sbit y4 = P2^3;
-  14          sbit y5 = P2^4;
-  15          sbit y6 = P2^5;
-  16          int result[18][2];  // 6对 + 6对 + 6对，总共18个(x, y)对
-  17          //这里放字模
-  18          //I x[1-6]y[6]
-  19          //I x[3]y[1-6]
-  20          //I x[1-6]y[1]
-  21          int I() {
-  22   1          int x,y;
-  23   1          // 定义数组存储符合条件的(x, y)对
-  24   1          int index = 0;
-  25   1          // I x[1-6] y[6]
-  26   1          for ( x = 1; x <= 6; x++) {
-  27   2              result[index][0] = x;
-  28   2              result[index][1] = 6;
-  29   2              index++;
-  30   2          }
-  31   1          // I x[3] y[1-6]
-  32   1          for ( y = 1; y <= 6; y++) {
-  33   2              result[index][0] = 3;
-  34   2              result[index][1] = y;
-  35   2              index++;
-  36   2          }
-  37   1          // I x[1-6] y[1]
-  38   1          for ( x = 1; x <= 6; x++) {
-  39   2              result[index][0] = x;
-  40   2              result[index][1] = 1;
-  41   2              index++;
-  42   2          }
-  43   1      }
-  44          
-  45          void delay(unsigned int t)
-  46          {
-  47   1          while (t--);
-  48   1      }
-  49          //当y为高 x为低时，灯亮
-  50          void turn_on_led(int row, int col) {
-  51   1          switch(row) {
-  52   2              case 1: x1 = 0; break;
-  53   2              case 2: x2 = 0; break;
-  54   2              case 3: x3 = 0; break;
-C51 COMPILER V9.54   MAIN                                                                  09/25/2024 10:08:28 PAGE 2   
-
-  55   2              case 4: x4 = 0; break;
-  56   2              case 5: x5 = 0; break;
-  57   2              case 6: x6 = 0; break;
-  58   2          }
-  59   1          switch(col) {
-  60   2              case 1: y1 = 1; break;
-  61   2              case 2: y2 = 1; break;
-  62   2              case 3: y3 = 1; break;
-  63   2              case 4: y4 = 1; break;
-  64   2              case 5: y5 = 1; break;
-  65   2              case 6: y6 = 1; break;
-  66   2          }
-  67   1      }
-  68          //当x=y时不亮
-  69          void turn_off_led(int row, int col) {
-  70   1          switch(row) {
-  71   2              case 1: x1 = 1; break;
-  72   2              case 2: x2 = 1; break;
-  73   2              case 3: x3 = 1; break;
-  74   2              case 4: x4 = 1; break;
-  75   2              case 5: x5 = 1; break;
-  76   2              case 6: x6 = 1; break;
-  77   2          }
-  78   1          switch(col) {
-  79   2              case 1: y1 = 0; break;
-  80   2              case 2: y2 = 0; break;
-  81   2              case 3: y3 = 0; break;
-  82   2              case 4: y4 = 0; break;
-  83   2              case 5: y5 = 0; break;
-  84   2          }
-  85   1      }
-  86          void main() {
-  87   1      //  int i;
-  88   1      //   int x1 = x2 = x3 = x4 = x5 = x6 = 1;
-  89   1      //   int y1 = y2 = y3 = y4 = y5 = y6 = 0;
-  90   1      //     while (1) {
-  91   1      //         I();
-  92   1      //         for ( i = 0; i <18; i++)
-  93   1      //         {
-  94   1      //              turn_on_led(result[i][0], result[i][1]);
-  95   1      //              delay(1000);
-  96   1      //         }
-  97   1              
-  98   1             
-  99   1      //     }
- 100   1      // int y1=y6=1;
- 101   1      // int x3=x4=0;
- 102   1      int x1=x2=x3=x4=x5=x6=0;
- 103   1      }
-*** WARNING C290 IN LINE 43 OF main.c: missing return value
+   1          #include <reg51.h>
+   2          sbit x1 = P0^0;
+   3          sbit x2 = P0^1;
+   4          sbit x3 = P0^2;
+   5          sbit x4 = P0^3;
+   6          sbit x5 = P0^4;
+   7          sbit x6 = P0^5;
+   8          // Y
+   9          sbit y1 = P2^0;
+  10          sbit y2 = P2^1;
+  11          sbit y3 = P2^2;
+  12          sbit y4 = P2^3;
+  13          sbit y5 = P2^4;
+  14          sbit y6 = P2^5;
+  15          void delay(x){}
+  16          void main(){
+  17   1        y1=y2=y3=y4=y5=y6=0;
+  18   1        x1=x2=x3=x4=x5=x6=1;
+  19   1        y1=1;
+  20   1        x1=0;
+  21   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    338    ----
+   CODE SIZE        =     34    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =     72       2
+   DATA SIZE        =   ----       2
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.
 
 
-C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
