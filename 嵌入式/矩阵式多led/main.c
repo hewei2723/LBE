@@ -11,6 +11,6 @@ void main() {
     //     P2=x[i];
     //     P0=y[i];
     //     }
-	P2=0XFE;
-	P0=0XFF;
+	P2=0X00;
+	P0=0X40;
 }
