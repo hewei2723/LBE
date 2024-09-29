@@ -48,15 +48,16 @@ one()
 			break;
 		}
 	}
+	P0=P1=P2=P3=0X00;
 }
 two()
 {
-	for (i = 0; i <= 3; i++)
+	for (i = 3; i >= 0; i--)
 	{
 		switch (i)
 		{
 		case 0:
-			for (j = 0; j < 8; j++)
+			for (j = 8; j >0; j--)
 			{
 				P0 = led2[j];
 				delay(5000);
@@ -65,7 +66,7 @@ two()
 			P0 = led2[7];
 			break;
 		case 1:
-			for (j = 0; j < 7; j++)
+			for (j = 7; j >0; j--)
 			{
 				P1 = led2[j];
 				delay(5000);
@@ -74,7 +75,7 @@ two()
 			P1 = led2[7];
 			break;
 		case 2:
-			for (j = 0; j < 7; j++)
+			for (j = 7; j >0; j--)
 			{
 				P2 = led2[j];
 				delay(5000);
@@ -83,7 +84,7 @@ two()
 			P2 = led2[7];
 			break;
 		case 3:
-			for (j = 0; j < 7; j++)
+			for (j = 7; j >0; j--)
 			{
 				P3 = led2[j];
 				delay(5000);

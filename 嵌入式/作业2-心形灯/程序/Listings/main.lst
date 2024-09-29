@@ -1,4 +1,4 @@
-C51 COMPILER V9.54   MAIN                                                                  09/24/2024 21:48:28 PAGE 1   
+C51 COMPILER V9.54   MAIN                                                                  09/28/2024 14:45:10 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
@@ -58,65 +58,66 @@ line level    source
   48   3            break;
   49   3          }
   50   2        }
-  51   1      }
-  52          two()
-  53          {
-  54   1        for (i = 0; i <= 3; i++)
-C51 COMPILER V9.54   MAIN                                                                  09/24/2024 21:48:28 PAGE 2   
+  51   1        P0=P1=P2=P3=0X00;
+  52   1      }
+  53          two()
+  54          {
+C51 COMPILER V9.54   MAIN                                                                  09/28/2024 14:45:10 PAGE 2   
 
-  55   1        {
-  56   2          switch (i)
-  57   2          {
-  58   3          case 0:
-  59   3            for (j = 0; j < 8; j++)
-  60   3            {
-  61   4              P0 = led2[j];
-  62   4              delay(5000);
-  63   4              P0 = led2[7];
-  64   4            }
-  65   3            P0 = led2[7];
-  66   3            break;
-  67   3          case 1:
-  68   3            for (j = 0; j < 7; j++)
-  69   3            {
-  70   4              P1 = led2[j];
-  71   4              delay(5000);
-  72   4              P1 = led2[7];
-  73   4            }
-  74   3            P1 = led2[7];
-  75   3            break;
-  76   3          case 2:
-  77   3            for (j = 0; j < 7; j++)
-  78   3            {
-  79   4              P2 = led2[j];
-  80   4              delay(5000);
-  81   4              P2 = led2[7];
-  82   4            }
-  83   3            P2 = led2[7];
-  84   3            break;
-  85   3          case 3:
-  86   3            for (j = 0; j < 7; j++)
-  87   3            {
-  88   4              P3 = led2[j];
-  89   4              delay(5000);
-  90   4              P3 = led2[7];
-  91   4            }
-  92   3            P3 = led2[7];
-  93   3            break;
-  94   3          }
-  95   2        }
-  96   1      }
-  97          void main()
-  98          {
-  99   1        one();
- 100   1        two();
- 101   1      }
-*** WARNING C290 IN LINE 51 OF main.c: missing return value
-*** WARNING C290 IN LINE 96 OF main.c: missing return value
+  55   1        for (i = 3; i >= 0; i--)
+  56   1        {
+  57   2          switch (i)
+  58   2          {
+  59   3          case 0:
+  60   3            for (j = 8; j >0; j--)
+  61   3            {
+  62   4              P0 = led2[j];
+  63   4              delay(5000);
+  64   4              P0 = led2[7];
+  65   4            }
+  66   3            P0 = led2[7];
+  67   3            break;
+  68   3          case 1:
+  69   3            for (j = 7; j >0; j--)
+  70   3            {
+  71   4              P1 = led2[j];
+  72   4              delay(5000);
+  73   4              P1 = led2[7];
+  74   4            }
+  75   3            P1 = led2[7];
+  76   3            break;
+  77   3          case 2:
+  78   3            for (j = 7; j >0; j--)
+  79   3            {
+  80   4              P2 = led2[j];
+  81   4              delay(5000);
+  82   4              P2 = led2[7];
+  83   4            }
+  84   3            P2 = led2[7];
+  85   3            break;
+  86   3          case 3:
+  87   3            for (j = 7; j >0; j--)
+  88   3            {
+  89   4              P3 = led2[j];
+  90   4              delay(5000);
+  91   4              P3 = led2[7];
+  92   4            }
+  93   3            P3 = led2[7];
+  94   3            break;
+  95   3          }
+  96   2        }
+  97   1      }
+  98          void main()
+  99          {
+ 100   1        one();
+ 101   1        two();
+ 102   1      }
+*** WARNING C290 IN LINE 52 OF main.c: missing return value
+*** WARNING C290 IN LINE 97 OF main.c: missing return value
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    485    ----
+   CODE SIZE        =    505    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 C51 COMPILER V9.54   MAIN                                                                  09/29/2024 13:24:13 PAGE 1   
+=======
+C51 COMPILER V9.54   MAIN                                                                  09/28/2024 11:56:15 PAGE 1   
+>>>>>>> 917c97c6b69099133a40d6b5d96c0c495851dee0
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
@@ -21,8 +25,8 @@ line level    source
   11   1          //     P2=x[i];
   12   1          //     P0=y[i];
   13   1          //     }
-  14   1        P2=0XFE;
-  15   1        P0=0XFF;
+  14   1        P2=0X00;
+  15   1        P0=0X40;
   16   1      }
 *** WARNING C280 IN LINE 8 OF main.c: 'i': unreferenced local variable
 
