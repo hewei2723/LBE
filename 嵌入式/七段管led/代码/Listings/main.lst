@@ -1,4 +1,4 @@
-C51 COMPILER V9.54   MAIN                                                                  09/29/2024 14:00:49 PAGE 1   
+C51 COMPILER V9.54   MAIN                                                                  10/01/2024 13:29:23 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
@@ -9,39 +9,42 @@ COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE 
 line level    source
 
    1          #include <reg51.h>
-   2          int gnd[] = {0xc0, 0xf9, 0xa4, 0xb0, 0x99, 0x92, 0x82,0xf8, 0x80, 0x90};
-   3          sbit SEG1 = P0;
-   4          sbit SEG2 = P2;
-   5          sbit SEG3 = P3;
-   6          sbit SEG4 = P1;
-   7          void delay(unsigned int x) {
-   8   1          while (x--);
-   9   1      }
-  10          void dis(unsigned int num) {
-  11   1          int unit, ten, hundred, thousand;
-  12   1          thousand = num / 1000;
-  13   1          hundred = (num % 1000) / 100;
-  14   1          ten = (num % 100) / 10;
-  15   1          unit = num % 10;
-  16   1          SEG1 = gnd[thousand];
-  17   1          delay(50000);
-  18   1      }
-  19          void main() {
-  20   1          unsigned int i;
-  21   1          dis(1);
-  22   1      }
-*** WARNING C280 IN LINE 20 OF main.c: 'i': unreferenced local variable
+   2          int gnd[] = {0xc0, 0xf9, 0xa4, 0xb0, 0x99, 0x92, 0x82, 0xf8, 0x80, 0x90};
+   3          void delay(unsigned int x)
+   4          {
+   5   1          while (x--);
+   6   1      }
+   7          void show(unsigned int num)
+   8          {
+   9   1          int a, b, c, d;
+  10   1          d = num / 1000;
+  11   1          c = (num % 1000) / 100;
+  12   1          b = (num % 100) / 10;
+  13   1          a = num % 10;
+  14   1          P0 = gnd[d];
+  15   1          P2 = gnd[c];
+  16   1          P3 = gnd[b];
+  17   1          P1 = gnd[a];
+  18   1          delay(50000);
+  19   1      }
+  20          void main()
+  21          {
+  22   1          unsigned int i;
+  23   1          for (i = 0; i <= 9999; i++){
+  24   2              show(i);
+  25   2          }
+  26   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    126    ----
+   CODE SIZE        =    174    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =     20       8
+   DATA SIZE        =     20       6
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.
 
 
-C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

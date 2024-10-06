@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        09/29/2024  14:00:49  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        10/01/2024  13:29:23  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
@@ -24,17 +24,17 @@ LINK MAP OF MODULE:  .\Objects\seven (?C_STARTUP)
             * * * * * * *   D A T A   M E M O R Y   * * * * * * *
             REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
             DATA    0008H     0014H     UNIT         ?DT?MAIN
-            DATA    001CH     0008H     UNIT         _DATA_GROUP_
-            IDATA   0024H     0001H     UNIT         ?STACK
+            DATA    001CH     0006H     UNIT         _DATA_GROUP_
+            IDATA   0022H     0001H     UNIT         ?STACK
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
             CODE    0003H     008CH     UNIT         ?C_C51STARTUP
-            CODE    008FH     006CH     UNIT         ?PR?_DIS?MAIN
-            CODE    00FBH     0055H     UNIT         ?C?LIB_CODE
-            CODE    0150H     0017H     UNIT         ?C_INITSEG
-            CODE    0167H     000BH     UNIT         ?PR?_DELAY?MAIN
-            CODE    0172H     0007H     UNIT         ?PR?MAIN?MAIN
+            CODE    008FH     0085H     UNIT         ?PR?_SHOW?MAIN
+            CODE    0114H     0055H     UNIT         ?C?LIB_CODE
+            CODE    0169H     001EH     UNIT         ?PR?MAIN?MAIN
+            CODE    0187H     0017H     UNIT         ?C_INITSEG
+            CODE    019EH     000BH     UNIT         ?PR?_DELAY?MAIN
 
 
 
@@ -49,9 +49,9 @@ SEGMENT                          DATA_GROUP
   +--> ?C_INITSEG
 
 ?PR?MAIN?MAIN                  001CH    0002H
-  +--> ?PR?_DIS?MAIN
+  +--> ?PR?_SHOW?MAIN
 
-?PR?_DIS?MAIN                  001EH    0006H
+?PR?_SHOW?MAIN                 001EH    0004H
   +--> ?PR?_DELAY?MAIN
 
 
@@ -59,14 +59,14 @@ SEGMENT                          DATA_GROUP
 SYMBOL TABLE OF MODULE:  .\Objects\seven (?C_STARTUP)
 
   VALUE           TYPE          NAME
-BL51 BANKED LINKER/LOCATER V6.22                                                      09/29/2024  14:00:49  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/01/2024  13:29:23  PAGE 2
 
 
   ----------------------------------
 
   -------         MODULE        ?C_STARTUP
   C:0003H         SEGMENT       ?C_C51STARTUP
-  I:0024H         SEGMENT       ?STACK
+  I:0022H         SEGMENT       ?STACK
   C:0000H         PUBLIC        ?C_STARTUP
   D:00E0H         SYMBOL        ACC
   D:00F0H         SYMBOL        B
@@ -104,48 +104,56 @@ SYMBOL TABLE OF MODULE:  .\Objects\seven (?C_STARTUP)
   D:0090H         PUBLIC        P1
   D:00A0H         PUBLIC        P2
   D:00B0H         PUBLIC        P3
-  B:0080H.0       PUBLIC        SEG1
-  C:0167H         PUBLIC        _delay
-  C:0172H         PUBLIC        main
+  C:019EH         PUBLIC        _delay
+  C:0169H         PUBLIC        main
   D:0008H         PUBLIC        gnd
-  C:008FH         PUBLIC        _dis
+  C:008FH         PUBLIC        _show
   -------         PROC          _DELAY
   D:0006H         SYMBOL        x
-  C:0167H         LINE#         7
-  C:0167H         LINE#         8
-  C:0171H         LINE#         9
+  C:019EH         LINE#         3
+  C:019EH         LINE#         4
+  C:019EH         LINE#         5
+  C:01A8H         LINE#         6
   -------         ENDPROC       _DELAY
-  -------         PROC          _DIS
+  -------         PROC          _SHOW
   D:0002H         SYMBOL        num
   -------         DO            
-  D:001EH         SYMBOL        unit
-BL51 BANKED LINKER/LOCATER V6.22                                                      09/29/2024  14:00:49  PAGE 3
+  D:0004H         SYMBOL        a
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/01/2024  13:29:23  PAGE 3
 
 
-  D:0020H         SYMBOL        ten
-  D:0022H         SYMBOL        hundred
-  D:0082H         SYMBOL        thousand
+  D:0082H         SYMBOL        b
+  D:001EH         SYMBOL        c
+  D:0020H         SYMBOL        d
   -------         ENDDO         
-  C:008FH         LINE#         10
-  C:0093H         LINE#         12
-  C:009CH         LINE#         13
-  C:00B8H         LINE#         14
-  C:00D4H         LINE#         15
-  C:00E3H         LINE#         16
-  C:00F4H         LINE#         17
-  -------         ENDPROC       _DIS
+  C:008FH         LINE#         7
+  C:0093H         LINE#         8
+  C:0093H         LINE#         10
+  C:009EH         LINE#         11
+  C:00BAH         LINE#         12
+  C:00D4H         LINE#         13
+  C:00DFH         LINE#         14
+  C:00EAH         LINE#         15
+  C:00F5H         LINE#         16
+  C:0101H         LINE#         17
+  C:010DH         LINE#         18
+  -------         ENDPROC       _SHOW
   -------         PROC          MAIN
   -------         DO            
   D:001CH         SYMBOL        i
   -------         ENDDO         
-  C:0172H         LINE#         19
-  C:0172H         LINE#         21
+  C:0169H         LINE#         20
+  C:0169H         LINE#         21
+  C:0169H         LINE#         23
+  C:016EH         LINE#         24
+  C:0175H         LINE#         25
+  C:0186H         LINE#         26
   -------         ENDPROC       MAIN
   -------         ENDMOD        MAIN
 
   -------         MODULE        ?C?UIDIV
-  C:00FBH         PUBLIC        ?C?UIDIV
+  C:0114H         PUBLIC        ?C?UIDIV
   -------         ENDMOD        ?C?UIDIV
 
-Program Size: data=37.0 xdata=0 code=377
+Program Size: data=35.0 xdata=0 code=425
 LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
