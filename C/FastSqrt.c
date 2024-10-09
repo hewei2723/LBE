@@ -18,7 +18,7 @@ float Q_rsqrt( float number )
 	return y;
 }
 int main(){
-    float x = 1.0;
+    float x = 9;
     printf("%f\n",Q_rsqrt(x));
     return 0;
 }
