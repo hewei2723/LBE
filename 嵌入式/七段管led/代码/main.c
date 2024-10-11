@@ -15,7 +15,7 @@ void show(unsigned int num)
     P2 = gnd[c];
     P3 = gnd[b];
     P1 = gnd[a];
-    delay(50000);
+    delay(5000);
 }
 void main()
 {
