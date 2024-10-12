@@ -1,0 +1,30 @@
+C51 COMPILER V9.01   KEY                                                                   10/11/2024 09:35:57 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE KEY
+OBJECT MODULE PLACED IN key.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE key.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include "reg51.h"
+   2          sbit key = P0^7;
+   3          sbit led= P0^0;
+   4          void delay(unsigned int t){
+   5   1          while (x--);
+*** ERROR C202 IN LINE 5 OF KEY.C: 'x': undefined identifier
+   6   1      }
+   7          int main(void){
+   8   1          if key == 0{
+*** ERROR C141 IN LINE 8 OF KEY.C: syntax error near 'key', expected '('
+*** ERROR C141 IN LINE 8 OF KEY.C: syntax error near '{'
+   9   2              delay(200);
+  10   2              while (key==0)
+  11   2              {              
+  12   3              led = 0;
+  13   3              }
+  14   2      
+  15   2          }
+  16   1      }
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  3 ERROR(S)

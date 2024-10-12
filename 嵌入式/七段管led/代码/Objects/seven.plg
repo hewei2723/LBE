@@ -1,0 +1,16 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\Administrator\Desktop\lbe\嵌入式\七段管led\代码\seven.uvproj
+Project File Date:  10/11/2024
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling main.c...
+linking...
+Program Size: data=35.0 xdata=0 code=425
+creating hex file from ".\Objects\seven"...
+".\Objects\seven" - 0 Error(s), 0 Warning(s).
