@@ -1,5 +1,9 @@
 #include <reg51.h>
 int gnd[] = {0xc0, 0xf9, 0xa4, 0xb0, 0x99, 0x92, 0x82, 0xf8, 0x80, 0x90};
+sbit key4=P0^7;
+sbit key3=P2^7;
+sbit key3=P3^7;
+sbit key3=P1^7;
 void delay(unsigned int x)
 {
     while (x--);
