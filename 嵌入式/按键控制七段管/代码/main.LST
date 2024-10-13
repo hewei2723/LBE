@@ -1,0 +1,82 @@
+C51 COMPILER V9.01   MAIN                                                                  10/13/2024 20:11:57 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <reg51.h>
+   2          int gnd[] = {0xc0, 0xf9, 0xa4, 0xb0, 0x99, 0x92, 0x82, 0xf8, 0x80, 0x90};
+   3          sbit key4 = P0 ^ 7;
+   4          sbit key3 = P2 ^ 7;
+   5          sbit key2 = P3 ^ 7;
+   6          sbit key1 = P1 ^ 7;
+   7          void delay(unsigned int x)
+   8          {
+   9   1          while (x--)
+  10   1              ;
+  11   1      }
+  12          void show(unsigned int num)
+  13          {
+  14   1          int a, b, c, d;
+  15   1          d = num / 1000;
+  16   1          c = (num % 1000) / 100;
+  17   1          b = (num % 100) / 10;
+  18   1          a = num % 10;
+  19   1          P0 = gnd[d];
+  20   1          P2 = gnd[c];
+  21   1          P3 = gnd[b];
+  22   1          P1 = gnd[a];
+  23   1          delay(5000);
+  24   1      }
+  25          void main()
+  26          {
+  27   1          int i = 611;
+  28   1          while (1)
+  29   1          {
+  30   2              show(i);
+  31   2              if (key1 == 0)
+  32   2              {
+  33   3                  delay(13000);
+  34   3                  while (key1 == 0)
+  35   3                  {
+  36   4                      show(i = i + 1);
+  37   4                  }
+  38   3              }
+  39   2               if (key2 == 0)
+  40   2              {
+  41   3                  delay(14000);
+  42   3                  while (key2 == 0)
+  43   3                  {
+  44   4                      show(i = i + 10);
+  45   4                  }
+  46   3              }
+  47   2                      if (key3 == 0)
+  48   2              {
+  49   3                  delay(14000);
+  50   3                  while (key3 == 0)
+  51   3                  {
+  52   4                              while(i<779){
+  53   5                              show(i++);}
+  54   4                              }
+  55   3                  }
+C51 COMPILER V9.01   MAIN                                                                  10/13/2024 20:11:57 PAGE 2   
+
+  56   2              }
+  57   1          }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    260    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     20       6
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
