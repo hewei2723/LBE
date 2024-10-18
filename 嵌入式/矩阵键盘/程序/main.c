@@ -26,12 +26,12 @@ void show(unsigned int num)
 		delay(200);
 		seg1 = 0;
 		P2 = 0Xff;
-		seg2 = 1; // ��λ
+		seg2 = 1;
 		P1 = seg[c];
+		delay(200);
 		seg2 = 0;
 		P2 = 0Xff;
-		delay(200);
-	} // ʮλ
+	} 
 	delay(5000);
 }
 int main()
