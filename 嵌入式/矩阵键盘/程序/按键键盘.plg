@@ -1,0 +1,17 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\Administrator\Desktop\lbe\Ç¶ÈëÊ½\¾ØÕó¼üÅÌ\³ÌĞò\°´¼ü¼üÅÌ.uvproj
+Project File Date:  10/18/2024
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling main.c...
+MAIN.C(12): warning C290: missing return value
+linking...
+Program Size: data=51.0 xdata=0 code=561
+creating hex file from "°´¼ü¼üÅÌ"...
+"°´¼ü¼üÅÌ" - 0 Error(s), 1 Warning(s).
