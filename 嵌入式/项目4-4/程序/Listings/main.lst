@@ -1,0 +1,76 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              10/18/2024 09:02:41 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: D:\keil\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main.ls
+                    -t) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          unsigned char KEY_num, seven_seg[] = {0xc0, 0xf9, 0xa4, 0xb0, 0x99, 0x92, 0x82, 0xf8, 0x80, 0x90, 0x88, 0x
+             -83, 0xc6, 0xa1, 0x86, 0x8e};  
+   3          
+   4          void delay(unsigned int x) {
+   5   1          while (x--);
+   6   1      }
+   7          
+   8          void key(void) {
+   9   1          // 扫描第一列
+  10   1          P2 = 0xef;  // 1110 1111
+  11   1          if (P2 == 0xee) KEY_num = 0;
+  12   1          if (P2 == 0xed) KEY_num = 1;
+  13   1          if (P2 == 0xeb) KEY_num = 2;
+  14   1          if (P2 == 0xe7) KEY_num = 3;
+  15   1      
+  16   1          // 扫描第二列
+  17   1          P2 = 0xdf;  // 1101 1111
+  18   1          if (P2 == 0xde) KEY_num = 4;
+  19   1          if (P2 == 0xdd) KEY_num = 5;
+  20   1          if (P2 == 0xdb) KEY_num = 6;
+  21   1          if (P2 == 0xd7) KEY_num = 7;
+  22   1      
+  23   1          // 扫描第三列
+  24   1          P2 = 0xbf;  // 1011 1111
+  25   1          if (P2 == 0xbe) KEY_num = 8;
+  26   1          if (P2 == 0xbd) KEY_num = 9;
+  27   1          if (P2 == 0xbb) KEY_num = 10;  
+  28   1          if (P2 == 0xb7) KEY_num = 11; 
+  29   1          // 扫描第四列
+  30   1          P2 = 0x7f;  // 0111 1111
+  31   1          if (P2 == 0x7e) KEY_num = 12; 
+  32   1          if (P2 == 0x7d) KEY_num = 13;  
+  33   1          if (P2 == 0x7b) KEY_num = 14;  
+  34   1          if (P2 == 0x77) KEY_num = 15;  
+  35   1      }
+  36          
+  37          void main(void) {
+  38   1          while (1) {
+  39   2              P3 = 0x01; 
+  40   2              P0 = seven_seg[KEY_num / 10];  
+  41   2              delay(500);
+  42   2              
+  43   2              P3 = 0x02; 
+  44   2              P0 = seven_seg[KEY_num % 10];  
+  45   2              delay(500);
+  46   2              
+  47   2              key();  
+  48   2          }
+  49   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    195    ----
+C51 COMPILER V9.60.7.0   MAIN                                                              10/18/2024 09:02:41 PAGE 2   
+
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     17    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
