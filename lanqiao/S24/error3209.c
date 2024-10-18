@@ -1,4 +1,5 @@
 #include <stdio.h>
+<<<<<<< HEAD
 #include <math.h>
 int n[7];
 int length(int n) // 获取长度
@@ -15,9 +16,21 @@ int de(int num) // 获取每一位数字
         if (num == 0)
         {
             n[1] = 0;
-        }
-        else
+=======
+int main()
+{
+    int n=1, num,a=0;
+    scanf("%d",&num);
+    while (a < num)
+    {
+        if (n < 5)
         {
+            a=2*n-1;
+>>>>>>> fe2b4c9a2025de515b12ec0f3e2365ab7bd43e09
+        }
+        else if (n >= 5)
+        {
+<<<<<<< HEAD
             n[i] = num / c;
             num = num % c;
         }
@@ -51,3 +64,11 @@ int main()
     }
     printf("%d", sum);
 }
+=======
+            a=2*n+11;
+        }    
+        n++;   
+    }
+    printf("%d",n);
+}
+>>>>>>> fe2b4c9a2025de515b12ec0f3e2365ab7bd43e09
