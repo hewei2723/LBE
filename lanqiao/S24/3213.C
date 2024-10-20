@@ -76,6 +76,6 @@ int main()
         jg += N[i];
     }
     // 输出结果
-    printf("%d\n", jg);  // 输出结果保留两位小数
+    printf("%d\n", jg);
     return 0;
 }
