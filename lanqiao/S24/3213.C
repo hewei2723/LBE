@@ -21,20 +21,16 @@ n1/2+根号n2=2+4=6
 // 找到最大的P个数，对其使用P，直到P用完，剩下的按最大的使用Q
 #include <stdio.h>
 #include <math.h>
-
 int n = 0, P, Q,jg;
 float N[20]; // jg 改为 float 类型以保存精确结果
-
 // 选择排序函数，用于从大到小排序
 void paixv()
 {
     int big;
     float temp;
-
     for (int i = 0; i < n - 1; i++)
     {
         big = i;
-
         // 找到未排序部分的最大元素
         for (int j = i + 1; j < n; j++)
         {
@@ -43,7 +39,6 @@ void paixv()
                 big = j; // 更新最大元素的位置
             }
         }
-
         // 如果找到的最大元素不是当前的元素，交换两者
         if (big != i)
         {
@@ -53,7 +48,6 @@ void paixv()
         }
     }
 }
-
 int main()
 {
     // 输入 n, P, Q
@@ -64,29 +58,24 @@ int main()
     {
         scanf("%f", &N[i]);  // 改为 %f 来读取浮点数
     }
-
     // 先使用 P 次处理
     for (int i = 0; i < P; i++)
     {
         paixv();  // 排序
         N[0] = sqrt(N[0]);  // 求最大值的平方根
     }
-
     // 再使用 Q 次处理
     for (int i = 0; i < Q; i++)
     {
         paixv();  // 排序
         N[0] = N[0] / 2;  // 最大值除以 2
     }
-
     // 累加数组元素
     for (int i = 0; i < n; i++)
     {
         jg += N[i];
     }
-
     // 输出结果
     printf("%d\n", jg);  // 输出结果保留两位小数
-
     return 0;
 }
