@@ -24,6 +24,10 @@ n1/2+根号n2=2+4=6
 int n = 0, P, Q,jg;
 float N[20],max; // jg 改为 float 类型以保存精确结果
 // 选择排序函数，用于从大到小排序
+typedef struct {
+    int max;
+    int index;
+} MaxResult;
 void paixv()
 {
     int big;
@@ -56,14 +60,17 @@ void paixv()
     
 }
 */
-int findMax() {
-    int pmax = N[0]; // 假设第一个元素是最大值
+MaxResult findMax() {
+    int pmax = N[0]; 
+    MaxResult result;
     for (int i = 1; i < n; i++) {
         if (N[i] > pmax) {
-            pmax = N[i]; // 更新最大值
+            pmax = N[i];
+            result.max=pmax;// 更新最大值
+            result.index=i; // 记录最大值的位置
         }
     }
-    return pmax; // 返回最大值
+    return result; // 返回最大值
 }
 
 int main()
@@ -79,14 +86,14 @@ int main()
     // 先使用 P 次处理
     for (int i = 0; i < P; i++)
     {
-        max = findMax();  // 排序
-        max = sqrt(N[0]);  // 求最大值的平方根
+        MaxResult result = findMax();  // 排序
+        N[result.index] = sqrt(result.max);  // 求最大值的平方根
     }
     // 再使用 Q 次处理
     for (int i = 0; i < Q; i++)
     {
-        max = findMax();  // 排序
-        max = N[0] / 2;  // 最大值除以 2
+        MaxResult result = findMax();  // 排序
+        N[result.index] = result.max / 2;  // 最大值除以 2N[0] / 2;  // 最大值除以 2
     }
     // 累加数组元素
     for (int i = 0; i < n; i++)
