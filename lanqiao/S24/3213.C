@@ -22,8 +22,16 @@ n1/2+根号n2=2+4=6
 #include <stdio.h>
 #include <math.h>
 int n = 0, P, Q,jg;
+<<<<<<< HEAD
 float N[20];
+=======
+float N[20],max; // jg 改为 float 类型以保存精确结果
+>>>>>>> ef257d5deba04a947b5db97c82d89d774e06b182
 // 选择排序函数，用于从大到小排序
+typedef struct {
+    int max;
+    int index;
+} MaxResult;
 void paixv()
 {
     int big;
@@ -48,12 +56,36 @@ void paixv()
         }
     }
 }
+<<<<<<< HEAD
 int paixvtow(){
     int big;
     for (int i=0;i<n;i++){
 
     }
 }
+=======
+/*void paiv(){
+    //每次只找到最大的就可以了
+    //将每个数的长度转换为内存空间，并将最后一个字节设置标志，从第一个数开始，覆盖内存空间，循环完成后查看最后一个字节是谁的标志，谁就是最大的
+    int pmax,pbig;//最大值pmax比较值pbig
+    return max;
+    
+}
+*/
+MaxResult findMax() {
+    int pmax = N[0]; 
+    MaxResult result;
+    for (int i = 1; i < n; i++) {
+        if (N[i] > pmax) {
+            pmax = N[i];
+            result.max=pmax;// 更新最大值
+            result.index=i; // 记录最大值的位置
+        }
+    }
+    return result; // 返回最大值
+}
+
+>>>>>>> ef257d5deba04a947b5db97c82d89d774e06b182
 int main()
 {
     // 输入 n, P, Q
@@ -67,14 +99,14 @@ int main()
     // 先使用 P 次处理
     for (int i = 0; i < P; i++)
     {
-        paixv();  // 排序
-        N[0] = sqrt(N[0]);  // 求最大值的平方根
+        MaxResult result = findMax();  // 排序
+        N[result.index] = sqrt(result.max);  // 求最大值的平方根
     }
     // 再使用 Q 次处理
     for (int i = 0; i < Q; i++)
     {
-        paixv();  // 排序
-        N[0] = N[0] / 2;  // 最大值除以 2
+        MaxResult result = findMax();  // 排序
+        N[result.index] = result.max / 2;  // 最大值除以 2N[0] / 2;  // 最大值除以 2
     }
     // 累加数组元素
     for (int i = 0; i < n; i++)
