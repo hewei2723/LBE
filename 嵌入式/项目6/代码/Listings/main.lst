@@ -1,4 +1,4 @@
-C51 COMPILER V9.54   MAIN                                                                  10/25/2024 16:47:50 PAGE 1   
+C51 COMPILER V9.54   MAIN                                                                  10/25/2024 17:18:52 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
@@ -9,36 +9,84 @@ COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE 
 line level    source
 
    1          #include <reg51.h>
-   2          int seg[10]={0xc0, 0xf9, 0xa4, 0xb0, 0x99, 0x92, 0x82, 0xf8, 0x80, 0x90};
-   3          int ptwo[8]={0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80};
-   4          void delay(int x){
-   5   1      while (x--);
-   6   1      }
-   7          int showStu(){
-   8   1        int stu[8]={2,2,0,1,0,6,1,1};
-   9   1        int i;
-  10   1        for( i=0;i<8;i++){
-  11   2          P0=seg[stu[i]];
-  12   2          P2=ptwo[i];
-  13   2          delay(110);
-  14   2          P0=0Xff;
-  15   2        }
-  16   1      }
-  17          void main(){
-  18   1        showStu();
-  19   1      }
-*** WARNING C290 IN LINE 16 OF main.c: missing return value
+   2          int seg[10] = {0xc0, 0xf9, 0xa4, 0xb0, 0x99, 0x92, 0x82, 0xf8, 0x80, 0x90};
+   3          int ptwo[8] = {0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80};
+   4          int i=0,hours,minutes,second,cp;
+   5          struct tim{
+   6            int a,b;
+   7          }tim;
+   8          void delay(int x)
+   9          {
+  10   1        while (x--)
+  11   1          ;
+  12   1      }
+  13          void timer_init(void)
+  14          {
+  15   1        TMOD = 0x01;
+  16   1        TL0 = (65535 - 2000) % 256;
+  17   1        TH0 = (65535 - 2000) / 256;
+  18   1        EA = 1;
+  19   1        ET0 = 1;
+  20   1      }
+  21          struct tim nu(int x) {
+  22   1          struct tim numm;
+  23   1          numm.a = x / 10;
+  24   1          numm.b = x % 10;
+  25   1          return numm;
+  26   1      }
+  27          void timer0_isr(void) interrupt 1
+  28          {
+  29   1        TL0 = 0X78;
+  30   1        TH0 = 0Xec;
+  31   1        cp++;
+  32   1        if (cp > 200)
+  33   1        {
+  34   2          cp = 0;
+  35   2          i++;
+  36   2          if(i==60*60*24){
+  37   3            i=0;
+  38   3          }
+  39   2        }
+  40   1        hours=i/3600;
+  41   1        minutes=(i%3600)/60;
+  42   1        second=i%60;
+  43   1        //这里应该是显示小时那段的代码
+  44   1        //这里应该是显示分钟那段的代码
+  45   1        //这里应该是显示秒那段的代码
+  46   1        
+  47   1      }
+  48          int showStu()
+  49          {
+  50   1        int stu[8] = {2, 2, 0, 1, 0, 6, 1, 1};
+  51   1        int i;
+  52   1        for (i = 0; i < 8; i++)
+  53   1        {
+  54   2          P0 = seg[stu[i]];
+C51 COMPILER V9.54   MAIN                                                                  10/25/2024 17:18:52 PAGE 2   
+
+  55   2          P2 = ptwo[i];
+  56   2          delay(110);
+  57   2          P0 = 0Xff;
+  58   2        }
+  59   1      }
+  60          void main()
+  61          {
+  62   1        showStu();
+  63   1        time0_init();
+*** WARNING C206 IN LINE 63 OF main.c: 'time0_init': missing function-prototype
+  64   1      }
+*** WARNING C290 IN LINE 59 OF main.c: missing return value
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =     85    ----
+   CODE SIZE        =    286    ----
    CONSTANT SIZE    =     16    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =     36      16
+   DATA SIZE        =     50      20
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.
 
 
-C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)
+C51 COMPILATION COMPLETE.  2 WARNING(S),  0 ERROR(S)

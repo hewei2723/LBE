@@ -24,11 +24,23 @@ Project File Date:  10/25/2024
 <h2>Output:</h2>
 Rebuild target 'Target 1'
 compiling main.c...
-main.c(16): warning C290: missing return value
+main.c(63): warning C206: 'time0_init': missing function-prototype
+main.c(59): warning C290: missing return value
 linking...
-Program Size: data=61.0 xdata=0 code=531
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER_INIT?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_NU?MAIN
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  TIME0_INIT
+    MODULE:  .\Objects\main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  TIME0_INIT
+    MODULE:  .\Objects\main.obj (MAIN)
+    ADDRESS: 0007H
+Program Size: data=79.0 xdata=0 code=878
 creating hex file from ".\Objects\项目6"...
-".\Objects\项目6" - 0 Error(s), 1 Warning(s).
+".\Objects\项目6" - 0 Error(s), 6 Warning(s).
 </pre>
 </body>
 </html>
