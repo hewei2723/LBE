@@ -22,7 +22,7 @@ n1/2+根号n2=2+4=6
 #include <stdio.h>
 #include <math.h>
 int n = 0, P, Q,jg;
-float N[20]; // jg 改为 float 类型以保存精确结果
+float N[20];
 // 选择排序函数，用于从大到小排序
 void paixv()
 {
@@ -46,6 +46,12 @@ void paixv()
             N[i] = N[big];
             N[big] = temp;
         }
+    }
+}
+int paixvtow(){
+    int big;
+    for (int i=0;i<n;i++){
+
     }
 }
 int main()
