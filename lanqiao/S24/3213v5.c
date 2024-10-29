@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <math.h>
 
-int n = 0, P, Q, jg = 0;
+int n = 0, P, Q;
 float N[20]; // 用于存储数值的数组
 
-// 获取最大值的索引
+// 找到数组中的最大值索引
 int find_max_index() {
     int max_index = 0;
     for (int i = 1; i < n; i++) {
@@ -16,6 +16,9 @@ int find_max_index() {
 }
 
 int main() {
+    int jg; // 结果变量
+    int max_index;
+
     // 输入 n, P, Q
     scanf("%d %d %d", &n, &P, &Q);
 
@@ -24,19 +27,16 @@ int main() {
         scanf("%f", &N[i]);
     }
 
-    // 找到当前最大值的索引
-    int max_index = find_max_index();
-
     // 先使用 P 次处理
     for (int i = 0; i < P; i++) {
-        N[max_index] = sqrt(N[max_index]);  // 求最大值的平方根
-        max_index = find_max_index();  // 更新最大值索引
+        max_index = find_max_index();    // 找到最大值索引
+        N[max_index] = sqrt(N[max_index]); // 对最大值取平方根
     }
 
     // 再使用 Q 次处理
     for (int i = 0; i < Q; i++) {
-        N[max_index] = N[max_index] / 2;  // 最大值除以 2
-        max_index = find_max_index();  // 更新最大值索引
+        max_index = find_max_index();   // 找到最大值索引
+        N[max_index] = N[max_index] / 2;  // 对最大值除以2
     }
 
     // 累加数组元素
@@ -45,7 +45,7 @@ int main() {
     }
 
     // 输出结果
-    printf("%d\n", (int)jg);  // 输出结果
+    printf("%d\n", jg);  // 输出累加结果，保留整数部分
 
     return 0;
 }

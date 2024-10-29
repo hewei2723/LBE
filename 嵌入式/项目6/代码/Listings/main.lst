@@ -1,0 +1,123 @@
+C51 COMPILER V9.54   MAIN                                                                  10/27/2024 14:41:32 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          
+   3          int seg[10] = {0xc0, 0xf9, 0xa4, 0xb0, 0x99, 0x92, 0x82, 0xf8, 0x80, 0x90};
+   4          int ptwo[8] = {0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80};
+   5          int i = 0, hours, minutes, second, cp, a, b;
+   6          
+   7          void delay(int x)
+   8          {
+   9   1          while (x--)
+  10   1              ;
+  11   1      }
+  12          
+  13          void timer0_init(void)
+  14          {
+  15   1          TMOD = 0x01; // 设置定时器T0为模式1
+  16   1          TL0 = (65535 - 2000) % 256;
+  17   1          TH0 = (65535 - 2000) / 256;
+  18   1          EA = 1;  // 全局中断使能
+  19   1          ET0 = 1; // 定时器0中断使能
+  20   1          TR0 = 1; // 启动T0定时器
+  21   1      }
+  22          void display_digit(int position, int value)
+  23          {
+  24   1          P0 = seg[value];
+  25   1          P2 = ptwo[position];
+  26   1          delay(100);
+  27   1          P0 = 0xFF; 
+  28   1          P0 = 0xBF;
+  29   1          P2 = 0x24;// 清除显示
+  30   1      }
+  31          
+  32          void display_time(int i)
+  33          {
+  34   1          // 计算当前小时、分钟和秒
+  35   1          hours = i / 3600;
+  36   1          minutes = (i % 3600) / 60;
+  37   1          second = i % 60;
+  38   1      
+  39   1          // 显示秒
+  40   1          display_digit(7, second % 10);  // 显示秒的个位
+  41   1          display_digit(6, second / 10);  // 显示秒的十位
+  42   1      
+  43   1          // 显示分钟
+  44   1          display_digit(4, minutes % 10); // 显示分钟的个位
+  45   1          display_digit(3, minutes / 10); // 显示分钟的十位
+  46   1      
+  47   1          // 显示小时
+  48   1          display_digit(1, hours % 10);   // 显示小时的个位
+  49   1          display_digit(0, hours / 10);   // 显示小时的十位
+  50   1      }
+  51          
+  52          
+  53          int showStu()
+  54          {
+C51 COMPILER V9.54   MAIN                                                                  10/27/2024 14:41:32 PAGE 2   
+
+  55   1          int stu[8] = {2, 2, 0, 1, 0, 6, 1, 1};
+  56   1          int i;
+  57   1          for (i = 0; i < 8; i++)
+  58   1          {
+  59   2              P0 = seg[stu[i]];
+  60   2              P2 = ptwo[i];
+  61   2              delay(150);
+  62   2              P0 = 0Xff;
+  63   2          }
+  64   1          return 0;
+  65   1      }
+  66          void timer0_isr(void) interrupt 1
+  67          {
+  68   1          TL0 = 0x78; // 重装计数值
+  69   1          TH0 = 0xec;
+  70   1          cp++;
+  71   1      
+  72   1          if (cp >= 200)
+  73   1          { // 定时到达后递增秒数
+  74   2              cp = 0;
+  75   2              i++;
+  76   2              if (i >= 60 * 60 * 24)
+  77   2              { // 防止溢出，一天重置为0
+  78   3                  i = 0;
+  79   3              }
+  80   2          }
+  81   1          if (i > 1)
+  82   1          {
+  83   2              display_time(i);
+  84   2          }
+  85   1          else
+  86   1          {
+  87   2              showStu();
+  88   2          }
+  89   1      }
+  90          
+  91          void main()
+  92          {
+  93   1          // 初始化显示
+  94   1          timer0_init(); // 启动定时器
+  95   1          while (1)
+  96   1              ;
+  97   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    456    ----
+   CONSTANT SIZE    =     16    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     50      16
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
