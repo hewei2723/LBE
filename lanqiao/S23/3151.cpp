@@ -61,10 +61,7 @@ int main()
         for (size_t j = 0; j < n; j++)
         {
             fly p;
-            cin >> ti >> di >> li;
-            p.ti = ti; // 到达时间
-            p.di = di; // 可盘旋时间
-            p.li = li; // 降落时间
+            cin >> p.ti >> p.di >> p.li;
             plane.push_back(p);
         }
         sort(plane.begin(), plane.end(), compareByTi);
