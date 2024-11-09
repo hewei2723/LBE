@@ -1,0 +1,3 @@
+".\Objects\main.obj" 
+TO ".\Objects\电子表" 
+PRINT(".\Listings\电子表.m51")
