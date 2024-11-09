@@ -1,7 +1,7 @@
-C51 COMPILER V9.54   MAIN                                                                  11/09/2024 20:09:44 PAGE 1   
+C51 COMPILER V9.60.7.0   MAIN                                                              11/09/2024 21:56:29 PAGE 1   
 
 
-C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
 OBJECT MODULE PLACED IN .\Objects\main.obj
 COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
                     -.lst) TABS(2) OBJECT(.\Objects\main.obj)
@@ -62,7 +62,7 @@ line level    source
   52   1        P0=0xff;P0 = 0X04;latch();P0 = 0xbf|flash;delay(200);
   53   1        P0=0xff;P0 = 0X20;latch();P0 = 0xbf|flash;delay(200);
   54   1      }
-C51 COMPILER V9.54   MAIN                                                                  11/09/2024 20:09:44 PAGE 2   
+C51 COMPILER V9.60.7.0   MAIN                                                              11/09/2024 21:56:29 PAGE 2   
 
   55          void Modedisplay(int num,int Poi){
   56   1        P0=0xff;P0=poi[Poi];latch();P0=seven_seg[num]|flash;delay(200);
@@ -100,8 +100,7 @@ line level    source
   88   1        if(key1==0){
   89   2          start=0;
   90   2          mode++;
-  91   2          if(mode%3==1){modeShowhour();}//小时
-*** WARNING C206 IN LINE 91 OF main.c: 'modeShowhour': missing function-prototype
+  91   2          if(mode%3==1){modeShowHour();}//小时
   92   2          if(mode%3==2){modeShowMinute();}//分钟
   93   2          if(mode%3==0){modeShowSec();}//秒
   94   2        }
@@ -126,9 +125,9 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
    DATA SIZE        =     50    ----
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
-C51 COMPILER V9.54   MAIN                                                                  11/09/2024 20:09:44 PAGE 3   
-
 END OF MODULE INFORMATION.
 
+C51 COMPILER V9.60.7.0   MAIN                                                              11/09/2024 21:56:29 PAGE 3   
 
-C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

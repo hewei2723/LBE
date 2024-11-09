@@ -88,7 +88,7 @@ void key(){
 	if(key1==0){
 		start=0;
 		mode++;
-		if(mode%3==1){modeShowhour();}//小时
+		if(mode%3==1){modeShowHour();}//小时
 		if(mode%3==2){modeShowMinute();}//分钟
 		if(mode%3==0){modeShowSec();}//秒
 	}
