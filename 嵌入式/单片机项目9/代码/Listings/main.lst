@@ -1,7 +1,7 @@
-C51 COMPILER V9.54   MAIN                                                                  11/10/2024 14:49:50 PAGE 1   
+C51 COMPILER V9.60.7.0   MAIN                                                              11/10/2024 16:47:31 PAGE 1   
 
 
-C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
 OBJECT MODULE PLACED IN .\Objects\main.obj
 COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
                     -.lst) TABS(2) OBJECT(.\Objects\main.obj)
@@ -18,210 +18,225 @@ line level    source
    8          int secondA, hourA, minuteA, secondB, minuteB, hourB;
    9          int poi[] = {0x80, 0x40, 0x20, 0x10, 0x08, 0x04, 0x02, 0x01};
   10          unsigned char seven_seg[] = {0xc0, 0xf9, 0xa4, 0xb0, 0x99, 0x92, 0x82, 0xf8, 0x80, 0x90};
-  11          void latch()
-  12          {
-  13   1        LE = 1;
-  14   1        LE = 0;
-  15   1      }
-  16          void delay(int x)
-  17          {
-  18   1        while (x--);
-  19   1      }
-  20          void STM(int time)
-  21          {
-  22   1        secondA = (time % 60) / 10;
-  23   1        secondB = (time % 60) % 10;
-  24   1        minuteA = (time / 60 % 60) / 10;
-  25   1        minuteB = (time / 60 % 60) % 10;
-  26   1        hourA = (time / 3600) / 10;
-  27   1        hourB = (time / 3600) % 10;
-  28   1      }
-  29          void timer0_isr() interrupt 1
-  30          {
-  31   1        TH0 = (65535 - 5000) / 256;
-  32   1        TL0 = (65535 - 5000) % 256;
-  33   1        cp++;
-  34   1        cpfh++;
-  35   1        if (cp > 100 && start == 1)
-  36   1        {
-  37   2          time++;
-  38   2          cp = 0;
-  39   2        }
-  40   1        if (cpfh > 100)
-  41   1        {
-  42   2          flash = ~flash;
-  43   2          cpfh = 0;
-  44   2        }
-  45   1        STM(time);
-  46   1      }
-  47          void timer0_init()
-  48          {
-  49   1        TMOD = 0x01;
-  50   1        TH0 = (65536 - 5000) / 256;
-  51   1        TL0 = (65536 - 5000) % 256;
-  52   1        EA = 1;
-  53   1        ET0 = 1;
-  54   1        TR0 = 1;
-C51 COMPILER V9.54   MAIN                                                                  11/10/2024 14:49:50 PAGE 2   
+  11          int sno[]={1,1,6,0,1,0,2,2};
+  12          void key();
+  13          void latch()
+  14          {
+  15   1        LE = 1;
+  16   1        LE = 0;
+  17   1      }
+  18          void delay(int x)
+  19          {
+  20   1        while (x--);
+  21   1      }
+  22          void STM(int time)
+  23          {
+  24   1        secondA = (time % 60) / 10;
+  25   1        secondB = (time % 60) % 10;
+  26   1        minuteA = (time / 60 % 60) / 10;
+  27   1        minuteB = (time / 60 % 60) % 10;
+  28   1        hourA = (time / 3600) / 10;
+  29   1        hourB = (time / 3600) % 10;
+  30   1      }
+  31          void showSno(){
+  32   1        int i;
+  33   1        for(i=0;i<8;i++){
+  34   2        P0 = 0xff;P0 = poi[i];latch();P0 = seven_seg[sno[i]];delay(300);
+  35   2        }
+  36   1      }
+  37          void timer0_isr() interrupt 1
+  38          {
+  39   1        TH0 = (65535 - 5000) / 256;
+  40   1        TL0 = (65535 - 5000) % 256;
+  41   1        cp++;
+  42   1        cpfh++;
+  43   1        if (cp > 25 && start == 1)
+  44   1        {
+  45   2          time++;
+  46   2          cp = 0;
+  47   2        }
+  48   1        if (cpfh > 25)
+  49   1        {
+  50   2          flash = ~flash;
+  51   2          cpfh = 0;
+  52   2        }
+  53   1        STM(time);
+  54   1        if(time<1){
+C51 COMPILER V9.60.7.0   MAIN                                                              11/10/2024 16:47:31 PAGE 2   
 
-  55   1      }
-  56          void display(int num, int Poi)
-  57          {
-  58   1        P0 = 0xff;P0 = poi[Poi];latch();P0 = seven_seg[num];delay(300);
-  59   1        P0 = 0xff;P0 = 0X04;latch();P0 = 0xbf | flash;delay(100);
-  60   1        P0 = 0xff;P0 = 0X20;latch();P0 = 0xbf | flash;delay(100);
-  61   1      }
-  62          void Modedisplay(int num, int Poi)
-  63          {
-  64   1        P0 = 0xff;P0 = poi[Poi];latch();P0 = seven_seg[num] | flash;delay(300);
-  65   1        P0 = 0xff;P0 = 0X04;latch();P0 = 0xbf;delay(100);
-  66   1        P0 = 0xff;P0 = 0X20;latch();P0 = 0xbf;delay(100);
-  67   1      }
-  68          void ShowTime(int num, int mode)//mode=0 ++ mode=1 +60 mode =2 +3600
-  69          { // num管理哪一个闪动，mode=0的时候调整模式
-  70   1        if (num == 0)
-  71   1        {
-  72   2          if (mode)
-  73   2          {
-  74   3            Modedisplay(secondA, 1);
-  75   3            Modedisplay(secondB, 0);
-  76   3          }
-  77   2          else
-  78   2          {
-  79   3            display(secondA, 1);
-  80   3            display(secondB, 0);
-  81   3          }
-  82   2        }
-  83   1        else if (num == 1)
-  84   1        {
-  85   2          if (mode)
-  86   2          {
-  87   3            Modedisplay(minuteA, 4);
-  88   3            Modedisplay(minuteB, 3);
-  89   3          }
-  90   2          else
-  91   2          {
-  92   3            display(minuteA, 4);
-  93   3            display(minuteB, 3);
-  94   3          }
-  95   2        }
-  96   1        else if (num == 2)
-  97   1        {
-  98   2          if (mode)
-  99   2          {
- 100   3            Modedisplay(hourA, 7);
- 101   3            Modedisplay(hourB, 6);
- 102   3          }
- 103   2          else
- 104   2          {
- 105   3            display(hourA, 7);
- 106   3            display(hourB, 6);
- 107   3          }
- 108   2        }
- 109   1      }
- 110          void changeTime()
- 111          {
- 112   1        int s;
- 113   1        int keyS2 = 1, keyS3 = 1; //
- 114   1        switch (mode)
- 115   1        {
- 116   2        case 0:
-C51 COMPILER V9.54   MAIN                                                                  11/10/2024 14:49:50 PAGE 3   
+  55   2        showSno();}else{key();}
+  56   1      
+  57   1      }
+  58          void timer0_init()
+  59          {
+  60   1        TMOD = 0x01;
+  61   1        TH0 = (65536 - 5000) / 256;
+  62   1        TL0 = (65536 - 5000) % 256;
+  63   1        EA = 1;
+  64   1        ET0 = 1;
+  65   1        TR0 = 1;
+  66   1      }
+  67          void display(int num, int Poi)
+  68          {
+  69   1        P0 = 0xff;P0 = poi[Poi];latch();P0 = seven_seg[num];delay(300);
+  70   1        P0 = 0xff;P0 = 0X04;latch();P0 = 0xbf | flash;delay(100);
+  71   1        P0 = 0xff;P0 = 0X20;latch();P0 = 0xbf | flash;delay(100);
+  72   1      }
+  73          void Modedisplay(int num, int Poi)
+  74          {
+  75   1        P0 = 0xff;P0 = poi[Poi];latch();P0 = seven_seg[num] | flash;delay(300);
+  76   1        P0 = 0xff;P0 = 0X04;latch();P0 = 0xbf;delay(100);
+  77   1        P0 = 0xff;P0 = 0X20;latch();P0 = 0xbf;delay(100);
+  78   1      }
+  79          void ShowTime(int num, int mode)//mode=0 ++ mode=1 +60 mode =2 +3600
+  80          { // num管理哪一个闪动，mode=0的时候调整模式
+  81   1        if (num == 0)
+  82   1        {
+  83   2          if (mode)
+  84   2          {
+  85   3            Modedisplay(secondA, 1);
+  86   3            Modedisplay(secondB, 0);
+  87   3          }
+  88   2          else
+  89   2          {
+  90   3            display(secondA, 1);
+  91   3            display(secondB, 0);
+  92   3          }
+  93   2        }
+  94   1        else if (num == 1)
+  95   1        {
+  96   2          if (mode)
+  97   2          {
+  98   3            Modedisplay(minuteA, 4);
+  99   3            Modedisplay(minuteB, 3);
+ 100   3          }
+ 101   2          else
+ 102   2          {
+ 103   3            display(minuteA, 4);
+ 104   3            display(minuteB, 3);
+ 105   3          }
+ 106   2        }
+ 107   1        else if (num == 2)
+ 108   1        {
+ 109   2          if (mode)
+ 110   2          {
+ 111   3            Modedisplay(hourA, 7);
+ 112   3            Modedisplay(hourB, 6);
+ 113   3          }
+ 114   2          else
+ 115   2          {
+ 116   3            display(hourA, 7);
+C51 COMPILER V9.60.7.0   MAIN                                                              11/10/2024 16:47:31 PAGE 3   
 
- 117   2          s = 1;
- 118   2          break;
- 119   2        case 1:
- 120   2          s = 60;
- 121   2          break;
- 122   2        case 2:
- 123   2          s = 3600;
- 124   2          break;
- 125   2        }
- 126   1        if (keyS2 == 1 && key2 == 0)
- 127   1        {
- 128   2          delay(50);
- 129   2          if (key2 == 0)
- 130   2          {
- 131   3            time += s;
- 132   3          }
- 133   2          keyS2 = key2;
- 134   2        }
- 135   1        if (keyS3 == 1 && key3 == 0)
- 136   1        {
- 137   2          delay(50);
- 138   2          if (key3 == 0)
- 139   2          {
- 140   3            time -= s;
- 141   3          }
- 142   2          keyS3 = key3;
- 143   2        }
- 144   1        delay(1500);//随后的1500内都不响应
- 145   1        keyS2=keyS3=1;
- 146   1      }
- 147          void key(){
- 148   1        int keyL=1;
- 149   1        if(start){
- 150   2          ShowTime(0,0);
- 151   2          ShowTime(1,0);
- 152   2          ShowTime(2,0);
- 153   2        }
- 154   1        //按下按钮1，模式变化,start变成0
- 155   1        if(keyL==1&&key1==0){
- 156   2          start=0;
- 157   2          delay(100);
- 158   2          //按一次选择一次模式
- 159   2          if(key1==0){
- 160   3          mode=(mode+1)%3;//按下一次mode值变化一次，从0，1，2循环变化
- 161   3          }
- 162   2          keyL=key1;
- 163   2          delay(50);
- 164   2        }
- 165   1        keyL=1;
- 166   1        if(!start){//如果当前是暂停状态
- 167   2          if(mode==0)//秒闪动
- 168   2            {
- 169   3          ShowTime(0,1);
- 170   3          ShowTime(1,0);
- 171   3          ShowTime(2,0);
- 172   3          changeTime();
- 173   3            }
- 174   2          if(mode==1)//分闪动
- 175   2            {
- 176   3          ShowTime(0,0);
- 177   3          ShowTime(1,1);
- 178   3          ShowTime(2,0);
-C51 COMPILER V9.54   MAIN                                                                  11/10/2024 14:49:50 PAGE 4   
+ 117   3            display(hourB, 6);
+ 118   3          }
+ 119   2        }
+ 120   1      }
+ 121          void changeTime()
+ 122          {
+ 123   1        int s;
+ 124   1        static int keyS2 = 1, keyS3 = 1; // 按键状态
+ 125   1        switch (mode)
+ 126   1        {
+ 127   2        case 0:
+ 128   2          s = 1;
+ 129   2          break;
+ 130   2        case 1:
+ 131   2          s = 60;
+ 132   2          break;
+ 133   2        case 2:
+ 134   2          s = 3600;
+ 135   2          break;
+ 136   2        }
+ 137   1        if (keyS2 == 1 && key2 == 0)  // 按键2按下并检测状态
+ 138   1        {
+ 139   2          delay(200);  // 消抖延时
+ 140   2          if (key2 == 0) // 确认按键仍然按下
+ 141   2          {
+ 142   3            time += s;
+ 143   3            keyS2 = 0;  // 置为0，防止重复触发
+ 144   3          }
+ 145   2        }
+ 146   1        else if (key2 == 1) // 按键松开后重置状态
+ 147   1        {
+ 148   2          keyS2 = 1;
+ 149   2        }
+ 150   1        if (keyS3 == 1 && key3 == 0) // 按键3按下并检测状态
+ 151   1        {
+ 152   2          delay(200);  // 消抖延时
+ 153   2          if (key3 == 0) // 确认按键仍然按下
+ 154   2          {
+ 155   3            time -= s;
+ 156   3            keyS3 = 0;  // 置为0，防止重复触发
+ 157   3          }
+ 158   2        }
+ 159   1        else if (key3 == 1) // 按键松开后重置状态
+ 160   1        {
+ 161   2          keyS3 = 1;
+ 162   2        }
+ 163   1      }
+ 164          
+ 165          void key(){
+ 166   1        int keyL=1;
+ 167   1        if(start){
+ 168   2          ShowTime(0,0);
+ 169   2          ShowTime(1,0);
+ 170   2          ShowTime(2,0);
+ 171   2        }
+ 172   1        //按下按钮1，模式变化,start变成0
+ 173   1        if(keyL==1&&key1==0){
+ 174   2          start=0;
+ 175   2          delay(100);
+ 176   2          //按一次选择一次模式
+ 177   2          if(key1==0){
+ 178   3          mode=(mode+1)%3;//按下一次mode值变化一次，从0，1，2循环变化
+C51 COMPILER V9.60.7.0   MAIN                                                              11/10/2024 16:47:31 PAGE 4   
 
- 179   3          changeTime();
- 180   3            }
- 181   2          if(mode==2)//小时闪动
- 182   2            {
- 183   3          ShowTime(0,0);
- 184   3          ShowTime(1,0);
- 185   3          ShowTime(2,1);
- 186   3          changeTime();
- 187   3            }
- 188   2        }
- 189   1        if(key4==0){//按下按钮4，继续执行
- 190   2          start=1;
- 191   2        }
- 192   1      }
- 193          void main()
- 194          {
- 195   1        timer0_init();
- 196   1        while (1)
- 197   1        {
- 198   2          key();
- 199   2        }
- 200   1      }
+ 179   3          }
+ 180   2          keyL=key1;
+ 181   2          delay(100);
+ 182   2        }
+ 183   1        keyL=1;
+ 184   1        if(!start){//如果当前是暂停状态
+ 185   2          if(mode==0)//秒闪动
+ 186   2            {
+ 187   3          ShowTime(0,1);
+ 188   3          ShowTime(1,0);
+ 189   3          ShowTime(2,0);
+ 190   3          changeTime();
+ 191   3            }
+ 192   2          if(mode==1)//分闪动
+ 193   2            {
+ 194   3          ShowTime(0,0);
+ 195   3          ShowTime(1,1);
+ 196   3          ShowTime(2,0);
+ 197   3          changeTime();
+ 198   3            }
+ 199   2          if(mode==2)//小时闪动
+ 200   2            {
+ 201   3          ShowTime(0,0);
+ 202   3          ShowTime(1,0);
+ 203   3          ShowTime(2,1);
+ 204   3          changeTime();
+ 205   3            }
+ 206   2        }
+ 207   1        if(key4==0){//按下按钮4，继续执行
+ 208   2          start=1;
+ 209   2        }
+ 210   1      }
+ 211          void main()
+ 212          {
+ 213   1        timer0_init();
+ 214   1        while (1);
+ 215   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    952    ----
+   CODE SIZE        =    995    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =     50       6
+   DATA SIZE        =     70       2
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.
