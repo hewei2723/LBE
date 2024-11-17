@@ -32,4 +32,4 @@ int main() {
         pw.pop(); 
     }
     cout<<eneger<<endl;
-}//dfghjkl
+}//dfghjkl123456
