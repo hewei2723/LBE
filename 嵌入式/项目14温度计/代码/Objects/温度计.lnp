@@ -1,0 +1,3 @@
+".\Objects\main.obj" 
+TO ".\Objects\温度计" 
+PRINT(".\Listings\温度计.m51")

@@ -1,0 +1,54 @@
+C51 COMPILER V9.54   MAIN                                                                  11/24/2024 16:03:47 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          #include <DS18B20.h>
+   3          sbit le=P1^0; 
+   4          int cp;
+   5          unsigned char seven_seg[] = {0xc0, 0xf9, 0xa4, 0xb0, 0x99, 0x92, 0x82, 0xf8, 0x80, 0x90};  
+   6          unsigned char bit_scan[] = {0x80,0x40,0x20,0x10,0x08,0x04,0x02,0x01}; 
+   7          void latch(){le=1;le=0;}
+   8          //void delay(unsigned int x){while(x--);}
+   9          void display_num(int i,int j){
+  10   1        P0=0xff;P0=bit_scan[i];latch();P0=seven_seg[j];delay(500);
+  11   1      }
+  12          void timer0_isr(void) interrupt 1 { //计数器溢出中断
+  13   1          TH0 = (65536 - 2000) / 256;
+  14   1          TL0 = (65536 - 2000) % 256;
+  15   1          cp++;
+  16   1      }
+  17          void time_init(){
+  18   1        TMOD = 0x01;
+  19   1          TH0 = (65536 - 2000) / 256;
+  20   1          TL0 = (65536 - 2000) % 256;
+  21   1          EA = 1;
+  22   1          ET0 = 1;
+  23   1          TR0 = 1;
+  24   1      }
+  25          void main(){
+  26   1        time_init();
+  27   1        while(1){
+  28   2          ReadTemperature();
+  29   2        }
+  30   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    299    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     20       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
