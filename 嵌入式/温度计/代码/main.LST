@@ -1,0 +1,98 @@
+C51 COMPILER V9.54   MAIN                                                                  11/24/2024 14:29:56 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          #include <ds18b20.h>  
+   3          unsigned char seven_seg[] = {0xc0, 0xf9, 0xa4, 0xb0, 0x99, 0x92, 0x82, 0xf8, 0x80, 0x90};  
+   4          unsigned char bit_scan[] = {0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80}; 
+   5          unsigned char pnum[]={1,5,7,3,8,2,8,0};
+   6          unsigned char display_num[8];  
+   7          unsigned int temp1,temp2,temp_num;  
+   8          unsigned char cp0,cp1;  
+   9          sbit le = P1^0;  
+  10          void display_dat(void) {  
+  11   1          display_num[0] = 0xff; 
+  12   1          display_num[1] = 0xff;  
+  13   1          display_num[2] = 0xff;  
+  14   1          display_num[3] = 0xff;  
+  15   1          if ((temp_dat & 0xf800) < 0xf800)
+  16   1            {  
+  17   2              temp_num = temp_dat & 0x0fff; 
+  18   2              temp2 = (temp_num & 0x000f) * 0.625 ;  
+  19   2              temp1 = temp_num >> 4;  
+  20   2              display_num[4] = 0xff;  
+  21   2              display_num[5] = seven_seg[temp1 / 10];  
+  22   2              display_num[6] = seven_seg[temp1 % 10] & 0x7f; 
+  23   2              display_num[7] = seven_seg[temp2];      
+  24   2          } else {
+  25   2              temp_num = ~temp_dat + 1; 
+  26   2              temp2 = (temp_num & 0x000f) * 0.0625 + 0.5; 
+  27   2              temp1 = temp_num >> 4;  
+  28   2              display_num[4] = 0xbf;  
+  29   2              display_num[5] = seven_seg[temp1 / 10];  
+  30   2              display_num[6] = seven_seg[temp1 % 10] & 0x7f;  
+  31   2              display_num[7] = seven_seg[temp2];  
+  32   2          }
+  33   1      }
+  34          void latch(void) {  le = 1; le = 0;}
+  35          void timer0_isr(void) interrupt 1 {  
+  36   1          TH0 = (65536 - 2000) / 256;
+  37   1          TL0 = (65536 - 2000) % 256;
+  38   1          P0 = 0xff;  
+  39   1          P0 = bit_scan[cp1];latch();P0 = display_num[cp1];
+  40   1          cp1++;
+  41   1          if (cp1 >= 8) cp1= 0;
+  42   1          cp0++;
+  43   1      }
+  44          void timer0_init(void) {  
+  45   1          TMOD = 0x01;
+  46   1          TH0 = (65536 - 2000) / 256;
+  47   1          TL0 = (65536 - 2000) % 256;
+  48   1          EA = 1;
+  49   1          ET0 = 1;
+  50   1          TR0 = 1;
+  51   1      }
+  52          void show(){
+  53   1        int i;
+  54   1        for(i=0;i<8;i++){
+  55   2          P0=0xff;P0=bit_scan[i];latch();P0=seven_seg[pnum[i]];delay(500);
+C51 COMPILER V9.54   MAIN                                                                  11/24/2024 14:29:56 PAGE 2   
+
+  56   2        }
+  57   1      }
+  58          void main(void) {
+  59   1      //int x=50; 
+  60   1      //  do{
+  61   1      //    show();
+  62   1      //    x--;
+  63   1      //  }
+  64   1      //  while(x>0);
+  65   1        timer0_init();
+  66   1          while (1) {
+  67   2              display_dat();  
+  68   2              if (cp0 == 200) { 
+  69   3                  cp0 = 0;
+  70   3                  read_temp_ds18b20();  
+  71   3              }
+  72   2          } 
+  73   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    502    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     44       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

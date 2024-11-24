@@ -11,7 +11,6 @@ void ds18b20_init(void) {
     while(dq & i--);  
     delay(20);
 }
-
 void write_ds18b20(unsigned char x) {
     unsigned char i;
     for(i = 0; i < 8; i++) {
