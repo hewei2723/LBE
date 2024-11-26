@@ -1,6 +1,7 @@
 //吃饱了的的知识分子
 #include <iostream>
 #include <thread>
+#include <chrono>
 using namespace std;
 typedef struct 
 {
@@ -10,7 +11,7 @@ semaphore chopsticks[5]= {1,1,1,1,1};//五根筷子是独立的五个对象
 semaphore eater={4};//同时用的筷子的最多有四个
 void delay(int t) {
     // 模拟延迟函数
-    while (t--);
+    this_thread::sleep_for(chrono::milliseconds(t));
 }
 // wait操作
 void wait(semaphore* s) {
@@ -35,15 +36,15 @@ void philosopher(int i) {
         cout<<"哲学家"<<i<<"拿起左筷子\n";
         wait(&chopsticks[(i+1)%5]);//拿起右筷子
         cout<<"哲学家"<<i<<"拿起右筷子\n";
-        cout<<"哲学家在吃饭...\n";
-        delay(10000);//吃饭
+        cout<<"哲学家"<<i<<"在吃饭...\n";
+        delay(1500);//吃饭1.5时间刻度
         signal(&chopsticks[i]);//放下左筷子
         cout<<"哲学家"<<i<<"放下左筷子\n";
         signal(&chopsticks[(i+1)%5]);//放下右筷子
         cout<<"哲学家"<<i<<"放下右筷子\n";
         signal(&eater);//吃饭结束，释放吃饭的信号量
-        cout<<"哲学家在思考...\n";
-        delay(20000);//思考
+        cout<<"哲学家"<<i<<"在思考...\n";
+        delay(3000);//思考3时间刻度
     } while (true); 
 }
 int main() { 
