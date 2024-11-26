@@ -1,24 +1,17 @@
+//吃饱了的的知识分子
 #include <iostream>
-#include <thread> // 多线程库
+#include <thread>
 using namespace std;
-
-int buffer[5];  // 缓冲池
-int in = 0;     // 生产者插入位置
-int out = 0;    // 消费者取出位置
-
-typedef struct {
-    int value;   // 信号量值
-    int process; // 1表示进程放行，0表示阻塞
-} semaphore;
-void delay(int x) {
-    while (x--);
-    
+typedef struct 
+{
+    int value;//1表示可以使用，0表示不能使用
+}semaphore;
+semaphore chopsticks[5]= {1,1,1,1,1};//五根筷子是独立的五个对象
+semaphore eater={4};//同时用的筷子的最多有四个
+void delay(int t) {
+    // 模拟延迟函数
+    while (t--);
 }
-// 初始化信号量
-semaphore mutex = {1, 1};  // 互斥信号量
-semaphore full = {0, 0};   // 满缓冲区信号量
-semaphore Nempty = {5, 1}; // 空缓冲区信号量
-
 // wait操作
 void wait(semaphore* s) {
     while (true) {
@@ -33,42 +26,34 @@ void wait(semaphore* s) {
 void signal(semaphore* s) {
     s->value++;
 }
-// 生产者线程函数
-void producer() {
-    for (int i = 0; i < 10; i++) { // 假设生产10个产品
-        wait(&Nempty);  // 判断是否有空缓冲区
-        wait(&mutex);   // 获取互斥信号量
-        // 生产食物
-        buffer[in] = i; // 放入缓冲区
-        cout << "生产者放入: " << buffer[in] << " 在 " << in << "号槽位" << endl;
-        in = (in + 1) % 5; // 更新生产者插入位置
-        signal(&mutex);    // 释放互斥信号量
-        signal(&full);     // 更新满缓冲区信号量
-        delay(1000); // 模拟生产延迟
-    }
+//当哲学家拿到左筷子和右筷子后，就可以吃饭了
+void philosopher(int i) {
+    do
+    {
+        wait(&eater); //等待吃饭的信号量
+        wait(&chopsticks[i]);//拿起左筷子
+        cout<<"哲学家"<<i<<"拿起左筷子\n";
+        wait(&chopsticks[(i+1)%5]);//拿起右筷子
+        cout<<"哲学家"<<i<<"拿起右筷子\n";
+        cout<<"哲学家在吃饭...\n";
+        delay(10000);//吃饭
+        signal(&chopsticks[i]);//放下左筷子
+        cout<<"哲学家"<<i<<"放下左筷子\n";
+        signal(&chopsticks[(i+1)%5]);//放下右筷子
+        cout<<"哲学家"<<i<<"放下右筷子\n";
+        signal(&eater);//吃饭结束，释放吃饭的信号量
+        cout<<"哲学家在思考...\n";
+        delay(20000);//思考
+    } while (true); 
 }
-
-// 消费者线程函数
-void consumer() {
-    for (int i = 0; i < 10; i++) { // 假设消费10个产品
-        wait(&full);    // 判断是否有满缓冲区
-        wait(&mutex);   // 获取互斥信号量
-        // 消费食物
-        int item = buffer[out]; // 从缓冲区取出食物
-        cout << "消费者取出: " << item << " 在 " << out << "号槽位" << endl;
-        out = (out + 1) % 5; // 更新消费者取出位置
-        signal(&mutex);      // 释放互斥信号量
-        signal(&Nempty);     // 更新空缓冲区信号量
-        delay(15500); // 模拟消费延迟
+int main() { 
+    thread t[5];
+    for (int i = 0; i < 5; i++) {
+        t[i] = thread(philosopher, i);
     }
-}
-
-int main() {
-    // 创建生产者和消费者线程
-    thread producerThread(producer);
-    thread consumerThread(consumer);
-    // 等待线程执行完毕
-    producerThread.join();
-    consumerThread.join();
+    for (int i = 0; i < 5; i++) {
+        t[i].join();
+    }
     return 0;
+    
 }

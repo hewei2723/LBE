@@ -12,7 +12,6 @@ typedef struct {
 } semaphore;
 void delay(int x) {
     while (x--);
-    
 }
 // 初始化信号量
 semaphore mutex = {1, 1};  // 互斥信号量
@@ -44,7 +43,7 @@ void producer() {
         in = (in + 1) % 5; // 更新生产者插入位置
         signal(&mutex);    // 释放互斥信号量
         signal(&full);     // 更新满缓冲区信号量
-        delay(1000); // 模拟生产延迟
+        delay(10); // 模拟生产延迟
     }
 }
 
