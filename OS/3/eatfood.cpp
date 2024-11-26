@@ -2,6 +2,7 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
+#include <windows.h> // 需要引入这个头文件
 using namespace std;
 typedef struct 
 {
@@ -48,6 +49,7 @@ void philosopher(int i) {
     } while (true); 
 }
 int main() { 
+    SetConsoleOutputCP(CP_UTF8);  // 设置控制台输出为 UTF-8 编码
     thread t[5];
     for (int i = 0; i < 5; i++) {
         t[i] = thread(philosopher, i);

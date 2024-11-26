@@ -1,5 +1,6 @@
 #include <iostream>
 #include <thread> // 多线程库
+#include <windows.h> // 需要引入这个头文件
 using namespace std;
 
 int buffer[5];  // 缓冲池
@@ -43,7 +44,7 @@ void producer() {
         in = (in + 1) % 5; // 更新生产者插入位置
         signal(&mutex);    // 释放互斥信号量
         signal(&full);     // 更新满缓冲区信号量
-        delay(10); // 模拟生产延迟
+        delay(1000); // 模拟生产延迟
     }
 }
 
@@ -58,16 +59,17 @@ void consumer() {
         out = (out + 1) % 5; // 更新消费者取出位置
         signal(&mutex);      // 释放互斥信号量
         signal(&Nempty);     // 更新空缓冲区信号量
-        delay(15500); // 模拟消费延迟
+        delay(100); // 模拟消费延迟
     }
 }
 
 int main() {
+    SetConsoleOutputCP(CP_UTF8);  // 设置控制台输出为 UTF-8 编码
     // 创建生产者和消费者线程
     thread producerThread(producer);
     thread consumerThread(consumer);
     // 等待线程执行完毕
     producerThread.join();
     consumerThread.join();
-    return 0;
+    cin.get();
 }

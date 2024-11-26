@@ -5,6 +5,8 @@
 #include <string>
 #include <vector>
 #include <iomanip> // for setw
+#include <windows.h> // 需要引入这个头文件
+
 using namespace std;
 
 typedef struct {
@@ -40,7 +42,7 @@ void signal(semaphore *s) {
 // 动态显示状态
 void displayStates() {
     lock_guard<mutex> lock(mtx);
-    system("cls"); // Linux/Unix 清屏，Windows 使用 system("cls")
+    system("cls"); // Windows 使用 system("cls")
     cout << "哲学家状态:" << endl;
     for (int i = 0; i < 5; i++) {
         cout << "哲学家" << i << ": " << setw(10) << philosopherStates[i] << endl;
@@ -58,6 +60,8 @@ void philosopher(int i) {
         philosopherStates[i] = "拿左筷";
         displayStates();
         wait(&chopsticks[(i + 1) % 5]); // 拿起右筷子
+        philosopherStates[(i + 1) % 5] = "拿右筷";
+        displayStates();
         philosopherStates[i] = "吃饭中";
         displayStates();
         delay(1500); // 模拟吃饭时间
@@ -71,6 +75,8 @@ void philosopher(int i) {
 }
 
 int main() {
+    SetConsoleOutputCP(CP_UTF8);  // 设置控制台输出为 UTF-8 编码
+
     thread t[5];
     for (int i = 0; i < 5; i++) {
         t[i] = thread(philosopher, i);
