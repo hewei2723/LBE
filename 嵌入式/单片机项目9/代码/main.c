@@ -79,39 +79,15 @@ void timer0_init()
 }
 void display(int num, int Poi)
 {
-	P0 = 0xff;
-	P0 = poi[Poi];
-	latch();
-	P0 = seven_seg[num];
-	delay(300);
-	P0 = 0xff;
-	P0 = 0X04;
-	latch();
-	P0 = 0xbf | flash;
-	delay(100);
-	P0 = 0xff;
-	P0 = 0X20;
-	latch();
-	P0 = 0xbf | flash;
-	delay(100);
+	P0 = 0xff;P0 = poi[Poi];latch();P0 = seven_seg[num];delay(300);
+	P0 = 0xff;P0 = 0X04;latch();P0 = 0xbf | flash;delay(100);
+	P0 = 0xff;P0 = 0X20;latch();P0 = 0xbf | flash;delay(100);
 }
 void Modedisplay(int num, int Poi)
 {
-	P0 = 0xff;
-	P0 = poi[Poi];
-	latch();
-	P0 = seven_seg[num] | flash;
-	delay(300);
-	P0 = 0xff;
-	P0 = 0X04;
-	latch();
-	P0 = 0xbf;
-	delay(100);
-	P0 = 0xff;
-	P0 = 0X20;
-	latch();
-	P0 = 0xbf;
-	delay(100);
+	P0 = 0xff;P0 = poi[Poi];latch();P0 = seven_seg[num] | flash;delay(300);
+	P0 = 0xff;P0 = 0X04;latch();P0 = 0xbf;delay(100);
+	P0 = 0xff;P0 = 0X20;latch();P0 = 0xbf;delay(100);
 }
 void ShowTime(int num, int mode) // mode=0 ++ mode=1 +60 mode =2 +3600
 {								 // num管理哪一个闪动，mode=0的时候调整模式
@@ -155,101 +131,38 @@ void ShowTime(int num, int mode) // mode=0 ++ mode=1 +60 mode =2 +3600
 		}
 	}
 }
-void changeTime()//确保只在按钮从1变成0的时候触发
+void changeTime() // 确保只在按钮从1变成0的时候触发
 {
-	int s;
-	static int keyS2 = 1, keyS3 = 1; // 按键状态，永远为1
-	switch (mode)
-	{
-	case 0:
-		s = 1;
-		break;
-	case 1:
-		s = 60;
-		break;
-	case 2:
-		s = 3600;
-		break;
-	}
-	if (keyS2 == 1 && key2 == 0) // 按键2按下并检测状态
-	{
-		delay(200);	   // 消抖延时
-		if (key2 == 0) // 确认按键仍然按下
-		{
-			time += s;
-			keyS2 = 0; // 置为0，防止重复触发
-		}
-	}
-	else if (key2 == 1) // 按键松开后重置状态
-	{
-		keyS2 = 1;
-	}
-	if (keyS3 == 1 && key3 == 0) // 按键3按下并检测状态
-	{
-		delay(200);	   // 消抖延时
-		if (key3 == 0) // 确认按键仍然按下
-		{
-			time -= s;
-			keyS3 = 0; // 置为0，防止重复触发
-		}
-	}
-	else if (key3 == 1) // 按键松开后重置状态
-	{
-		keyS3 = 1;
-	}
-}
+    int s;
+    static int keyS2 = 1, keyS3 = 1; // 按键状态，永远为1
+    switch (mode)
+    {
+    case 0: s = 1; break;
+    case 1: s = 60; break;
+    case 2: s = 3600; break;
+    }
+    if (keyS2 == 1 && key2 == 0) { delay(200); if (key2 == 0) { time += s; keyS2 = 0; } }
+    else if (key2 == 1) { keyS2 = 1; } // 按键松开后重置状态
 
+    if (keyS3 == 1 && key3 == 0) { delay(200); if (key3 == 0) { time -= s; keyS3 = 0; } }
+    else if (key3 == 1) { keyS3 = 1; } // 按键松开后重置状态
+}
 void key()
 {
-	int keyL = 1;
-	if (start)
-	{
-		ShowTime(0, 0);
-		ShowTime(1, 0);
-		ShowTime(2, 0);
-	}
-	// 按下按钮1，模式变化,start变成0
-	if (keyL == 1 && key1 == 0)
-	{
-		start = 0;
-		delay(100);
-		// 按一次选择一次模式
-		if (key1 == 0)
-		{
-			mode = (mode + 1) % 3; // 按下一次mode值变化一次，从0，1，2循环变化
-		}
-		keyL = key1;
-		delay(100);
-	}
-	keyL = 1;
-	if (!start)
-	{				   // 如果当前是暂停状态
-		if (mode == 0) // 秒闪动
-		{
-			ShowTime(0, 1);
-			ShowTime(1, 0);
-			ShowTime(2, 0);
-			changeTime();
-		}
-		if (mode == 1) // 分闪动
-		{
-			ShowTime(0, 0);
-			ShowTime(1, 1);
-			ShowTime(2, 0);
-			changeTime();
-		}
-		if (mode == 2) // 小时闪动
-		{
-			ShowTime(0, 0);
-			ShowTime(1, 0);
-			ShowTime(2, 1);
-			changeTime();
-		}
-	}
-	if (key4 == 0)
-	{ // 按下按钮4，继续执行
-		start = 1;
-	}
+    int keyL = 1;
+    if (start) { ShowTime(0, 0); ShowTime(1, 0); ShowTime(2, 0); }
+    if (keyL == 1 && key1 == 0) {
+        start = 0; delay(100);
+        if (key1 == 0) { mode = (mode + 1) % 3; }
+        keyL = key1; delay(100);
+    }
+    keyL = 1;
+    if (!start) {
+        if (mode == 0) { ShowTime(0, 1); ShowTime(1, 0); ShowTime(2, 0); changeTime(); }
+        if (mode == 1) { ShowTime(0, 0); ShowTime(1, 1); ShowTime(2, 0); changeTime(); }
+        if (mode == 2) { ShowTime(0, 0); ShowTime(1, 0); ShowTime(2, 1); changeTime(); }
+    }
+    if (key4 == 0) { start = 1; }
 }
 void main()
 {
