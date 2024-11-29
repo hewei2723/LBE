@@ -45,7 +45,7 @@ void displayStates() {
     system("cls"); // Windows 使用 system("cls")
     cout << "哲学家状态:" << endl;
     for (int i = 0; i < 5; i++) {
-        cout << "哲学家" << i << ": " << setw(10) << philosopherStates[i] << endl;
+        cout << "哲学家" << i+1 << ": " << setw(10) << philosopherStates[i]<<"\u263A "<< endl;
     }
     cout << "--------------------------" << endl;
 }

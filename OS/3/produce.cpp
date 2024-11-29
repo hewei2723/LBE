@@ -43,8 +43,8 @@ void producer() {
         cout << "生产者放入: " << buffer[in] << " 在 " << in << "号槽位" << endl;
         in = (in + 1) % 5; // 更新生产者插入位置
         signal(&mutex);    // 释放互斥信号量
-        signal(&full);     // 更新满缓冲区信号量
-        delay(1000); // 模拟生产延迟
+        signal(&full);     // 更新满缓冲区信号量//
+        delay(100); // 模拟生产延迟
     }
 }
 
@@ -59,7 +59,7 @@ void consumer() {
         out = (out + 1) % 5; // 更新消费者取出位置
         signal(&mutex);      // 释放互斥信号量
         signal(&Nempty);     // 更新空缓冲区信号量
-        delay(100); // 模拟消费延迟
+        delay(5000); // 模拟消费延迟
     }
 }
 
