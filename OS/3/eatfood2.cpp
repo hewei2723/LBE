@@ -17,7 +17,7 @@ semaphore chopsticks[5] = {1, 1, 1, 1, 1}; // 五根筷子
 semaphore eater = {4};                     // 最多允许4个哲学家同时就餐
 mutex mtx;                                 // 控制台输出保护
 
-vector<string> philosopherStates(5, "思考中"); // 哲学家状态
+vector<string> philosopherStates(5, "思考中🆘"); // 哲学家状态
 
 void delay(int t) {
     this_thread::sleep_for(chrono::milliseconds(t));
@@ -45,7 +45,7 @@ void displayStates() {
     system("cls"); // Windows 使用 system("cls")
     cout << "哲学家状态:" << endl;
     for (int i = 0; i < 5; i++) {
-        cout << "哲学家" << i+1 << ": " << setw(10) << philosopherStates[i]<<"\u263A "<< endl;
+        cout << "哲学家" << i+1 << ": " << setw(10) << philosopherStates[i]<< endl;
     }
     cout << "--------------------------" << endl;
 }
@@ -57,12 +57,12 @@ void philosopher(int i) {
         displayStates();
         wait(&eater); // 等待允许就餐信号量
         wait(&chopsticks[i]); // 拿起左筷子
-        philosopherStates[i] = "拿左筷";
+        philosopherStates[i] = "拿左筷👀";
         displayStates();
         wait(&chopsticks[(i + 1) % 5]); // 拿起右筷子
-        philosopherStates[(i + 1) % 5] = "拿右筷";
+        philosopherStates[(i + 1) % 5] = "拿右筷👀";
         displayStates();
-        philosopherStates[i] = "吃饭中";
+        philosopherStates[i] = "吃饭中🤣";
         displayStates();
         delay(1500); // 模拟吃饭时间
         signal(&chopsticks[i]); // 放下左筷子
