@@ -31,7 +31,15 @@ int n;
 vector<int> h;
 int main(){
     int n=3;
-    for(int i=0;i<(3*n-2);i++){
-        
+    for(int i=1;i<7;i++){
+        if(i<=3){
+            h.push_back(i);
+        }
+        else{
+            h.push_back(h[i-4]);//4-3-1  5-3-1 6-3-1
+        }
+    }
+    for(int num:h){
+        cout<<num<<" ";
     }
 }
