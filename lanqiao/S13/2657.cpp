@@ -27,10 +27,11 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-int n,flag=0;
+int n,flag=0,high=0;
 vector<int> h;
 int main(){
     int n=3;
+    int tree[n];
     for(int i=1;i<(2*n+1);i++){
         if(i<=3){
             h.push_back(i);
@@ -44,7 +45,18 @@ int main(){
             flag++;            
         }
     }
-    for(int num:h){
-        cout<<num<<" ";
+    for (int numi = 0; numi < n; numi++)
+    {
+        for(int num:h){//num=1 2 3 2 1 
+            if(numi!=num){
+                tree[numi]=high++;
+            }
+            
+        }
+        high=0;
     }
+    for(int htree:tree){
+        cout<<htree;
+    }
+    
 }
