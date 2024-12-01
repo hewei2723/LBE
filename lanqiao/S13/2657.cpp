@@ -28,6 +28,7 @@
 #include<vector>
 using namespace std;
 int n,flag=0,high=0;
+bool isFirst=1;
 vector<int> h;
 int main(){
     int n=3;
@@ -47,13 +48,15 @@ int main(){
     }
     for (int numi = 0; numi < n; numi++)
     {
-        for(int num:h){//num=1 2 3 2 1 
-            if(numi+1!=num){
+        for(int num:h){
+            if((numi+1!=num)&isFirst){
                 tree[numi]=high++;
+            }else{
+                isFirst=0;
             }
-            
         }
         high=0;
+        isFirst=1;
     }//这里需要一个值来确定是不是两个相同的数字，设一个标志
     for(int htree:tree){
         cout<<htree;
