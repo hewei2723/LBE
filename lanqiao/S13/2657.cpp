@@ -48,18 +48,22 @@ int main(){
     }
     for (int numi = 0; numi < n; numi++)
     {
-        for(int num:h){
-            if((numi+1!=num)&isFirst){
-                tree[numi]=high++;
-            }else{
-                isFirst=0;
+        for(int find=numi+1;find<(2*n+1);find++){
+            if(numi+1!=h[find]&isFirst){
+                high++;
+                tree[numi]=high;
+            }else
+            {
+               isFirst=0;
+                /* code */
             }
+            
         }
         high=0;
         isFirst=1;
-    }//这里需要一个值来确定是不是两个相同的数字，设一个标志
+    }//这里需要一个值来确定是不*n+是两个相同的数字，设一个标志
     for(int htree:tree){
-        cout<<htree;
+        cout<<htree+1;
     }
     
 }
