@@ -48,13 +48,13 @@ int main(){
     for (int numi = 0; numi < n; numi++)
     {
         for(int num:h){//num=1 2 3 2 1 
-            if(numi!=num){
+            if(numi+1!=num){
                 tree[numi]=high++;
             }
             
         }
         high=0;
-    }
+    }//这里需要一个值来确定是不是两个相同的数字，设一个标志
     for(int htree:tree){
         cout<<htree;
     }
