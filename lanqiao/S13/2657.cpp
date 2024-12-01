@@ -36,7 +36,7 @@ int main(){
             h.push_back(i);
         }
         else{
-            h.push_back(h[i-4]);//4-3-1  5-3-1 6-3-1
+            h.push_back(h[i-4]);//4 5 6 1 0  4-3 5-5 4-(n) 5-(n+2) 5-n-2 3-n
         }
     }
     for(int num:h){
