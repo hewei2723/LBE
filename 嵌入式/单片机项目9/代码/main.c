@@ -1,13 +1,13 @@
 #include <reg51.h>
 sbit LE = P1 ^ 0;
-sbit key1 = P2 ^ 0;
-sbit key2 = P2 ^ 1;
-sbit key3 = P2 ^ 2;
-sbit key4 = P2 ^ 3;
+sbit key1 = P2 ^ 4;
+sbit key2 = P2 ^ 5;
+sbit key3 = P2 ^ 6;
+sbit key4 = P2 ^ 7;
 int cp = 0, cpfh = 0;
 time = 0, flash = 0x00, start = 1, mode = 0;
 int secondA, hourA, minuteA, secondB, minuteB, hourB;
-int poi[] = {0x80, 0x40, 0x20, 0x10, 0x08, 0x04, 0x02, 0x01};
+int poi[] = {0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80};
 unsigned char seven_seg[] = {0xc0, 0xf9, 0xa4, 0xb0, 0x99, 0x92, 0x82, 0xf8, 0x80, 0x90};
 int sno[] = {1, 1, 6, 0, 1, 0, 2, 2};
 void key();
@@ -16,6 +16,7 @@ void latch()
 	LE = 1;
 	LE = 0;
 }
+
 void delay(int x)
 {
 	while (x--)
@@ -79,9 +80,9 @@ void timer0_init()
 }
 void display(int num, int Poi)
 {
-	P0 = 0xff;P0 = poi[Poi];latch();P0 = seven_seg[num];delay(300);
-	P0 = 0xff;P0 = 0X04;latch();P0 = 0xbf | flash;delay(100);
-	P0 = 0xff;P0 = 0X20;latch();P0 = 0xbf | flash;delay(100);
+	P0 = 0xff;P0 = poi[Poi];latch();P0 = seven_seg[num];delay(50);
+	P0 = 0xff;P0 = 0X04;latch();P0 = 0xbf | flash;delay(50);
+	P0 = 0xff;P0 = 0X20;latch();P0 = 0xbf | flash;delay(50);
 }
 void Modedisplay(int num, int Poi)
 {

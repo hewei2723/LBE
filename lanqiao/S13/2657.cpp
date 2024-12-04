@@ -31,15 +31,7 @@ int n;
 vector<int> h;
 int main(){
     int n=3;
-    for(int i=1;i<7;i++){
-        if(i<=3){
-            h.push_back(i);
-        }
-        else{
-            h.push_back(h[i-4]);//4 5 6 1 0  4-3 5-5 4-(n) 5-(n+2) 5-n-2 3-n
-        }
-    }
-    for(int num:h){
-        cout<<num<<" ";
-    }
+    for(int i=0;i<=n;i++)(
+        max(i-n,i-1)*2;
+    )
 }
