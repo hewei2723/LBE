@@ -24,14 +24,55 @@
 1 2 3 4 5 6 5 4 3 2 1 2 3 4 5 6 16 
 (n-1)*3+1=3n-3+1=3n-2
 */
+// #include<iostream>
+// #include<vector>
+// using namespace std;
+// int n,flag=0,high=0;
+// bool isFirst=1;
+// vector<int> h;
+// int main(){
+//     int n=3;
+//     int tree[n];
+//     for(int i=1;i<(2*n+1);i++){
+//         if(i<=3){
+//             h.push_back(i);
+//         }
+//         else{
+//             if (flag==(n-1))
+//             {
+//                flag=-1;
+//             }
+//             h.push_back(h[1-flag]);//0 1 2 1-(-1)
+//             flag++;            
+//         }
+//     }
+//     for (int numi = 0; numi < n; numi++)
+//     {
+//         for(int find=numi+1;find<(2*n+1);find++){
+//             if(numi+1!=h[find]&isFirst){
+//                 high++;
+//                 tree[numi]=high;
+//             }else
+//             {
+//                isFirst=0;
+//                 /* code */
+//             }
+            
+//         }
+//         high=0;
+//         isFirst=1;
+//     }//这里需要一个值来确定是不*n+是两个相同的数字，设一个标志
+//     for(int htree:tree){
+//         cout<<htree+1;
+//     }
+    
+// }
 #include<iostream>
-#include<vector>
 using namespace std;
 int n;
-vector<int> h;
 int main(){
-    int n=3;
-    for(int i=0;i<=n;i++)(
-        max(i-n,i-1)*2;
-    )
+    cin>>n;
+    for(int i=1;i<=n;i++){
+        cout<<max(n-i,i-1)*2<<"\n";
+    }
 }
