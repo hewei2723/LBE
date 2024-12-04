@@ -4,6 +4,8 @@ using namespace std;
 //最轻的是只放最轻砝码
 int main(){
     int n,fat[n]={1,4,6};
-    n=10;
-    
+    n=3;
+    for(int i=0;i<n;i++){
+        
+    }
 }
