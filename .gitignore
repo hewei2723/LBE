@@ -5,6 +5,7 @@ logs
 *.log
 # 忽略/dist目录，相对.gitignore文件所在目录
 /dist
+/vela
 out
 # 忽略.env文件
 .env
