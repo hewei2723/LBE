@@ -7,7 +7,7 @@ sbit x3 = P2 ^ 2;
 sbit x4 = P2 ^ 3;
 sbit seg1 = P1 ^ 0;
 sbit seg2 = P1 ^ 1;
-int delay(int x)
+void delay(int x)
 {
 	while (x--)
 		;
