@@ -1,4 +1,4 @@
-C51 COMPILER V9.54   MAIN                                                                  12/04/2024 11:07:54 PAGE 1   
+C51 COMPILER V9.54   MAIN                                                                  12/05/2024 16:30:56 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
@@ -19,7 +19,7 @@ line level    source
    9          int secondA, hourA, minuteA, secondB, minuteB, hourB;
   10          int poi[] = {0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80};
   11          unsigned char seven_seg[] = {0xc0, 0xf9, 0xa4, 0xb0, 0x99, 0x92, 0x82, 0xf8, 0x80, 0x90};
-  12          int sno[] = {1, 1, 6, 0, 1, 0, 2, 2};
+  12          int sno[] = {8,2 ,4, 0, 1, 0, 2, 2};
   13          void key();
   14          void latch()
   15          {
@@ -62,7 +62,7 @@ line level    source
   52   1        if (cp > 25 && start == 1)
   53   1        {
   54   2          time++;
-C51 COMPILER V9.54   MAIN                                                                  12/04/2024 11:07:54 PAGE 2   
+C51 COMPILER V9.54   MAIN                                                                  12/05/2024 16:30:56 PAGE 2   
 
   55   2          cp = 0;
   56   2        }
@@ -126,7 +126,7 @@ line level    source
  114   3          }
  115   2          else
  116   2          {
-C51 COMPILER V9.54   MAIN                                                                  12/04/2024 11:07:54 PAGE 3   
+C51 COMPILER V9.54   MAIN                                                                  12/05/2024 16:30:56 PAGE 3   
 
  117   3            display(minuteA, 4);
  118   3            display(minuteB, 3);
@@ -190,7 +190,7 @@ line level    source
 MODULE INFORMATION:   STATIC OVERLAYABLE
    CODE SIZE        =   1003    ----
    CONSTANT SIZE    =   ----    ----
-C51 COMPILER V9.54   MAIN                                                                  12/04/2024 11:07:54 PAGE 4   
+C51 COMPILER V9.54   MAIN                                                                  12/05/2024 16:30:56 PAGE 4   
 
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
