@@ -9,7 +9,7 @@ time = 0, flash = 0x00, start = 1, mode = 0;
 int secondA, hourA, minuteA, secondB, minuteB, hourB;
 int poi[] = {0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80};
 unsigned char seven_seg[] = {0xc0, 0xf9, 0xa4, 0xb0, 0x99, 0x92, 0x82, 0xf8, 0x80, 0x90};
-int sno[] = {8, 2, 4, 0, 1, 0, 2, 2};
+int sno[] = {8,2 ,4, 0, 1, 0, 2, 2};
 void key();
 void latch()
 {
@@ -91,7 +91,7 @@ void Modedisplay(int num, int Poi)
 	P0 = 0xff;P0 = 0X20;latch();P0 = 0xbf;delay(100);
 }
 void ShowTime(int num, int mode) // mode=0 ++ mode=1 +60 mode =2 +3600
-{								 // num¹ÜÀíÄÄÒ»¸öÉÁ¶¯£¬mode=0µÄÊ±ºòµ÷ÕûÄ£Ê½
+{								 // numï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½mode=0ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Ä£Ê½
 	if (num == 0)
 	{
 		if (mode)
@@ -132,10 +132,10 @@ void ShowTime(int num, int mode) // mode=0 ++ mode=1 +60 mode =2 +3600
 		}
 	}
 }
-void changeTime() // È·±£Ö»ÔÚ°´Å¥´Ó1±ä³É0µÄÊ±ºò´¥·¢
+void changeTime() // È·ï¿½ï¿½Ö»ï¿½Ú°ï¿½Å¥ï¿½ï¿½1ï¿½ï¿½ï¿½0ï¿½ï¿½Ê±ï¿½ò´¥·ï¿½
 {
     int s;
-    static int keyS2 = 1, keyS3 = 1; // °´¼ü×´Ì¬£¬ÓÀÔ¶Îª1
+    static int keyS2 = 1, keyS3 = 1; // ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½ï¿½ï¿½Ô¶Îª1
     switch (mode)
     {
     case 0: s = 1; break;
@@ -143,10 +143,10 @@ void changeTime() // È·±£Ö»ÔÚ°´Å¥´Ó1±ä³É0µÄÊ±ºò´¥·¢
     case 2: s = 3600; break;
     }
     if (keyS2 == 1 && key2 == 0) { delay(200); if (key2 == 0) { time += s; keyS2 = 0; } }
-    else if (key2 == 1) { keyS2 = 1; } // °´¼üËÉ¿ªºóÖØÖÃ×´Ì¬
+    else if (key2 == 1) { keyS2 = 1; } // ï¿½ï¿½ï¿½ï¿½ï¿½É¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
 
     if (keyS3 == 1 && key3 == 0) { delay(200); if (key3 == 0) { time -= s; keyS3 = 0; } }
-    else if (key3 == 1) { keyS3 = 1; } // °´¼üËÉ¿ªºóÖØÖÃ×´Ì¬
+    else if (key3 == 1) { keyS3 = 1; } // ï¿½ï¿½ï¿½ï¿½ï¿½É¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
 }
 void key()
 {

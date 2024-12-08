@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    12/08/2024  23:42:24  PAGE 1
+=======
+BL51 BANKED LINKER/LOCATER V6.22                                                        12/06/2024  10:03:46  PAGE 1
+>>>>>>> 88a2d4d62557889c3f07b1a31e399f3f98d3fa0c
 
 
 BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
@@ -65,6 +69,46 @@ SYMBOL TABLE OF MODULE:  .\Objects\one (MAIN)
   VALUE           TYPE          NAME
   ----------------------------------
 
+<<<<<<< HEAD
+=======
+  -------         MODULE        ?C_STARTUP
+  C:0015H         SEGMENT       ?C_C51STARTUP
+  I:0008H         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/06/2024  10:03:46  PAGE 2
+
+
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:0018H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:0015H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:0015H         LINE#         133
+  C:0017H         LINE#         134
+  C:0018H         LINE#         135
+  C:0019H         LINE#         136
+  C:001BH         LINE#         185
+  C:001EH         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+>>>>>>> 88a2d4d62557889c3f07b1a31e399f3f98d3fa0c
   -------         MODULE        MAIN
   C:0000H         SYMBOL        _ICE_DUMMY_
   D:0090H         PUBLIC        P1
