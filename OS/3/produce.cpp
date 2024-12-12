@@ -16,8 +16,8 @@ void delay(int x) {
 }
 // 初始化信号量
 semaphore mutex = {1, 1};  // 互斥信号量
-semaphore full = {0, 0};   // 满缓冲区信号量
-semaphore Nempty = {5, 1}; // 空缓冲区信号量
+semaphore full = {0, 0};   // 满缓冲区信号量 剩余资源为0 关闭
+semaphore Nempty = {5, 1}; // 空缓冲区信号量 剩余资源为5 打开
 
 // wait操作
 void wait(semaphore* s) {
