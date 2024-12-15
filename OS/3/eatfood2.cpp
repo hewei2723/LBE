@@ -14,9 +14,8 @@ typedef struct {
 } semaphore;
 
 semaphore chopsticks[5] = {1, 1, 1, 1, 1}; // 五根筷子
-semaphore eater = {4};                     // 最多允许4个哲学家同时就餐
+semaphore eater = {4};                     // 最多允许4支筷子同时被用，当5个的时候就会死锁
 mutex mtx;                                 // 控制台输出保护
-
 vector<string> philosopherStates(5, "思考中🆘"); // 哲学家状态
 
 void delay(int t) {
@@ -42,10 +41,10 @@ void signal(semaphore *s) {
 // 动态显示状态
 void displayStates() {
     lock_guard<mutex> lock(mtx);
-    system("cls"); // Windows 使用 system("cls")
+    system("cls"); //清屏
     cout << "哲学家状态:" << endl;
     for (int i = 0; i < 5; i++) {
-        cout << "哲学家" << i+1 << ": " << setw(10) << philosopherStates[i]<< endl;
+        cout << "哲学家" << i + 1 << ": " << setw(10) << philosopherStates[i] << endl;
     }
     cout << "--------------------------" << endl;
 }
@@ -55,19 +54,36 @@ void philosopher(int i) {
     do {
         philosopherStates[i] = "等待中";
         displayStates();
-        wait(&eater); // 等待允许就餐信号量
-        wait(&chopsticks[i]); // 拿起左筷子
-        philosopherStates[i] = "拿左筷👀";
+        wait(&eater);//允许拿起筷子的哲学家减减
+        philosopherStates[i] = "准备拿筷子";
         displayStates();
-        wait(&chopsticks[(i + 1) % 5]); // 拿起右筷子
-        philosopherStates[(i + 1) % 5] = "拿右筷👀";
-        displayStates();
+        // 防止死锁，哲学家优先拿较低编号的筷子
+        // 哲学家 0：先拿左筷子 0，再拿右筷子 1。
+        // 哲学家 1：先拿右筷子 2，再拿左筷子 1。
+        // 哲学家 2：先拿左筷子 2，再拿右筷子 3。
+        // 哲学家 3：先拿右筷子 4，再拿左筷子 3。
+        // 哲学家 4：先拿左筷子 4，再拿右筷子 0。
+        if (i % 2 == 0) {//偶数
+            wait(&chopsticks[i]); // 拿起左筷子
+            philosopherStates[i] = "拿左筷👀";
+            displayStates();
+            wait(&chopsticks[(i + 1) % 5]); // 拿起右筷子
+            philosopherStates[(i + 1) % 5] = "拿右筷👀";
+            displayStates();
+        } else {
+            wait(&chopsticks[(i + 1) % 5]); // 拿起右筷子
+            philosopherStates[(i + 1) % 5] = "拿右筷👀";
+            displayStates();
+            wait(&chopsticks[i]); // 拿起左筷子
+            philosopherStates[i] = "拿左筷👀";
+            displayStates();
+        }
         philosopherStates[i] = "吃饭中🤣";
         displayStates();
         delay(1500); // 模拟吃饭时间
         signal(&chopsticks[i]); // 放下左筷子
         signal(&chopsticks[(i + 1) % 5]); // 放下右筷子
-        signal(&eater); // 释放就餐信号量
+        signal(&eater); // 释放筷子
         philosopherStates[i] = "思考中";
         displayStates();
         delay(3000); // 模拟思考时间
