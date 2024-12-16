@@ -30,6 +30,7 @@ void display(void)
 {
     if(cp2 == 0) // 显示学号
     {
+<<<<<<< HEAD
         seg_num[7] = seven_seg[1];
         seg_num[6] = seven_seg[2];
         seg_num[5] = seven_seg[3];
@@ -44,6 +45,22 @@ void display(void)
         seg_num[7] = seven_seg[9 ];
         seg_num[6] = seven_seg[1];
         seg_num[5] = seven_seg[0];
+=======
+        seg_num[7] = seven_seg[2];
+        seg_num[6] = seven_seg[2];
+        seg_num[5] = seven_seg[0];
+        seg_num[4] = seven_seg[1];
+        seg_num[3] = seven_seg[0];
+        seg_num[2] = seven_seg[6];
+        seg_num[1] = seven_seg[1];
+        seg_num[0] = seven_seg[1];
+    }
+    if(cp2 == 1) // 显示电话号码后三位,温度
+    {
+        seg_num[7] = seven_seg[7 ];
+        seg_num[6] = seven_seg[7];
+        seg_num[5] = seven_seg[9];
+>>>>>>> f443aa59b64e13375a80cfe17fec50f134c7f5df
         seg_num[4] = 0xff;
         seg_num[3] = 0xff;
         seg_num[2] = seven_seg[temp / 10];

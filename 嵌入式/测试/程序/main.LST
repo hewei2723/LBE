@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 C51 COMPILER V9.60.7.0   MAIN                                                              12/15/2024 13:07:30 PAGE 1   
+=======
+C51 COMPILER V9.60.7.0   MAIN                                                              12/15/2024 11:59:41 PAGE 1   
+>>>>>>> f443aa59b64e13375a80cfe17fec50f134c7f5df
 
 
 C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
@@ -40,7 +44,11 @@ line level    source
   31          {
   32   1          init_2404();
   33   1        Read_Temperature();
+<<<<<<< HEAD
   34   1        delay(10000);
+=======
+  34   1        delay(3000);
+>>>>>>> f443aa59b64e13375a80cfe17fec50f134c7f5df
   35   1      //    write_add_dat_2404(1, 22);
   36   1      //    delay(300);
   37   1      //    write_add_dat_2404(2, 01);
@@ -62,7 +70,11 @@ line level    source
   53   1      //    num4 = read_add_dat_2404(4);
   54   1      //    delay(3000);
   55   1      //    num5 = read_add_dat_2404(5);
+<<<<<<< HEAD
 C51 COMPILER V9.60.7.0   MAIN                                                              12/15/2024 13:07:30 PAGE 2   
+=======
+C51 COMPILER V9.60.7.0   MAIN                                                              12/15/2024 11:59:41 PAGE 2   
+>>>>>>> f443aa59b64e13375a80cfe17fec50f134c7f5df
 
   56   1      //    delay(3000);
   57   1      //    num6 = read_add_dat_2404(6);

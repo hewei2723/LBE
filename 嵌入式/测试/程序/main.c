@@ -31,7 +31,11 @@ void main(void)
 {
     init_2404();
 	Read_Temperature();
+<<<<<<< HEAD
 	delay(10000);
+=======
+	delay(3000);
+>>>>>>> f443aa59b64e13375a80cfe17fec50f134c7f5df
 //    write_add_dat_2404(1, 22);
 //    delay(300);
 //    write_add_dat_2404(2, 01);
