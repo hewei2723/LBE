@@ -8,14 +8,14 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-public class DatabaseHelper extends SQLiteOpenHelper {
+public class SqlDB extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "newsApp.db";
     private static final int DATABASE_VERSION = 1;
 
     private static final String TAG = "DatabaseHelper";
 
-    public DatabaseHelper(Context context) {
+    public SqlDB(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 

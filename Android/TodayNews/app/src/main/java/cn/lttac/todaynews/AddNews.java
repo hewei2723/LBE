@@ -9,16 +9,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import androidx.fragment.app.Fragment;
 
-public class PublishFragment extends Fragment {
+public class AddNews extends Fragment {
 
-    private DatabaseHelper dbHelper;
+    private SqlDB dbHelper;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.addnews, container, false);
         String username = GlobalData.getInstance().getUsername();
-        dbHelper = new DatabaseHelper(getActivity());
+        dbHelper = new SqlDB(getActivity());
         EditText titleEditText = rootView.findViewById(R.id.edit_title);
         EditText contentEditText = rootView.findViewById(R.id.edit_content);
         Button publishButton = rootView.findViewById(R.id.publish_button);

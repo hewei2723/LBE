@@ -17,19 +17,17 @@ public class MainActivity extends AppCompatActivity {
             Fragment selectedFragment;
 
             if (item.getItemId() == R.id.nav_publish) {
-                selectedFragment = new PublishFragment();
+                selectedFragment = new AddNews();
             } else if (item.getItemId() == R.id.nav_my) {
-                selectedFragment = new LoginFragment();
+                selectedFragment = new UnLogin();
             } else { // 默认选中主页
-                selectedFragment = new MainFragment();
+                selectedFragment = new Home();
             }
             switchFragment(selectedFragment);
             return true;
         });
-
-
         // 默认加载主页
-        switchFragment(new MainFragment());
+        switchFragment(new Home());
     }
 
     private void switchFragment(Fragment fragment) {

@@ -8,7 +8,7 @@ import android.webkit.WebView;
 import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
-public class MainFragment extends Fragment {
+public class Home extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
