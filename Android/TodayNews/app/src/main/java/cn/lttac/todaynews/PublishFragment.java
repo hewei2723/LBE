@@ -17,9 +17,8 @@ public class PublishFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.addnews, container, false);
-
+        String username = GlobalData.getInstance().getUsername();
         dbHelper = new DatabaseHelper(getActivity());
-
         EditText titleEditText = rootView.findViewById(R.id.edit_title);
         EditText contentEditText = rootView.findViewById(R.id.edit_content);
         Button publishButton = rootView.findViewById(R.id.publish_button);
@@ -27,18 +26,20 @@ public class PublishFragment extends Fragment {
         publishButton.setOnClickListener(v -> {
             String title = titleEditText.getText().toString();
             String content = contentEditText.getText().toString();
-            publishArticle(title, content);
+            publishArticle(username,title, content);
         });
 
         return rootView;
     }
 
-    private void publishArticle(String title, String content) {
+    private void publishArticle(String username,String title, String content) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
+        values.put("username",username);
         values.put("title", title);
         values.put("content", content);
         db.insert("articles", null, values);
+        dbHelper.logAllData();
     }
 
 }
