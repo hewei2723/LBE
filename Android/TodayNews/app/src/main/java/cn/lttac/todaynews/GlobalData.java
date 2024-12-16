@@ -1,6 +1,4 @@
 package cn.lttac.todaynews;
-
-// 定义全局数据管理的单例类
 public class GlobalData {
     private static GlobalData instance;
     private String username;
@@ -13,12 +11,7 @@ public class GlobalData {
         }
         return instance;
     }
-
     public String getUsername() {
         return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 }
