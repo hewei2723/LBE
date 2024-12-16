@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- 显示用户名 -->
+    <TextView
+        android:id="@+id/textView_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="当前登录账号："
+        android:textSize="18sp" />
+
+    <!-- 显示文章标题 -->
+    <TextView
+        android:id="@+id/textView_articles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="已发布的文章："
+        android:layout_marginTop="10dp" />
+
+    <!-- RecyclerView 列表 -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView_articles"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- 退出登录按钮 -->
+    <Button
+        android:id="@+id/button_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="退出登录" />
+
+</LinearLayout>

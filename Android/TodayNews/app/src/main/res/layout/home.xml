@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/news_title_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="新闻标题 1" />
+
+    <TextView
+        android:id="@+id/news_title_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="新闻标题 2" />
+
+    <TextView
+        android:id="@+id/news_title_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="新闻标题 3" />
+
+    <TextView
+        android:id="@+id/news_title_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="新闻标题 4" />
+
+    <TextView
+        android:id="@+id/news_title_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="新闻标题 5" />
+
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+</LinearLayout>

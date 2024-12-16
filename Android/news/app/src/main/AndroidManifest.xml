@@ -12,13 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.News"
         tools:targetApi="31">
+        <activity android:name="cn.lttac.news.Success" />
+        <activity android:name="cn.lttac.news.AddNews" />
+        <activity android:name="cn.lttac.news.Home" />
+        <activity android:name="cn.lttac.news.Login" />
+
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
