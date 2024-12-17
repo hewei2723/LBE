@@ -35,18 +35,25 @@ public class UnLogin extends Fragment {
         // 设置注册按钮的点击事件
         btnRegister.setOnClickListener(v -> {
             // 获取用户输入的用户名和密码
-            String username = editUsername.getText().toString();
-            String password = editPassword.getText().toString();
+            String username = editUsername.getText().toString().trim();
+            String password = editPassword.getText().toString().trim();
 
-            // 调用数据库帮助类的方法注册用户
-            if (dbHelper.registerUser(username, password)) {
-                // 如果注册成功，则显示注册成功的提示信息
-                Toast.makeText(getContext(), "注册成功", Toast.LENGTH_SHORT).show();
+            // 判断用户名和密码是否为空
+            if (username.isEmpty() || password.isEmpty()) {
+                // 如果用户名或密码为空，提示用户
+                Toast.makeText(getContext(), "用户名和密码不能为空", Toast.LENGTH_SHORT).show();
             } else {
-                // 如果注册失败，则显示注册失败的提示信息
-                Toast.makeText(getContext(), "注册失败", Toast.LENGTH_SHORT).show();
+                // 调用数据库帮助类的方法注册用户
+                if (dbHelper.registerUser(username, password)) {
+                    // 如果注册成功，则显示注册成功的提示信息
+                    Toast.makeText(getContext(), "注册成功", Toast.LENGTH_SHORT).show();
+                } else {
+                    // 如果注册失败，则显示注册失败的提示信息
+                    Toast.makeText(getContext(), "注册失败", Toast.LENGTH_SHORT).show();
+                }
             }
         });
+
 
         // 设置登录按钮的点击事件
         btnLogin.setOnClickListener(v -> {
