@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>MainActivity.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #7a7e85;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+MainActivity.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">cn</span><span class="s2">.</span><span class="s1">lttac</span><span class="s2">.</span><span class="s1">todaynews</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">os</span><span class="s2">.</span><span class="s1">Bundle</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">androidx</span><span class="s2">.</span><span class="s1">appcompat</span><span class="s2">.</span><span class="s1">app</span><span class="s2">.</span><span class="s1">AppCompatActivity</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">androidx</span><span class="s2">.</span><span class="s1">fragment</span><span class="s2">.</span><span class="s1">app</span><span class="s2">.</span><span class="s1">Fragment</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">androidx</span><span class="s2">.</span><span class="s1">fragment</span><span class="s2">.</span><span class="s1">app</span><span class="s2">.</span><span class="s1">FragmentManager</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">androidx</span><span class="s2">.</span><span class="s1">fragment</span><span class="s2">.</span><span class="s1">app</span><span class="s2">.</span><span class="s1">FragmentTransaction</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">com</span><span class="s2">.</span><span class="s1">google</span><span class="s2">.</span><span class="s1">android</span><span class="s2">.</span><span class="s1">material</span><span class="s2">.</span><span class="s1">bottomnavigation</span><span class="s2">.</span><span class="s1">BottomNavigationView</span><span class="s2">;</span>
+<span class="s0">public class </span><span class="s1">MainActivity </span><span class="s0">extends </span><span class="s1">AppCompatActivity </span><span class="s2">{</span>
+    <span class="s1">@Override</span>
+    <span class="s0">protected void </span><span class="s1">onCreate</span><span class="s2">(</span><span class="s1">Bundle savedInstanceState</span><span class="s2">) {</span>
+        <span class="s0">super</span><span class="s2">.</span><span class="s1">onCreate</span><span class="s2">(</span><span class="s1">savedInstanceState</span><span class="s2">);</span>
+        <span class="s1">setContentView</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">layout</span><span class="s2">.</span><span class="s1">activity_main</span><span class="s2">);</span>
+
+        <span class="s3">// 获取底部导航栏</span>
+        <span class="s1">BottomNavigationView bottomNavigationView </span><span class="s2">= </span><span class="s1">findViewById</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">id</span><span class="s2">.</span><span class="s1">bottom_navigation</span><span class="s2">);</span>
+        <span class="s3">// 设置底部导航栏的点击事件</span>
+        <span class="s1">bottomNavigationView</span><span class="s2">.</span><span class="s1">setOnItemSelectedListener</span><span class="s2">(</span><span class="s1">item -&gt; </span><span class="s2">{</span>
+            <span class="s1">Fragment selectedFragment</span><span class="s2">;</span>
+
+            <span class="s3">// 判断点击的导航项</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">item</span><span class="s2">.</span><span class="s1">getItemId</span><span class="s2">() == </span><span class="s1">R</span><span class="s2">.</span><span class="s1">id</span><span class="s2">.</span><span class="s1">nav_publish</span><span class="s2">) {</span>
+                <span class="s3">// 如果点击的是发布按钮，则显示发布页面</span>
+                <span class="s1">selectedFragment </span><span class="s2">= </span><span class="s0">new <a href="AddNews.java.html">AddNews</a></span><span class="s2">();</span>
+            <span class="s2">} </span><span class="s0">else if </span><span class="s2">(</span><span class="s1">item</span><span class="s2">.</span><span class="s1">getItemId</span><span class="s2">() == </span><span class="s1">R</span><span class="s2">.</span><span class="s1">id</span><span class="s2">.</span><span class="s1">nav_my</span><span class="s2">) {</span>
+                <span class="s3">// 如果点击的是我的按钮，则显示未登录页面</span>
+                <span class="s1">selectedFragment </span><span class="s2">= </span><span class="s0">new <a href="UnLogin.java.html">UnLogin</a></span><span class="s2">();</span>
+            <span class="s2">} </span><span class="s0">else </span><span class="s2">{ </span><span class="s3">// 默认选中主页</span>
+                <span class="s3">// 如果点击的是其他按钮，则显示主页</span>
+                <span class="s1">selectedFragment </span><span class="s2">= </span><span class="s0">new <a href="Home.java.html">Home</a></span><span class="s2">();</span>
+            <span class="s2">}</span>
+            <span class="s3">// 切换页面</span>
+            <span class="s1">switchFragment</span><span class="s2">(</span><span class="s1">selectedFragment</span><span class="s2">);</span>
+            <span class="s0">return true</span><span class="s2">;</span>
+        <span class="s2">});</span>
+        <span class="s3">// 默认加载主页</span>
+        <span class="s1">switchFragment</span><span class="s2">(</span><span class="s0">new <a href="Home.java.html">Home</a></span><span class="s2">());</span>
+    <span class="s2">}</span>
+
+    <span class="s3">// 切换Fragment</span>
+    <span class="s0">private void </span><span class="s1">switchFragment</span><span class="s2">(</span><span class="s1">Fragment fragment</span><span class="s2">) {</span>
+        <span class="s3">// 获取FragmentManager</span>
+        <span class="s1">FragmentManager fragmentManager </span><span class="s2">= </span><span class="s1">getSupportFragmentManager</span><span class="s2">();</span>
+        <span class="s3">// 开启事务</span>
+        <span class="s1">FragmentTransaction transaction </span><span class="s2">= </span><span class="s1">fragmentManager</span><span class="s2">.</span><span class="s1">beginTransaction</span><span class="s2">();</span>
+        <span class="s3">// 替换Fragment</span>
+        <span class="s1">transaction</span><span class="s2">.</span><span class="s1">replace</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">id</span><span class="s2">.</span><span class="s1">fragment_container</span><span class="s2">, </span><span class="s1">fragment</span><span class="s2">);</span>
+        <span class="s3">// 提交事务</span>
+        <span class="s1">transaction</span><span class="s2">.</span><span class="s1">commit</span><span class="s2">();</span>
+    <span class="s2">}</span>
+
+<span class="s2">}</span>
+</pre>
+</body>
+</html>

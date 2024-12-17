@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:orientation="vertical"
+    android:padding="20dp">
 
     <EditText
         android:id="@+id/edit_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="文章标题"/>
+        android:hint="文章标题" />
 
     <EditText
         android:id="@+id/edit_content"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="文章内容"/>
+        android:layout_height="308dp"
+        android:hint="文章内容" />
 
     <Button
         android:id="@+id/publish_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="发布文章"/>
+        android:layout_margin="1dp"
+        android:text="存入" />
 </LinearLayout>

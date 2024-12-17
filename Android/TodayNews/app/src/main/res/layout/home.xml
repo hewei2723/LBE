@@ -5,36 +5,118 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
-    <TextView
-        android:id="@+id/news_title_1"
-        android:layout_width="wrap_content"
+    <!-- 新闻标题 1 -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="新闻标题 1" />
+        android:paddingBottom="8dp">
 
-    <TextView
-        android:id="@+id/news_title_2"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/news_title_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="新闻标题 1"
+            android:textSize="16sp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <!-- 分隔线 -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD" />
+
+    <!-- 新闻标题 2 -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="新闻标题 2" />
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp">
 
-    <TextView
-        android:id="@+id/news_title_3"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/news_title_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="新闻标题 2"
+            android:textSize="16sp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <!-- 分隔线 -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD" />
+
+    <!-- 新闻标题 3 -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="新闻标题 3" />
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp">
 
-    <TextView
-        android:id="@+id/news_title_4"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/news_title_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="新闻标题 3"
+            android:textSize="16sp"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <!-- 分隔线 -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD" />
+
+    <!-- 新闻标题 4 -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="新闻标题 4" />
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp">
 
-    <TextView
-        android:id="@+id/news_title_5"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/news_title_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="新闻标题 4"
+            android:textSize="16sp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <!-- 分隔线 -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD" />
+
+    <!-- 新闻标题 5 -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="新闻标题 5" />
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp">
 
+        <TextView
+            android:id="@+id/news_title_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="新闻标题 5"
+            android:textSize="16sp"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <!-- WebView 用于显示内容 -->
     <WebView
         android:id="@+id/webview"
         android:layout_width="match_parent"

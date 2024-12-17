@@ -1,0 +1,133 @@
+<html>
+<head>
+<title>SqlDB.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+.s4 { color: #2aacb8;}
+.s5 { color: #7a7e85;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+SqlDB.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">cn</span><span class="s2">.</span><span class="s1">lttac</span><span class="s2">.</span><span class="s1">todaynews</span><span class="s2">;</span>
+
+<span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">annotation</span><span class="s2">.</span><span class="s1">SuppressLint</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">content</span><span class="s2">.</span><span class="s1">ContentValues</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">content</span><span class="s2">.</span><span class="s1">Context</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">database</span><span class="s2">.</span><span class="s1">Cursor</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">database</span><span class="s2">.</span><span class="s1">sqlite</span><span class="s2">.</span><span class="s1">SQLiteDatabase</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">database</span><span class="s2">.</span><span class="s1">sqlite</span><span class="s2">.</span><span class="s1">SQLiteOpenHelper</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">Log</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">SqlDB </span><span class="s0">extends </span><span class="s1">SQLiteOpenHelper </span><span class="s2">{</span>
+
+    <span class="s0">private static final </span><span class="s1">String DATABASE_NAME </span><span class="s2">= </span><span class="s3">&quot;newsApp.db&quot;</span><span class="s2">;</span>
+    <span class="s0">private static final int </span><span class="s1">DATABASE_VERSION </span><span class="s2">= </span><span class="s4">1</span><span class="s2">;</span>
+
+    <span class="s0">private static final </span><span class="s1">String TAG </span><span class="s2">= </span><span class="s3">&quot;DatabaseHelper&quot;</span><span class="s2">;</span>
+
+    <span class="s0">public </span><span class="s1">SqlDB</span><span class="s2">(</span><span class="s1">Context context</span><span class="s2">) {</span>
+        <span class="s0">super</span><span class="s2">(</span><span class="s1">context</span><span class="s2">, </span><span class="s1">DATABASE_NAME</span><span class="s2">, </span><span class="s0">null</span><span class="s2">, </span><span class="s1">DATABASE_VERSION</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">onCreate</span><span class="s2">(</span><span class="s1">SQLiteDatabase db</span><span class="s2">) {</span>
+        <span class="s1">db</span><span class="s2">.</span><span class="s1">execSQL</span><span class="s2">(</span><span class="s3">&quot;CREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT UNIQUE, password TEXT)&quot;</span><span class="s2">);</span>
+        <span class="s1">db</span><span class="s2">.</span><span class="s1">execSQL</span><span class="s2">(</span><span class="s3">&quot;CREATE TABLE articles (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, title TEXT, content TEXT)&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span><span class="s5">//这里得给username传进去，不然找不到用户的文章</span>
+
+    <span class="s1">@Override</span>
+    <span class="s5">// 当数据库版本更新时调用此方法</span>
+    <span class="s0">public void </span><span class="s1">onUpgrade</span><span class="s2">(</span><span class="s1">SQLiteDatabase db</span><span class="s2">, </span><span class="s0">int </span><span class="s1">oldVersion</span><span class="s2">, </span><span class="s0">int </span><span class="s1">newVersion</span><span class="s2">) {</span>
+        <span class="s5">// 如果users表存在，则删除</span>
+        <span class="s1">db</span><span class="s2">.</span><span class="s1">execSQL</span><span class="s2">(</span><span class="s3">&quot;DROP TABLE IF EXISTS users&quot;</span><span class="s2">);</span>
+        <span class="s5">// 如果articles表存在，则删除</span>
+        <span class="s1">db</span><span class="s2">.</span><span class="s1">execSQL</span><span class="s2">(</span><span class="s3">&quot;DROP TABLE IF EXISTS articles&quot;</span><span class="s2">);</span>
+        <span class="s5">// 重新创建数据库</span>
+        <span class="s1">onCreate</span><span class="s2">(</span><span class="s1">db</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s5">// 注册用户</span>
+    <span class="s0">public boolean </span><span class="s1">registerUser</span><span class="s2">(</span><span class="s1">String username</span><span class="s2">, </span><span class="s1">String password</span><span class="s2">) {</span>
+        <span class="s5">// 获取可写数据库</span>
+        <span class="s1">SQLiteDatabase db </span><span class="s2">= </span><span class="s0">this</span><span class="s2">.</span><span class="s1">getWritableDatabase</span><span class="s2">();</span>
+        <span class="s5">// 创建ContentValues对象，用于存储要插入的数据</span>
+        <span class="s1">ContentValues values </span><span class="s2">= </span><span class="s0">new </span><span class="s1">ContentValues</span><span class="s2">();</span>
+        <span class="s5">// 将用户名和密码放入ContentValues对象中</span>
+        <span class="s1">values</span><span class="s2">.</span><span class="s1">put</span><span class="s2">(</span><span class="s3">&quot;username&quot;</span><span class="s2">, </span><span class="s1">username</span><span class="s2">);</span>
+        <span class="s1">values</span><span class="s2">.</span><span class="s1">put</span><span class="s2">(</span><span class="s3">&quot;password&quot;</span><span class="s2">, </span><span class="s1">password</span><span class="s2">);</span>
+        <span class="s5">// 将数据插入到数据库中</span>
+        <span class="s0">long </span><span class="s1">result </span><span class="s2">= </span><span class="s1">db</span><span class="s2">.</span><span class="s1">insert</span><span class="s2">(</span><span class="s3">&quot;users&quot;</span><span class="s2">, </span><span class="s0">null</span><span class="s2">, </span><span class="s1">values</span><span class="s2">);</span>
+        <span class="s5">// 返回插入结果，如果插入成功，result不等于-1</span>
+        <span class="s0">return </span><span class="s1">result </span><span class="s2">!= -</span><span class="s4">1</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public boolean </span><span class="s1">loginUser</span><span class="s2">(</span><span class="s1">String username</span><span class="s2">, </span><span class="s1">String password</span><span class="s2">) {</span>
+        <span class="s1">SQLiteDatabase db </span><span class="s2">= </span><span class="s0">this</span><span class="s2">.</span><span class="s1">getReadableDatabase</span><span class="s2">();</span>
+        <span class="s1">Cursor cursor </span><span class="s2">= </span><span class="s1">db</span><span class="s2">.</span><span class="s1">rawQuery</span><span class="s2">(</span><span class="s3">&quot;SELECT * FROM users WHERE username=? AND password=?&quot;</span><span class="s2">, </span><span class="s0">new </span><span class="s1">String</span><span class="s2">[]{</span><span class="s1">username</span><span class="s2">, </span><span class="s1">password</span><span class="s2">});</span>
+        <span class="s0">return </span><span class="s1">cursor</span><span class="s2">.</span><span class="s1">moveToFirst</span><span class="s2">();</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public </span><span class="s1">Cursor getUserArticles</span><span class="s2">(</span><span class="s1">String username</span><span class="s2">) {</span>
+        <span class="s1">SQLiteDatabase db </span><span class="s2">= </span><span class="s0">this</span><span class="s2">.</span><span class="s1">getReadableDatabase</span><span class="s2">();</span>
+        <span class="s0">return </span><span class="s1">db</span><span class="s2">.</span><span class="s1">rawQuery</span><span class="s2">(</span><span class="s3">&quot;SELECT title FROM articles WHERE username=?&quot;</span><span class="s2">, </span><span class="s0">new </span><span class="s1">String</span><span class="s2">[]{</span><span class="s1">username</span><span class="s2">});</span>
+    <span class="s2">}</span>
+
+    <span class="s5">// 新增的函数，用于打印所有表的数据到log</span>
+    <span class="s0">public void </span><span class="s1">logAllData</span><span class="s2">() {</span>
+        <span class="s1">SQLiteDatabase db </span><span class="s2">= </span><span class="s0">this</span><span class="s2">.</span><span class="s1">getReadableDatabase</span><span class="s2">();</span>
+
+        <span class="s5">// 查询users表的数据</span>
+        <span class="s5">// 从数据库中查询所有用户信息</span>
+        <span class="s1">Cursor userCursor </span><span class="s2">= </span><span class="s1">db</span><span class="s2">.</span><span class="s1">rawQuery</span><span class="s2">(</span><span class="s3">&quot;SELECT * FROM users&quot;</span><span class="s2">, </span><span class="s0">null</span><span class="s2">);</span>
+        <span class="s5">// 如果查询结果不为空，并且可以移动到第一行</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">userCursor </span><span class="s2">!= </span><span class="s0">null </span><span class="s2">&amp;&amp; </span><span class="s1">userCursor</span><span class="s2">.</span><span class="s1">moveToFirst</span><span class="s2">()) {</span>
+            <span class="s5">// 循环遍历每一行</span>
+            <span class="s0">do </span><span class="s2">{</span>
+                <span class="s5">// 获取用户ID</span>
+                <span class="s1">@SuppressLint</span><span class="s2">(</span><span class="s3">&quot;Range&quot;</span><span class="s2">) </span><span class="s0">int </span><span class="s1">id </span><span class="s2">= </span><span class="s1">userCursor</span><span class="s2">.</span><span class="s1">getInt</span><span class="s2">(</span><span class="s1">userCursor</span><span class="s2">.</span><span class="s1">getColumnIndex</span><span class="s2">(</span><span class="s3">&quot;id&quot;</span><span class="s2">));</span>
+                <span class="s5">// 获取用户名</span>
+                <span class="s1">@SuppressLint</span><span class="s2">(</span><span class="s3">&quot;Range&quot;</span><span class="s2">) </span><span class="s1">String username </span><span class="s2">= </span><span class="s1">userCursor</span><span class="s2">.</span><span class="s1">getString</span><span class="s2">(</span><span class="s1">userCursor</span><span class="s2">.</span><span class="s1">getColumnIndex</span><span class="s2">(</span><span class="s3">&quot;username&quot;</span><span class="s2">));</span>
+                <span class="s5">// 获取密码</span>
+                <span class="s1">@SuppressLint</span><span class="s2">(</span><span class="s3">&quot;Range&quot;</span><span class="s2">) </span><span class="s1">String password </span><span class="s2">= </span><span class="s1">userCursor</span><span class="s2">.</span><span class="s1">getString</span><span class="s2">(</span><span class="s1">userCursor</span><span class="s2">.</span><span class="s1">getColumnIndex</span><span class="s2">(</span><span class="s3">&quot;password&quot;</span><span class="s2">));</span>
+                <span class="s5">// 打印用户信息</span>
+                <span class="s1">Log</span><span class="s2">.</span><span class="s1">d</span><span class="s2">(</span><span class="s1">TAG</span><span class="s2">, </span><span class="s3">&quot;User - ID: &quot; </span><span class="s2">+ </span><span class="s1">id </span><span class="s2">+ </span><span class="s3">&quot;, Username: &quot; </span><span class="s2">+ </span><span class="s1">username </span><span class="s2">+ </span><span class="s3">&quot;, Password: &quot; </span><span class="s2">+ </span><span class="s1">password</span><span class="s2">);</span>
+            <span class="s2">} </span><span class="s0">while </span><span class="s2">(</span><span class="s1">userCursor</span><span class="s2">.</span><span class="s1">moveToNext</span><span class="s2">());</span>
+            <span class="s5">// 关闭游标</span>
+            <span class="s1">userCursor</span><span class="s2">.</span><span class="s1">close</span><span class="s2">();</span>
+        <span class="s2">}</span>
+
+        <span class="s5">// 查询articles表的数据</span>
+        <span class="s5">// 从数据库中查询所有文章</span>
+        <span class="s1">Cursor articleCursor </span><span class="s2">= </span><span class="s1">db</span><span class="s2">.</span><span class="s1">rawQuery</span><span class="s2">(</span><span class="s3">&quot;SELECT * FROM articles&quot;</span><span class="s2">, </span><span class="s0">null</span><span class="s2">);</span>
+        <span class="s5">// 如果查询结果不为空，并且可以移动到第一行</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">articleCursor </span><span class="s2">!= </span><span class="s0">null </span><span class="s2">&amp;&amp; </span><span class="s1">articleCursor</span><span class="s2">.</span><span class="s1">moveToFirst</span><span class="s2">()) {</span>
+            <span class="s5">// 循环遍历每一行</span>
+            <span class="s0">do </span><span class="s2">{</span>
+                <span class="s5">// 获取文章的id</span>
+                <span class="s1">@SuppressLint</span><span class="s2">(</span><span class="s3">&quot;Range&quot;</span><span class="s2">) </span><span class="s0">int </span><span class="s1">id </span><span class="s2">= </span><span class="s1">articleCursor</span><span class="s2">.</span><span class="s1">getInt</span><span class="s2">(</span><span class="s1">articleCursor</span><span class="s2">.</span><span class="s1">getColumnIndex</span><span class="s2">(</span><span class="s3">&quot;id&quot;</span><span class="s2">));</span>
+                <span class="s5">// 获取文章的作者</span>
+                <span class="s1">@SuppressLint</span><span class="s2">(</span><span class="s3">&quot;Range&quot;</span><span class="s2">) </span><span class="s1">String username </span><span class="s2">= </span><span class="s1">articleCursor</span><span class="s2">.</span><span class="s1">getString</span><span class="s2">(</span><span class="s1">articleCursor</span><span class="s2">.</span><span class="s1">getColumnIndex</span><span class="s2">(</span><span class="s3">&quot;username&quot;</span><span class="s2">));</span>
+                <span class="s5">// 获取文章的标题</span>
+                <span class="s1">@SuppressLint</span><span class="s2">(</span><span class="s3">&quot;Range&quot;</span><span class="s2">) </span><span class="s1">String title </span><span class="s2">= </span><span class="s1">articleCursor</span><span class="s2">.</span><span class="s1">getString</span><span class="s2">(</span><span class="s1">articleCursor</span><span class="s2">.</span><span class="s1">getColumnIndex</span><span class="s2">(</span><span class="s3">&quot;title&quot;</span><span class="s2">));</span>
+                <span class="s5">// 获取文章的内容</span>
+                <span class="s1">@SuppressLint</span><span class="s2">(</span><span class="s3">&quot;Range&quot;</span><span class="s2">) </span><span class="s1">String content </span><span class="s2">= </span><span class="s1">articleCursor</span><span class="s2">.</span><span class="s1">getString</span><span class="s2">(</span><span class="s1">articleCursor</span><span class="s2">.</span><span class="s1">getColumnIndex</span><span class="s2">(</span><span class="s3">&quot;content&quot;</span><span class="s2">));</span>
+                <span class="s5">// 打印文章信息</span>
+                <span class="s1">Log</span><span class="s2">.</span><span class="s1">d</span><span class="s2">(</span><span class="s1">TAG</span><span class="s2">, </span><span class="s3">&quot;Article - ID: &quot; </span><span class="s2">+ </span><span class="s1">id </span><span class="s2">+ </span><span class="s3">&quot;, Username: &quot; </span><span class="s2">+ </span><span class="s1">username </span><span class="s2">+ </span><span class="s3">&quot;, Title: &quot; </span><span class="s2">+ </span><span class="s1">title </span><span class="s2">+ </span><span class="s3">&quot;, Content: &quot; </span><span class="s2">+ </span><span class="s1">content</span><span class="s2">);</span>
+            <span class="s2">} </span><span class="s0">while </span><span class="s2">(</span><span class="s1">articleCursor</span><span class="s2">.</span><span class="s1">moveToNext</span><span class="s2">());</span>
+            <span class="s5">// 关闭游标</span>
+            <span class="s1">articleCursor</span><span class="s2">.</span><span class="s1">close</span><span class="s2">();</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>

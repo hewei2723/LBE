@@ -1,0 +1,114 @@
+<html>
+<head>
+<title>UnLogin.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+.s4 { color: #7a7e85;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+UnLogin.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">cn</span><span class="s2">.</span><span class="s1">lttac</span><span class="s2">.</span><span class="s1">todaynews</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">content</span><span class="s2">.</span><span class="s1">Context</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">content</span><span class="s2">.</span><span class="s1">SharedPreferences</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">os</span><span class="s2">.</span><span class="s1">Bundle</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">view</span><span class="s2">.</span><span class="s1">LayoutInflater</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">view</span><span class="s2">.</span><span class="s1">View</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">view</span><span class="s2">.</span><span class="s1">ViewGroup</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">widget</span><span class="s2">.</span><span class="s1">Button</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">widget</span><span class="s2">.</span><span class="s1">EditText</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">widget</span><span class="s2">.</span><span class="s1">Toast</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">androidx</span><span class="s2">.</span><span class="s1">annotation</span><span class="s2">.</span><span class="s1">NonNull</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">androidx</span><span class="s2">.</span><span class="s1">annotation</span><span class="s2">.</span><span class="s1">Nullable</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">androidx</span><span class="s2">.</span><span class="s1">fragment</span><span class="s2">.</span><span class="s1">app</span><span class="s2">.</span><span class="s1">Fragment</span><span class="s2">;</span>
+<span class="s0">public class </span><span class="s1">UnLogin </span><span class="s0">extends </span><span class="s1">Fragment </span><span class="s2">{</span>
+    <span class="s0">private </span><span class="s1">EditText editUsername</span><span class="s2">, </span><span class="s1">editPassword</span><span class="s2">;</span>
+    <span class="s0">private <a href="SqlDB.java.html">SqlDB</a> </span><span class="s1">dbHelper</span><span class="s2">;</span>
+    <span class="s0">private </span><span class="s1">SharedPreferences preferences</span><span class="s2">;</span>
+    <span class="s1">@Nullable</span>
+    <span class="s1">@Override</span>
+    <span class="s0">public </span><span class="s1">View onCreateView</span><span class="s2">(</span><span class="s1">@NonNull LayoutInflater inflater</span><span class="s2">, </span><span class="s1">@Nullable ViewGroup container</span><span class="s2">, </span><span class="s1">@Nullable Bundle savedInstanceState</span><span class="s2">) {</span>
+        <span class="s1">View view </span><span class="s2">= </span><span class="s1">inflater</span><span class="s2">.</span><span class="s1">inflate</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">layout</span><span class="s2">.</span><span class="s1">unlogin</span><span class="s2">,</span><span class="s1">container</span><span class="s2">, </span><span class="s0">false</span><span class="s2">);</span>
+        <span class="s1">dbHelper </span><span class="s2">= </span><span class="s0">new <a href="SqlDB.java.html">SqlDB</a></span><span class="s2">(</span><span class="s1">getContext</span><span class="s2">());</span>
+        <span class="s1">getContext</span><span class="s2">();</span>
+        <span class="s1">preferences </span><span class="s2">= </span><span class="s1">requireActivity</span><span class="s2">().</span><span class="s1">getSharedPreferences</span><span class="s2">(</span><span class="s3">&quot;login_prefs&quot;</span><span class="s2">, </span><span class="s1">Context</span><span class="s2">.</span><span class="s1">MODE_PRIVATE</span><span class="s2">);</span>
+        <span class="s1">editUsername </span><span class="s2">= </span><span class="s1">view</span><span class="s2">.</span><span class="s1">findViewById</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">id</span><span class="s2">.</span><span class="s1">editText_username</span><span class="s2">);</span>
+        <span class="s1">editPassword </span><span class="s2">= </span><span class="s1">view</span><span class="s2">.</span><span class="s1">findViewById</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">id</span><span class="s2">.</span><span class="s1">editText_password</span><span class="s2">);</span>
+        <span class="s1">Button btnLogin </span><span class="s2">= </span><span class="s1">view</span><span class="s2">.</span><span class="s1">findViewById</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">id</span><span class="s2">.</span><span class="s1">button_login</span><span class="s2">);</span>
+        <span class="s1">Button btnRegister </span><span class="s2">= </span><span class="s1">view</span><span class="s2">.</span><span class="s1">findViewById</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">id</span><span class="s2">.</span><span class="s1">button_register</span><span class="s2">);</span>
+        <span class="s4">// 自动登录</span>
+        <span class="s4">// 检查用户是否已经登录</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">preferences</span><span class="s2">.</span><span class="s1">getBoolean</span><span class="s2">(</span><span class="s3">&quot;isLoggedIn&quot;</span><span class="s2">, </span><span class="s0">false</span><span class="s2">)) {</span>
+            <span class="s4">// 如果已经登录，则跳转到主界面</span>
+            <span class="s1">startHomeActivity</span><span class="s2">(</span><span class="s1">preferences</span><span class="s2">.</span><span class="s1">getString</span><span class="s2">(</span><span class="s3">&quot;username&quot;</span><span class="s2">, </span><span class="s3">&quot;&quot;</span><span class="s2">));</span>
+        <span class="s2">}</span>
+        <span class="s4">// 设置注册按钮的点击事件</span>
+        <span class="s1">btnRegister</span><span class="s2">.</span><span class="s1">setOnClickListener</span><span class="s2">(</span><span class="s1">v -&gt; </span><span class="s2">{</span>
+            <span class="s4">// 获取用户输入的用户名和密码</span>
+            <span class="s1">String username </span><span class="s2">= </span><span class="s1">editUsername</span><span class="s2">.</span><span class="s1">getText</span><span class="s2">().</span><span class="s1">toString</span><span class="s2">();</span>
+            <span class="s1">String password </span><span class="s2">= </span><span class="s1">editPassword</span><span class="s2">.</span><span class="s1">getText</span><span class="s2">().</span><span class="s1">toString</span><span class="s2">();</span>
+
+            <span class="s4">// 调用数据库帮助类的方法注册用户</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">dbHelper</span><span class="s2">.</span><span class="s1">registerUser</span><span class="s2">(</span><span class="s1">username</span><span class="s2">, </span><span class="s1">password</span><span class="s2">)) {</span>
+                <span class="s4">// 如果注册成功，则显示注册成功的提示信息</span>
+                <span class="s1">Toast</span><span class="s2">.</span><span class="s1">makeText</span><span class="s2">(</span><span class="s1">getContext</span><span class="s2">(), </span><span class="s3">&quot;注册成功&quot;</span><span class="s2">, </span><span class="s1">Toast</span><span class="s2">.</span><span class="s1">LENGTH_SHORT</span><span class="s2">).</span><span class="s1">show</span><span class="s2">();</span>
+            <span class="s2">} </span><span class="s0">else </span><span class="s2">{</span>
+                <span class="s4">// 如果注册失败，则显示注册失败的提示信息</span>
+                <span class="s1">Toast</span><span class="s2">.</span><span class="s1">makeText</span><span class="s2">(</span><span class="s1">getContext</span><span class="s2">(), </span><span class="s3">&quot;注册失败&quot;</span><span class="s2">, </span><span class="s1">Toast</span><span class="s2">.</span><span class="s1">LENGTH_SHORT</span><span class="s2">).</span><span class="s1">show</span><span class="s2">();</span>
+            <span class="s2">}</span>
+        <span class="s2">});</span>
+
+        <span class="s4">// 设置登录按钮的点击事件</span>
+        <span class="s1">btnLogin</span><span class="s2">.</span><span class="s1">setOnClickListener</span><span class="s2">(</span><span class="s1">v -&gt; </span><span class="s2">{</span>
+            <span class="s4">// 获取用户名和密码</span>
+            <span class="s1">String username </span><span class="s2">= </span><span class="s1">editUsername</span><span class="s2">.</span><span class="s1">getText</span><span class="s2">().</span><span class="s1">toString</span><span class="s2">();</span>
+            <span class="s1">String password </span><span class="s2">= </span><span class="s1">editPassword</span><span class="s2">.</span><span class="s1">getText</span><span class="s2">().</span><span class="s1">toString</span><span class="s2">();</span>
+
+            <span class="s4">// 调用数据库帮助类的方法，判断用户名和密码是否正确</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">dbHelper</span><span class="s2">.</span><span class="s1">loginUser</span><span class="s2">(</span><span class="s1">username</span><span class="s2">, </span><span class="s1">password</span><span class="s2">)) {</span>
+                <span class="s4">// 如果正确，将登录状态和用户名保存到SharedPreferences中</span>
+                <span class="s1">preferences</span><span class="s2">.</span><span class="s1">edit</span><span class="s2">().</span><span class="s1">putBoolean</span><span class="s2">(</span><span class="s3">&quot;isLoggedIn&quot;</span><span class="s2">, </span><span class="s0">true</span><span class="s2">).</span><span class="s1">putString</span><span class="s2">(</span><span class="s3">&quot;username&quot;</span><span class="s2">, </span><span class="s1">username</span><span class="s2">).</span><span class="s1">apply</span><span class="s2">();</span>
+                <span class="s4">// 跳转到主界面</span>
+                <span class="s1">startHomeActivity</span><span class="s2">(</span><span class="s1">username</span><span class="s2">);</span>
+            <span class="s2">} </span><span class="s0">else </span><span class="s2">{</span>
+                <span class="s4">// 如果不正确，弹出提示框</span>
+                <span class="s1">Toast</span><span class="s2">.</span><span class="s1">makeText</span><span class="s2">(</span><span class="s1">getContext</span><span class="s2">(), </span><span class="s3">&quot;登录失败，请检查账号和密码&quot;</span><span class="s2">, </span><span class="s1">Toast</span><span class="s2">.</span><span class="s1">LENGTH_SHORT</span><span class="s2">).</span><span class="s1">show</span><span class="s2">();</span>
+            <span class="s2">}</span>
+        <span class="s2">});</span>
+
+        <span class="s0">return </span><span class="s1">view</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">private void </span><span class="s1">startHomeActivity</span><span class="s2">(</span><span class="s1">String username</span><span class="s2">) {</span>
+        <span class="s4">// 创建 Fragment 并传递数据</span>
+        <span class="s4">// 创建一个Login对象</span>
+        <a href="Login.java.html">Login</a> <span class="s1">myFragment </span><span class="s2">= </span><span class="s0">new <a href="Login.java.html">Login</a></span><span class="s2">();</span>
+        <span class="s4">// 创建一个Bundle对象</span>
+        <span class="s1">Bundle args </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Bundle</span><span class="s2">();</span>
+        <span class="s4">// 将username字符串放入Bundle中</span>
+        <span class="s1">args</span><span class="s2">.</span><span class="s1">putString</span><span class="s2">(</span><span class="s3">&quot;username&quot;</span><span class="s2">, </span><span class="s1">username</span><span class="s2">);</span>
+        <span class="s4">// 将Bundle对象设置给Login对象</span>
+        <span class="s1">myFragment</span><span class="s2">.</span><span class="s1">setArguments</span><span class="s2">(</span><span class="s1">args</span><span class="s2">);</span>
+        <span class="s4">// 替换当前 Fragment 或加载到容器中</span>
+        <span class="s4">// 获取当前Activity的FragmentManager</span>
+        <span class="s1">requireActivity</span><span class="s2">().</span><span class="s1">getSupportFragmentManager</span><span class="s2">().</span><span class="s1">beginTransaction</span><span class="s2">()</span>
+                <span class="s4">// 替换fragment_container中的fragment为myFragment</span>
+                <span class="s2">.</span><span class="s1">replace</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">id</span><span class="s2">.</span><span class="s1">fragment_container</span><span class="s2">, </span><span class="s1">myFragment</span><span class="s2">)</span>
+                <span class="s4">// 将当前fragment添加到回退栈中</span>
+                <span class="s2">.</span><span class="s1">addToBackStack</span><span class="s2">(</span><span class="s0">null</span><span class="s2">)</span>
+                <span class="s4">// 提交事务</span>
+                <span class="s2">.</span><span class="s1">commit</span><span class="s2">();</span>
+    <span class="s2">}</span>
+
+<span class="s2">}</span>
+</pre>
+</body>
+</html>

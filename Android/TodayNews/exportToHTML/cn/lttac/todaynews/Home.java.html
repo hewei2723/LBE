@@ -1,0 +1,117 @@
+<html>
+<head>
+<title>Home.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #7a7e85;}
+.s4 { color: #6aab73;}
+.s5 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Home.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">cn</span><span class="s2">.</span><span class="s1">lttac</span><span class="s2">.</span><span class="s1">todaynews</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">os</span><span class="s2">.</span><span class="s1">Bundle</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">view</span><span class="s2">.</span><span class="s1">LayoutInflater</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">view</span><span class="s2">.</span><span class="s1">View</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">view</span><span class="s2">.</span><span class="s1">ViewGroup</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">webkit</span><span class="s2">.</span><span class="s1">WebView</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">widget</span><span class="s2">.</span><span class="s1">TextView</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">widget</span><span class="s2">.</span><span class="s1">Toast</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">androidx</span><span class="s2">.</span><span class="s1">fragment</span><span class="s2">.</span><span class="s1">app</span><span class="s2">.</span><span class="s1">Fragment</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">org</span><span class="s2">.</span><span class="s1">json</span><span class="s2">.</span><span class="s1">JSONArray</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">org</span><span class="s2">.</span><span class="s1">json</span><span class="s2">.</span><span class="s1">JSONObject</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">io</span><span class="s2">.</span><span class="s1">InputStreamReader</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">io</span><span class="s2">.</span><span class="s1">BufferedReader</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">net</span><span class="s2">.</span><span class="s1">HttpURLConnection</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">net</span><span class="s2">.</span><span class="s1">URL</span><span class="s2">;</span>
+<span class="s0">public class </span><span class="s1">Home </span><span class="s0">extends </span><span class="s1">Fragment </span><span class="s2">{</span>
+    <span class="s1">@Override</span>
+    <span class="s0">public </span><span class="s1">View onCreateView</span><span class="s2">(</span><span class="s1">LayoutInflater inflater</span><span class="s2">, </span><span class="s1">ViewGroup container</span><span class="s2">,</span>
+                             <span class="s1">Bundle savedInstanceState</span><span class="s2">) {</span>
+        <span class="s1">View rootView </span><span class="s2">= </span><span class="s1">inflater</span><span class="s2">.</span><span class="s1">inflate</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">layout</span><span class="s2">.</span><span class="s1">home</span><span class="s2">, </span><span class="s1">container</span><span class="s2">, </span><span class="s0">false</span><span class="s2">);</span>
+        <span class="s3">// 启动线程请求新闻数据</span>
+        <span class="s0">new </span><span class="s1">Thread</span><span class="s2">(() </span><span class="s1">-&gt; </span><span class="s2">{</span>
+            <span class="s0">try </span><span class="s2">{</span>
+                <span class="s3">// 请求新闻数据的 URL</span>
+                <span class="s1">URL url </span><span class="s2">= </span><span class="s0">new </span><span class="s1">URL</span><span class="s2">(</span><span class="s4">&quot;http://news.api.lttac.cn/get_data&quot;</span><span class="s2">);</span>
+                <span class="s3">// 创建一个HttpURLConnection对象，用于连接指定的URL</span>
+                <span class="s1">HttpURLConnection connection </span><span class="s2">= (</span><span class="s1">HttpURLConnection</span><span class="s2">) </span><span class="s1">url</span><span class="s2">.</span><span class="s1">openConnection</span><span class="s2">();</span>
+                <span class="s3">// 设置请求方法为GET</span>
+                <span class="s1">connection</span><span class="s2">.</span><span class="s1">setRequestMethod</span><span class="s2">(</span><span class="s4">&quot;GET&quot;</span><span class="s2">);</span>
+                <span class="s3">// 设置连接超时时间为5秒</span>
+                <span class="s1">connection</span><span class="s2">.</span><span class="s1">setConnectTimeout</span><span class="s2">(</span><span class="s5">5000</span><span class="s2">);</span>
+                <span class="s3">// 设置读取超时时间为5秒</span>
+                <span class="s1">connection</span><span class="s2">.</span><span class="s1">setReadTimeout</span><span class="s2">(</span><span class="s5">5000</span><span class="s2">);</span>
+                <span class="s3">// 获取响应</span>
+                <span class="s3">// 创建一个BufferedReader对象，用于读取从连接中获取的输入流</span>
+                <span class="s1">BufferedReader reader </span><span class="s2">= </span><span class="s0">new </span><span class="s1">BufferedReader</span><span class="s2">(</span><span class="s0">new </span><span class="s1">InputStreamReader</span><span class="s2">(</span><span class="s1">connection</span><span class="s2">.</span><span class="s1">getInputStream</span><span class="s2">()));</span>
+                <span class="s3">// 创建一个StringBuilder对象，用于存储读取到的数据</span>
+                <span class="s1">StringBuilder response </span><span class="s2">= </span><span class="s0">new </span><span class="s1">StringBuilder</span><span class="s2">();</span>
+                <span class="s3">// 定义一个字符串变量，用于存储读取到的每一行数据</span>
+                <span class="s1">String line</span><span class="s2">;</span>
+                <span class="s3">// 循环读取每一行数据，直到读取完毕</span>
+                <span class="s0">while </span><span class="s2">((</span><span class="s1">line </span><span class="s2">= </span><span class="s1">reader</span><span class="s2">.</span><span class="s1">readLine</span><span class="s2">()) != </span><span class="s0">null</span><span class="s2">) {</span>
+                    <span class="s3">// 将读取到的每一行数据添加到StringBuilder对象中</span>
+                    <span class="s1">response</span><span class="s2">.</span><span class="s1">append</span><span class="s2">(</span><span class="s1">line</span><span class="s2">);</span>
+                <span class="s2">}</span>
+                <span class="s3">// 解析 JSON 响应</span>
+                <span class="s3">// 将response转换为JSONArray对象</span>
+                <span class="s1">JSONArray jsonResponse </span><span class="s2">= </span><span class="s0">new </span><span class="s1">JSONArray</span><span class="s2">(</span><span class="s1">response</span><span class="s2">.</span><span class="s1">toString</span><span class="s2">());</span>
+                <span class="s3">// 在主线程中更新UI</span>
+                <span class="s1">getActivity</span><span class="s2">().</span><span class="s1">runOnUiThread</span><span class="s2">(() </span><span class="s1">-&gt; updateUI</span><span class="s2">(</span><span class="s1">rootView</span><span class="s2">, </span><span class="s1">jsonResponse</span><span class="s2">));</span>
+            <span class="s2">} </span><span class="s0">catch </span><span class="s2">(</span><span class="s1">Exception e</span><span class="s2">) {</span>
+                <span class="s3">// 打印异常信息</span>
+                <span class="s1">e</span><span class="s2">.</span><span class="s1">printStackTrace</span><span class="s2">();</span>
+                <span class="s3">// 在主线程中显示加载失败的提示</span>
+                <span class="s1">getActivity</span><span class="s2">().</span><span class="s1">runOnUiThread</span><span class="s2">(() </span><span class="s1">-&gt; Toast</span><span class="s2">.</span><span class="s1">makeText</span><span class="s2">(</span><span class="s1">getActivity</span><span class="s2">(), </span><span class="s4">&quot;加载失败&quot;</span><span class="s2">, </span><span class="s1">Toast</span><span class="s2">.</span><span class="s1">LENGTH_SHORT</span><span class="s2">).</span><span class="s1">show</span><span class="s2">());</span>
+            <span class="s2">}</span>
+        <span class="s2">}).</span><span class="s1">start</span><span class="s2">();</span>
+
+        <span class="s0">return </span><span class="s1">rootView</span><span class="s2">;</span>
+    <span class="s2">}</span>
+    <span class="s3">// 更新 UI</span>
+    <span class="s0">private void </span><span class="s1">updateUI</span><span class="s2">(</span><span class="s1">View rootView</span><span class="s2">, </span><span class="s1">JSONArray newsData</span><span class="s2">) {</span>
+        <span class="s0">try </span><span class="s2">{</span>
+            <span class="s3">// 遍历新闻数据并更新界面</span>
+            <span class="s3">// 遍历新闻数据</span>
+            <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s5">0</span><span class="s2">; </span><span class="s1">i </span><span class="s2">&lt; </span><span class="s1">newsData</span><span class="s2">.</span><span class="s1">length</span><span class="s2">(); </span><span class="s1">i</span><span class="s2">++) {</span>
+                <span class="s3">// 获取新闻数据中的每一个新闻项</span>
+                <span class="s1">JSONObject newsItem </span><span class="s2">= </span><span class="s1">newsData</span><span class="s2">.</span><span class="s1">getJSONObject</span><span class="s2">(</span><span class="s1">i</span><span class="s2">);</span>
+                <span class="s3">// 获取新闻项中的标题</span>
+                <span class="s1">String title </span><span class="s2">= </span><span class="s1">newsItem</span><span class="s2">.</span><span class="s1">getString</span><span class="s2">(</span><span class="s4">&quot;title&quot;</span><span class="s2">);</span>
+                <span class="s3">// 获取新闻项中的链接</span>
+                <span class="s1">String link </span><span class="s2">= </span><span class="s1">newsItem</span><span class="s2">.</span><span class="s1">getString</span><span class="s2">(</span><span class="s4">&quot;link&quot;</span><span class="s2">);</span>
+
+                <span class="s3">// 获取资源 ID</span>
+                <span class="s0">int </span><span class="s1">resId </span><span class="s2">= </span><span class="s1">getResources</span><span class="s2">().</span><span class="s1">getIdentifier</span><span class="s2">(</span><span class="s4">&quot;news_title_&quot; </span><span class="s2">+ (</span><span class="s1">i </span><span class="s2">+ </span><span class="s5">1</span><span class="s2">), </span><span class="s4">&quot;id&quot;</span><span class="s2">, </span><span class="s1">getActivity</span><span class="s2">().</span><span class="s1">getPackageName</span><span class="s2">());</span>
+                <span class="s3">// 通过资源 ID 获取 TextView</span>
+                <span class="s1">TextView newsTitle </span><span class="s2">= </span><span class="s1">rootView</span><span class="s2">.</span><span class="s1">findViewById</span><span class="s2">(</span><span class="s1">resId</span><span class="s2">);</span>
+                <span class="s3">// 设置 TextView 的文本</span>
+                <span class="s1">newsTitle</span><span class="s2">.</span><span class="s1">setText</span><span class="s2">(</span><span class="s1">title</span><span class="s2">);</span>
+                <span class="s3">// 设置 TextView 的点击事件</span>
+                <span class="s1">newsTitle</span><span class="s2">.</span><span class="s1">setOnClickListener</span><span class="s2">(</span><span class="s1">v -&gt; </span><span class="s2">{</span>
+                    <span class="s3">// 获取 WebView</span>
+                    <span class="s1">WebView webView </span><span class="s2">= </span><span class="s1">rootView</span><span class="s2">.</span><span class="s1">findViewById</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">id</span><span class="s2">.</span><span class="s1">webview</span><span class="s2">);</span>
+                    <span class="s1">webView</span><span class="s2">.</span><span class="s1">loadUrl</span><span class="s2">(</span><span class="s1">link</span><span class="s2">); </span><span class="s3">// 加载新闻 URL</span>
+                <span class="s2">});</span>
+            <span class="s2">}</span>
+        <span class="s2">} </span><span class="s0">catch </span><span class="s2">(</span><span class="s1">Exception e</span><span class="s2">) {</span>
+            <span class="s3">// 捕获异常</span>
+            <span class="s1">e</span><span class="s2">.</span><span class="s1">printStackTrace</span><span class="s2">();</span>
+            <span class="s3">// 打印异常信息</span>
+            <span class="s1">Toast</span><span class="s2">.</span><span class="s1">makeText</span><span class="s2">(</span><span class="s1">getActivity</span><span class="s2">(), </span><span class="s4">&quot;更新失败&quot;</span><span class="s2">, </span><span class="s1">Toast</span><span class="s2">.</span><span class="s1">LENGTH_SHORT</span><span class="s2">).</span><span class="s1">show</span><span class="s2">();</span>
+            <span class="s3">// 弹出提示框，提示更新失败</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>
