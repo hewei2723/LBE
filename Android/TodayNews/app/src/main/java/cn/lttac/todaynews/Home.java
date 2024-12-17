@@ -23,6 +23,7 @@ public class Home extends Fragment {
             try {
                 // 请求新闻数据的 URL
                 URL url = new URL("http://news.api.lttac.cn/get_data");
+                //自创接口
                 // 创建一个HttpURLConnection对象，用于连接指定的URL
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 // 设置请求方法为GET

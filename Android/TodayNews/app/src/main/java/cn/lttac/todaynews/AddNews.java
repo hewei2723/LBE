@@ -22,6 +22,7 @@ public class AddNews extends Fragment {
         SharedPreferences preferences = requireActivity().getSharedPreferences("login_prefs", Context.MODE_PRIVATE);
         // 获取用户名
         String username = preferences.getString("username", "未登录");
+        //如果没有用户名就返回未登录
         // 创建数据库帮助类对象
         dbHelper = new SqlDB(getActivity());
         // 获取标题输入框
