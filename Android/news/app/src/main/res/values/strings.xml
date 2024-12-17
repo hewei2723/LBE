@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">news</string>
-    <string name="title_home">主页</string>
-    <string name="title_dashboard">发布</string>
-    <string name="title_notifications">我的</string>
-</resources>
