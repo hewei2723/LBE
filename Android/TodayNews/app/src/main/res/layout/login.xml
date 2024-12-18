@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/bg"
     android:padding="16dp">
 
@@ -12,7 +11,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="当前登录账号："
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:layout_alignParentTop="true" />
 
     <!-- 显示文章标题 -->
     <TextView
@@ -20,30 +20,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="已发布的文章："
+        android:layout_below="@id/textView_username"
         android:layout_marginTop="10dp" />
 
-    <!-- RecyclerView 列表 -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView_articles"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_weight="1" />
+    <!-- 显示文章内容 -->
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/text3"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="已发布的文章："
-        android:layout_marginTop="10dp" />
+        android:layout_below="@id/textView_articles"
+        android:layout_marginTop="10dp"
+        android:text="文章内容会显示在这里" />
 
-
-    <!-- 退出登录按钮 -->
+    <!-- 退出登录按钮放在最下面 -->
     <Button
         android:id="@+id/button_logout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#f41b0b"
         android:text="退出登录"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp" />
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="20dp" />
 
-
-</LinearLayout>
+</RelativeLayout>

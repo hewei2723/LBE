@@ -21,7 +21,6 @@ public class Home extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.home, container, false);
-
         // 获取 WebView，并设置默认加载的链接
         WebView webView = rootView.findViewById(R.id.webview);
         webView.setBackgroundColor(Color.TRANSPARENT);

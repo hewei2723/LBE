@@ -1,4 +1,5 @@
 package cn.lttac.todaynews;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -13,53 +14,46 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import java.util.ArrayList;
-import java.util.List;
+
 public class Login extends Fragment {
-    // 使用@SuppressLint注解来抑制警告
+
     @SuppressLint("SetTextI18n")
-    // 重写onCreateView方法
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        // 使用inflater将布局文件login.xml加载到视图中
         View view = inflater.inflate(R.layout.login, container, false);
-        // 创建SqlDB对象
         SqlDB dbHelper = new SqlDB(getContext());
-        // 获取SharedPreferences对象
         SharedPreferences preferences = requireActivity().getSharedPreferences("login_prefs", Context.MODE_PRIVATE);
-        // 获取TextView对象
+
+        // 获取控件
         TextView textUsername = view.findViewById(R.id.textView_username);
-        // 用于显示"已发布的文章："
-        // 获取文章标题文本框
-        TextView textArticlesTitle = view.findViewById(R.id.textView_articles);
-        // 获取注销按钮
+        TextView textArticlesTitle = view.findViewById(R.id.textView_articles); // 显示文章标题
+        TextView text3 = view.findViewById(R.id.text3); // 显示文章内容
         Button btnLogout = view.findViewById(R.id.button_logout);
-        // 从 SharedPreferences 中获取用户名
+
+        // 获取当前用户名
         String username = preferences.getString("username", "未登录");
-        // 设置用户名文本框内容
         textUsername.setText("当前登录账号：" + username);
-        // 显示文章列表
-        // 从数据库中获取指定用户的所有文章
+
+        // 获取用户文章数据
         Cursor cursor = dbHelper.getUserArticles(username);
-        // 创建一个列表用于存储文章标题
-        List<String> articles = new ArrayList<>();
-        // 遍历游标，获取每一篇文章的标题
-        while (cursor.moveToNext()) {
-            articles.add(cursor.getString(0)); // 获取文章标题
-        }
-
-        // 构建文章标题文本
-        // 创建一个StringBuilder对象，用于存储文章文本
         StringBuilder articlesText = new StringBuilder();
-        // 遍历文章列表
-        for (String article : articles) {
-            // 将每篇文章添加到StringBuilder对象中，并在每篇文章后面添加一个换行符
-            articlesText.append(article).append("\n");
+
+        // 遍历游标并拼接标题和内容
+        while (cursor.moveToNext()) {
+            @SuppressLint("Range") String title = cursor.getString(cursor.getColumnIndex("title"));
+            @SuppressLint("Range") String content = cursor.getString(cursor.getColumnIndex("content"));
+            articlesText.append("标题: ").append(title).append("\n")
+                    .append("内容: ").append(content).append("\n\n");
         }
 
-        // 设置文章标题到TextView中
-        textArticlesTitle.setText("已发布的文章：\n" + articlesText);
+        // 设置显示文章的TextView
+        if (articlesText.length() > 0) {
+            textArticlesTitle.setText("已发布的文章：");
+            text3.setText(articlesText.toString());
+        } else {
+            textArticlesTitle.setText("暂无文章");
+        }
 
         // 退出登录
         btnLogout.setOnClickListener(v -> {
@@ -68,6 +62,11 @@ public class Login extends Fragment {
             startActivity(intent);
             requireActivity().finish(); // 关闭当前界面
         });
+
+        // 关闭游标
+        if (cursor != null) {
+            cursor.close();
+        }
 
         return view;
     }

@@ -11,6 +11,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import androidx.fragment.app.Fragment;
+
+import java.util.Objects;
+
 public class AddNews extends Fragment {
     private SqlDB dbHelper;
     @Override
@@ -56,11 +59,10 @@ public class AddNews extends Fragment {
         values.put("content", content);
 
         // 判断用户是否已登录
-        if (username != "未登录") {
+        if (!Objects.equals(username, "未登录")) {
             // 如果已登录，则将文章插入数据库
             db.insert("articles", null, values);
             // 记录所有数据
-            dbHelper.logAllData();
             // 弹出提示框，提示发布成功
             Toast.makeText(getContext(), "发布成功,请到我的页面查看文章标题", Toast.LENGTH_SHORT).show();
         } else {
