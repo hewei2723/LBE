@@ -1,4 +1,6 @@
 package cn.lttac.todaynews;
+
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,11 +15,17 @@ import java.io.InputStreamReader;
 import java.io.BufferedReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
 public class Home extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.home, container, false);
+
+        // 获取 WebView，并设置默认加载的链接
+        WebView webView = rootView.findViewById(R.id.webview);
+        webView.setBackgroundColor(Color.TRANSPARENT);
+        webView.loadUrl("https://www.lttac.cn"); // 加载新闻 URL
         // 启动线程请求新闻数据
         new Thread(() -> {
             try {
@@ -59,6 +67,7 @@ public class Home extends Fragment {
 
         return rootView;
     }
+
     // 更新 UI
     private void updateUI(View rootView, JSONArray newsData) {
         try {
@@ -82,6 +91,7 @@ public class Home extends Fragment {
                 newsTitle.setOnClickListener(v -> {
                     // 获取 WebView
                     WebView webView = rootView.findViewById(R.id.webview);
+                    webView.setBackgroundColor(Color.TRANSPARENT);
                     webView.loadUrl(link); // 加载新闻 URL
                 });
             }
