@@ -5,6 +5,7 @@
     android:orientation="vertical"
     android:background="@drawable/bg"
     android:padding="20dp">
+
     <EditText
         android:id="@+id/edit_title"
         android:layout_width="match_parent"
@@ -12,15 +13,20 @@
         android:autofillHints=""
         android:hint="文章标题"
         android:minHeight="48dp" />
+
     <EditText
         android:id="@+id/edit_content"
         android:layout_width="match_parent"
-        android:layout_height="457dp"
+        android:layout_height="388dp"
         android:hint="文章内容" />
+
     <Button
         android:id="@+id/publish_button"
-        android:layout_width="100dp"
+        android:layout_width="match_parent"
         android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
         android:background="@drawable/buttonstyle"
-        android:text="存入" />
+        android:text="存入"
+        android:textSize="16sp" />
+
 </LinearLayout>

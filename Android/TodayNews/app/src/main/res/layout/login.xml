@@ -19,7 +19,7 @@
         android:id="@+id/textView_articles"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="已发布的文章："
+        android:text="内容："
         android:layout_below="@id/textView_username"
         android:layout_marginTop="10dp" />
 
