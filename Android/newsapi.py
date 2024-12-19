@@ -1,7 +1,8 @@
 from flask import Flask, Response
-import csv
+import random
 import json
 import os
+import csv
 
 app = Flask(__name__)
 
@@ -25,6 +26,24 @@ def create_csv():
             writer.writeheader()
             writer.writerows(data)
 
+# 随机返回一句话
+@app.route('/yiyan', methods=['GET'])
+def get_quote():
+    quotes = [
+    "人生就像一场旅行，不必在乎目的地。",
+    "成功的秘诀在于坚持自己的目标。",
+    "生命短暂，时间宝贵，不要浪费在不重要的事情上。",
+    "每天都是一个新的开始，保持乐观，迎接挑战。",
+    "生活不是等待风暴过去，而是学会在雨中跳舞。",
+    "与其担心未来，不如把握现在。",
+    "不论你有多么努力，总会有自己的时机。",
+    "一个人能走多远，取决于他有多么坚定的信念。",
+    "不要害怕失败，害怕的是从未尝试。",
+    "只要你勇敢迈出第一步，未来的一切都会更好。"
+]
+
+    return random.choice(quotes)  # 返回随机的一句话
+
 @app.route('/get_data', methods=['GET'])
 def get_data():
     data = []
@@ -41,6 +60,7 @@ def get_data():
         return Response('CSV file not found', status=404)
     response_data = json.dumps(data, ensure_ascii=False, indent=4)
     return Response(response_data, mimetype='application/json')
+
 if __name__ == '__main__':
     create_csv()  # 只有在文件不存在时才创建CSV文件
     app.run(debug=True, host='0.0.0.0', port=5677)
