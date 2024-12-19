@@ -16,6 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_marginTop="50dp"
             android:paddingTop="20dp"
             android:paddingBottom="20dp">
 
@@ -29,7 +30,9 @@
                 android:background="@null"
                 android:hint="账户名"
                 android:minHeight="48dp"
+                android:textColor="#FFFFFF"
                 android:textColorHint="#9F9FA0" />
+
 
             <View
                 android:layout_width="match_parent"
@@ -49,6 +52,7 @@
                 android:background="@null"
                 android:hint="密码"
                 android:minHeight="48dp"
+                android:textColor="#FFFFFF"
                 android:textColorHint="#9F9FA0" />
 
             <View
@@ -58,6 +62,7 @@
                 android:layout_marginRight="50dp"
                 android:layout_height="2dp"
                 android:background="#BDBDBD" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -84,7 +89,18 @@
                 android:layout_weight="1"
                 android:background="@drawable/buttonstyle"
                 android:text="注册" />
+
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:text="TextView"
+            android:textColor="@color/design_default_color_background" />
 
     </LinearLayout>
 
