@@ -27,8 +27,11 @@ public class Home extends Fragment {
         WebView webView = rootView.findViewById(R.id.webview);
         webView.setBackgroundColor(Color.TRANSPARENT);
         webView.loadUrl("https://www.lttac.cn"); // 加载新闻 URL
+
+        // 在后台线程中获取数据
         new Thread(() -> {
             try {
+                Thread.sleep(1000);
                 URL url = new URL("http://news.api.lttac.cn/get_data");
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod("GET");
@@ -41,38 +44,45 @@ public class Home extends Fragment {
                     response.append(line);
                 }
                 JSONArray jsonResponse = new JSONArray(response.toString());
-                Thread.sleep(1000);
-                getActivity().runOnUiThread(() -> updateUI(rootView, jsonResponse));
+                // 更新UI
+                if (getActivity() != null) {
+                    getActivity().runOnUiThread(() -> updateUI(rootView, jsonResponse));
+                }
             } catch (Exception e) {
                 e.printStackTrace();
-                getActivity().runOnUiThread(() -> Toast.makeText(getActivity(), "加载失败", Toast.LENGTH_SHORT).show());
+                // 确保在UI线程中执行
+                if (getActivity() != null) {
+                    getActivity().runOnUiThread(() -> Toast.makeText(getActivity(), "加载失败", Toast.LENGTH_SHORT).show());
+                }
             }
         }).start();
-
         return rootView;
     }
     private void updateUI(View rootView, JSONArray newsData) {
         try {
+            // 遍历返回的新闻数据
             for (int i = 0; i < newsData.length(); i++) {
                 JSONObject newsItem = newsData.getJSONObject(i);
                 String title = newsItem.getString("title");
                 String link = newsItem.getString("link");
+                // 获取动态生成的 TextView 控件 ID
                 int resId = getResources().getIdentifier("news_title_" + (i + 1), "id", getActivity().getPackageName());
                 TextView newsTitle = rootView.findViewById(resId);
+                // 设置新闻标题
                 newsTitle.setText(title);
+                // 点击标题跳转到新闻链接
                 newsTitle.setOnClickListener(v -> {
-                    // 获取 WebView
                     WebView webView = rootView.findViewById(R.id.webview);
                     webView.setBackgroundColor(Color.TRANSPARENT);
                     webView.loadUrl(link); // 加载新闻 URL
                 });
             }
         } catch (Exception e) {
-            // 捕获异常
             e.printStackTrace();
-            // 打印异常信息
-            Toast.makeText(getActivity(), "更新失败", Toast.LENGTH_SHORT).show();
-            // 弹出提示框，提示更新失败
+            // 捕获异常并显示错误信息
+            if (getActivity() != null) {
+                Toast.makeText(getActivity(), "更新失败", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }
