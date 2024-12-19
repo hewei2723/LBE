@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,7 +27,8 @@ public class Home extends Fragment {
         View rootView = inflater.inflate(R.layout.home, container, false);
         WebView webView = rootView.findViewById(R.id.webview);
         webView.setBackgroundColor(Color.TRANSPARENT);
-        webView.loadUrl("https://www.lttac.cn"); // 加载新闻 URL
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW); // 允许混合内容加载
 
         // 在后台线程中获取数据
         new Thread(() -> {
@@ -58,13 +60,23 @@ public class Home extends Fragment {
         }).start();
         return rootView;
     }
+
     private void updateUI(View rootView, JSONArray newsData) {
         try {
+            // 定义一个变量来保存第一个新闻链接
+            String firstLink = null;
+
             // 遍历返回的新闻数据
             for (int i = 0; i < newsData.length(); i++) {
                 JSONObject newsItem = newsData.getJSONObject(i);
                 String title = newsItem.getString("title");
                 String link = newsItem.getString("link");
+
+                // 如果是第一个新闻，保存链接
+                if (i == 0) {
+                    firstLink = link;
+                }
+
                 // 获取动态生成的 TextView 控件 ID
                 int resId = getResources().getIdentifier("news_title_" + (i + 1), "id", getActivity().getPackageName());
                 TextView newsTitle = rootView.findViewById(resId);
@@ -77,6 +89,14 @@ public class Home extends Fragment {
                     webView.loadUrl(link); // 加载新闻 URL
                 });
             }
+
+            // 如果第一个新闻链接存在，则加载该链接
+            if (firstLink != null) {
+                WebView webView = rootView.findViewById(R.id.webview);
+                webView.setBackgroundColor(Color.TRANSPARENT);
+                webView.loadUrl(firstLink); // 加载第一个新闻的链接
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
             // 捕获异常并显示错误信息
