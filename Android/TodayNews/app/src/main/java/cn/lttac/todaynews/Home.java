@@ -34,7 +34,7 @@ public class Home extends Fragment {
         new Thread(() -> {
             try {
                 Thread.sleep(1000);
-                URL url = new URL("http://news.api.lttac.cn/get_data");
+                URL url = new URL("https://news.api.lttac.cn/get_data");
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod("GET");
                 connection.setConnectTimeout(5000);

@@ -92,7 +92,7 @@ public class UnLogin extends Fragment {
     private void fetchYiyanData() {
         new Thread(() -> {
             try {
-                URL url = new URL("http://news.api.lttac.cn/yiyan");
+                URL url = new URL("https://news.api.lttac.cn/yiyan");
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod("GET");
                 BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
