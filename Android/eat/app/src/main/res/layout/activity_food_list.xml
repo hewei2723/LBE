@@ -1,0 +1,202 @@
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:columnCount="2"
+    android:background="@drawable/wood"
+    android:padding="30dp">
+
+    <!-- 第一行 -->
+    <LinearLayout
+        android:layout_columnSpan="1"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@drawable/sign"
+        android:padding="8dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:gravity="center"
+            android:text="牛排"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/foodImage1"
+            android:layout_width="126dp"
+            android:layout_height="124dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="美食图片1"
+            android:padding="8dp"
+            android:src="@drawable/food1" />
+
+    </LinearLayout>
+
+    <!-- 第二行 -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_columnSpan="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/sign"
+        android:layout_gravity="center"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="金苹果"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_marginBottom="4dp" />
+
+        <ImageView
+            android:id="@+id/foodImage2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/food2"
+            android:contentDescription="美食图片2"
+            android:layout_marginBottom="8dp"
+
+            android:padding="8dp" />
+
+    </LinearLayout>
+
+    <!-- 第三行 -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/sign"
+        android:layout_columnSpan="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="炖菜"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_marginBottom="4dp" />
+
+        <ImageView
+            android:id="@+id/foodImage3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/food3"
+            android:contentDescription="美食图片3"
+            android:layout_marginBottom="8dp"
+
+            android:padding="8dp" />
+
+    </LinearLayout>
+
+    <!-- 第四行 -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/sign"
+        android:layout_columnSpan="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="牛奶桶"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_marginBottom="4dp" />
+
+        <ImageView
+            android:id="@+id/foodImage4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/food4"
+            android:contentDescription="美食图片4"
+            android:layout_marginBottom="8dp"
+
+            android:padding="8dp" />
+
+    </LinearLayout>
+
+    <!-- 第五行 -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/sign"
+        android:layout_columnSpan="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="蜂蜜瓶"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_marginBottom="4dp" />
+
+        <ImageView
+            android:id="@+id/foodImage5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/food5"
+            android:contentDescription="美食图片5"
+            android:layout_marginBottom="8dp"
+
+            android:padding="8dp" />
+
+    </LinearLayout>
+
+    <!-- 第六行 -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/sign"
+        android:layout_columnSpan="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="蜘蛛眼"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_marginBottom="4dp" />
+
+        <ImageView
+            android:id="@+id/foodImage6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/food6"
+            android:contentDescription="美食图片6"
+            android:layout_marginBottom="8dp"
+
+            android:padding="8dp" />
+
+    </LinearLayout>
+
+</GridLayout>

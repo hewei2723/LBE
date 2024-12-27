@@ -1,0 +1,63 @@
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:columnCount="2"
+    android:rowCount="3"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/foodImage1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_margin="5dp"
+        android:src="@drawable/food1"
+        android:contentDescription="美食图片1" />
+    <ImageView
+        android:id="@+id/foodImage2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_margin="5dp"
+        android:src="@drawable/food2"
+        android:contentDescription="美食图片2" />
+    <ImageView
+        android:id="@+id/foodImage3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_margin="5dp"
+        android:src="@drawable/food3"
+        android:contentDescription="美食图片3" />
+    <ImageView
+        android:id="@+id/foodImage4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_margin="5dp"
+        android:src="@drawable/food4"
+        android:contentDescription="美食图片4" />
+    <ImageView
+        android:id="@+id/foodImage5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_margin="5dp"
+        android:src="@drawable/food5"
+        android:contentDescription="美食图片5" />
+    <ImageView
+        android:id="@+id/foodImage6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_margin="5dp"
+        android:src="@drawable/food6"
+        android:contentDescription="美食图片6" />
+
+</GridLayout>
