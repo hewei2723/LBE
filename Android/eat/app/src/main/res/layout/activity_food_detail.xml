@@ -1,39 +1,38 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg3n"
     android:padding="16dp">
 
-    <!-- 第一张图片 -->
-
-    <!-- 第一张图片下方的文字 -->
+    <!-- 美食图片 -->
     <ImageView
         android:id="@+id/foodImage"
-        android:layout_width="375dp"
-        android:layout_height="231dp"
-        android:background="@drawable/sign"
-        android:contentDescription="美食详情图片"
-        android:src="@drawable/food1" />
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        android:layout_marginBottom="16dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/food1"
+        app:layout_constraintBottom_toTopOf="@id/foodDescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- 描述文字 -->
     <TextView
         android:id="@+id/foodDescription"
-        android:layout_width="368dp"
-        android:layout_height="243dp"
-        android:layout_below="@id/foodImage"
-        android:layout_marginTop="12dp"
+        android:layout_width="300dp"
+        android:layout_height="250dp"
         android:background="@drawable/a"
-        android:paddingTop="16dp"
-        android:textColor="@color/white"
+        android:padding="16dp"
         android:text="美食详情描述"
-        android:textSize="16sp" />
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/foodImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
-    <!-- 第二张图片放置在第二个TextView下方 -->
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="395dp"
-        android:layout_height="249dp"
-        android:layout_below="@id/foodDescription"
-        android:layout_marginTop="-27dp"
-        app:srcCompat="@drawable/grass" />
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

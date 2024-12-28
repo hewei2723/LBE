@@ -3,16 +3,24 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
+import android.content.SharedPreferences;
+import android.widget.TextView;
+
 public class FoodListActivity extends AppCompatActivity {
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        sharedPreferences = getSharedPreferences("LoginPrefs", MODE_PRIVATE);
+        String savedUsername = sharedPreferences.getString("username", "");
+        String savedPassword = sharedPreferences.getString("password", "");
         setContentView(R.layout.activity_food_list);
-
+        TextView infoText = findViewById(R.id.infoText);
+        infoText.setText("欢迎" + savedUsername  + "! 学号"+savedPassword);
         // 食物名称数组
         final String[] foodNames = {
-                "牛排", "附魔金苹果", "坏炖菜", "牛奶", "蜂蜜瓶", "蜘蛛眼"
+                "牛排", "附魔金苹果", "谜之炖菜", "牛奶", "蜂蜜瓶", "蜘蛛眼"
         };
 
         // 控件ID数组

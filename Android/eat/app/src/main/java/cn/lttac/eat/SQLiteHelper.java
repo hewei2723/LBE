@@ -40,8 +40,8 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         values.put(COLUMN_DESCRIPTION, "附魔金苹果是金苹果的变种，它比较稀有，但可以给予较强的效果。");
         db.insert(TABLE_FOOD, null, values);
 
-        values.put(COLUMN_NAME, "坏炖菜");
-        values.put(COLUMN_DESCRIPTION, " ");
+        values.put(COLUMN_NAME, "谜之炖菜");
+        values.put(COLUMN_DESCRIPTION, "谜之炖菜将给予以下效果中的一种：5-7秒的失明、7-10秒的跳跃提升、7-10秒的夜视、10-20秒的中毒、7-10游戏刻的饱和或6-8秒的虚弱。");
         db.insert(TABLE_FOOD, null, values);
 
         values.put(COLUMN_NAME, "牛奶");

@@ -23,37 +23,31 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         // 初始化控件
         usernameEditText = findViewById(R.id.username);
         passwordEditText = findViewById(R.id.password);
         rememberMeCheckBox = findViewById(R.id.remember);
         sharedPreferences = getSharedPreferences("LoginPrefs", MODE_PRIVATE);
-
         // 初始化数据库助手
         dbHelper = new SQLiteHelper(this);
-
         // 初始化数据，如果数据库为空，则插入默认食物数据
         initializeDatabase();
-
         // 获取保存的用户名和密码（如果记住密码被选中）
         String savedUsername = sharedPreferences.getString("username", "");
         String savedPassword = sharedPreferences.getString("password", "");
         boolean rememberMe = sharedPreferences.getBoolean("rememberMe", false);
-
         // 如果记住密码，自动填充用户名和密码
         if (rememberMe) {
             usernameEditText.setText(savedUsername);
             passwordEditText.setText(savedPassword);
             rememberMeCheckBox.setChecked(true);
         }
-
         // 登录按钮点击事件
         findViewById(R.id.loginButton).setOnClickListener(v -> {
             String username = usernameEditText.getText().toString();
             String password = passwordEditText.getText().toString();
 
-            if (username.equals("何炜") && password.equals("1")) {
+            if (username.equals("何炜") && password.equals("2022010611")) {
                 // 保存用户名、密码和是否记住密码的状态
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 if (rememberMeCheckBox.isChecked()) {

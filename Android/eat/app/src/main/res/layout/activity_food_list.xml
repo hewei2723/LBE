@@ -1,18 +1,38 @@
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/gridLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:columnCount="2"
-    android:background="@drawable/wood"
-    android:padding="30dp">
+    android:background="@drawable/wood">
+
+    <!-- 上方文本区域 -->
+    <TextView
+        android:id="@+id/infoText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="显示信息"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- 第一行 -->
     <LinearLayout
-        android:layout_columnSpan="1"
-        android:layout_gravity="center"
+        android:id="@+id/linearLayout1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/sign"
         android:gravity="center"
         android:orientation="vertical"
-        android:background="@drawable/sign"
-        android:padding="8dp">
+        android:padding="8dp"
+        app:layout_constraintTop_toBottomOf="@id/infoText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/linearLayout2">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -31,172 +51,168 @@
             android:contentDescription="美食图片1"
             android:padding="8dp"
             android:src="@drawable/food1" />
-
     </LinearLayout>
 
-    <!-- 第二行 -->
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/linearLayout2"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_columnSpan="1"
-        android:orientation="vertical"
-        android:gravity="center"
         android:background="@drawable/sign"
-        android:layout_gravity="center"
-        android:padding="8dp">
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="8dp"
+        app:layout_constraintTop_toBottomOf="@id/infoText"
+        app:layout_constraintStart_toEndOf="@id/linearLayout1"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="金苹果"
-            android:textSize="18sp"
-            android:textColor="@color/white"
+            android:layout_marginBottom="4dp"
             android:gravity="center"
-            android:layout_marginBottom="4dp" />
+            android:text="金苹果"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
 
         <ImageView
             android:id="@+id/foodImage2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/food2"
-            android:contentDescription="美食图片2"
             android:layout_marginBottom="8dp"
-
-            android:padding="8dp" />
-
+            android:contentDescription="美食图片2"
+            android:padding="8dp"
+            android:src="@drawable/food2" />
     </LinearLayout>
 
-    <!-- 第三行 -->
+    <!-- 第二行 -->
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/linearLayout3"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/sign"
-        android:layout_columnSpan="1"
-        android:orientation="vertical"
         android:gravity="center"
-        android:layout_gravity="center"
-        android:padding="8dp">
+        android:orientation="vertical"
+        android:padding="8dp"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/linearLayout4">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="炖菜"
-            android:textSize="18sp"
-            android:textColor="@color/white"
+            android:layout_marginBottom="4dp"
             android:gravity="center"
-            android:layout_marginBottom="4dp" />
+            android:text="谜之炖菜"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
 
         <ImageView
             android:id="@+id/foodImage3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/food3"
-            android:contentDescription="美食图片3"
             android:layout_marginBottom="8dp"
-
-            android:padding="8dp" />
-
+            android:contentDescription="美食图片3"
+            android:padding="8dp"
+            android:src="@drawable/food3" />
     </LinearLayout>
 
-    <!-- 第四行 -->
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/linearLayout4"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/sign"
-        android:layout_columnSpan="1"
-        android:orientation="vertical"
         android:gravity="center"
-        android:layout_gravity="center"
-        android:padding="8dp">
+        android:orientation="vertical"
+        android:padding="8dp"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout2"
+        app:layout_constraintStart_toEndOf="@id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="牛奶桶"
-            android:textSize="18sp"
-            android:textColor="@color/white"
+            android:layout_marginBottom="4dp"
             android:gravity="center"
-            android:layout_marginBottom="4dp" />
+            android:text="牛奶桶"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
 
         <ImageView
             android:id="@+id/foodImage4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/food4"
-            android:contentDescription="美食图片4"
             android:layout_marginBottom="8dp"
-
-            android:padding="8dp" />
-
+            android:contentDescription="美食图片4"
+            android:padding="8dp"
+            android:src="@drawable/food4" />
     </LinearLayout>
 
-    <!-- 第五行 -->
+    <!-- 第三行 -->
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/linearLayout5"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/sign"
-        android:layout_columnSpan="1"
-        android:orientation="vertical"
         android:gravity="center"
-        android:layout_gravity="center"
-        android:padding="8dp">
+        android:orientation="vertical"
+        android:padding="8dp"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/linearLayout6">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="蜂蜜瓶"
-            android:textSize="18sp"
-            android:textColor="@color/white"
+            android:layout_marginBottom="4dp"
             android:gravity="center"
-            android:layout_marginBottom="4dp" />
+            android:text="蜂蜜瓶"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
 
         <ImageView
             android:id="@+id/foodImage5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/food5"
-            android:contentDescription="美食图片5"
             android:layout_marginBottom="8dp"
-
-            android:padding="8dp" />
-
+            android:contentDescription="美食图片5"
+            android:padding="8dp"
+            android:src="@drawable/food5" />
     </LinearLayout>
 
-    <!-- 第六行 -->
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/linearLayout6"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/sign"
-        android:layout_columnSpan="1"
-        android:orientation="vertical"
         android:gravity="center"
-        android:layout_gravity="center"
-        android:padding="8dp">
+        android:orientation="vertical"
+        android:padding="8dp"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout4"
+        app:layout_constraintStart_toEndOf="@id/linearLayout5"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="蜘蛛眼"
-            android:textSize="18sp"
-            android:textColor="@color/white"
+            android:layout_marginBottom="4dp"
             android:gravity="center"
-            android:layout_marginBottom="4dp" />
+            android:text="蜘蛛眼"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
 
         <ImageView
             android:id="@+id/foodImage6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/food6"
-            android:contentDescription="美食图片6"
             android:layout_marginBottom="8dp"
-
-            android:padding="8dp" />
-
+            android:contentDescription="美食图片6"
+            android:padding="8dp"
+            android:src="@drawable/food6" />
     </LinearLayout>
 
-</GridLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
