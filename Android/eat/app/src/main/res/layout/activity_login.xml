@@ -1,32 +1,76 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@drawable/bg6"
+    android:gravity="center_vertical">
 
-    <EditText
-        android:id="@+id/username"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="用户名"
-        android:minHeight="48dp" />
+        android:orientation="vertical"
+        android:gravity="center">
 
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="密码"
-        android:inputType="textPassword"
-        android:minHeight="48dp" />
-    <CheckBox
-        android:id="@+id/remember"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="勾选记住密码下次打开软件自动填充" />
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="392dp"
+            android:layout_height="112dp"
+            app:srcCompat="@drawable/mc" />
 
-    <Button
-        android:id="@+id/loginButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="登录" />
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="用户名"
+            android:minHeight="48dp"
+            android:background="@drawable/input"
+            android:textColor="#FFFFFF"
+            android:padding="10dp"/>
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="密码"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:background="@drawable/input"
+            android:textColor="#FFFFFF"
+            android:padding="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="bottom">
+
+            <CheckBox
+                android:id="@+id/remember"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:shadowColor="@android:color/black"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:text="点击记住密码下次启动自动填充"
+                android:textColor="#FFFFFF"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="登录"
+            android:textColor="#000000"
+            android:background="@drawable/button_style"
+            android:textSize="16sp"/>
+
+    </LinearLayout>
+
 </LinearLayout>
