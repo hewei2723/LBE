@@ -1,5 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -51,14 +52,14 @@
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:shadowColor="@android:color/black"
-                />
+                tools:ignore="TouchTargetSizeCheck" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
                 android:text="点击记住密码下次启动自动填充"
-                android:textColor="#FFFFFF"/>
+                android:textColor="#282626"/>
 
         </LinearLayout>
 
