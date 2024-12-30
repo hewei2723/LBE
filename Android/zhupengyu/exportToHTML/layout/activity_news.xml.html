@@ -1,0 +1,183 @@
+<html>
+<head>
+<title>activity_news.xml</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #d5b778;}
+.s1 { color: #bcbec4;}
+.s2 { color: #6aab73;}
+.s3 { color: #bcbec4;}
+.s4 { color: #7a7e85;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+activity_news.xml</font>
+</center></td></tr></table>
+<pre><span class="s0">&lt;?</span><span class="s1">xml version</span><span class="s2">=&quot;1.0&quot; </span><span class="s1">encoding</span><span class="s2">=&quot;utf-8&quot;</span><span class="s0">?&gt;</span>
+<span class="s0">&lt;androidx.coordinatorlayout.widget.CoordinatorLayout </span><span class="s1">xmlns:android</span><span class="s2">=&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    <span class="s1">xmlns:app</span><span class="s2">=&quot;http://schemas.android.com/apk/res-auto&quot;</span>
+    <span class="s1">xmlns:tools</span><span class="s2">=&quot;http://schemas.android.com/tools&quot;</span>
+    <span class="s1">android:layout_width</span><span class="s2">=&quot;match_parent&quot;</span>
+    <span class="s1">android:layout_height</span><span class="s2">=&quot;match_parent&quot;</span>
+    <span class="s1">tools:context</span><span class="s2">=&quot;.NewsActivity&quot;</span><span class="s0">&gt;</span>
+
+    <span class="s4">&lt;!-- Container for the GridLayout --&gt;</span>
+    <span class="s0">&lt;LinearLayout</span>
+        <span class="s1">android:layout_width</span><span class="s2">=&quot;match_parent&quot;</span>
+        <span class="s1">android:layout_height</span><span class="s2">=&quot;600dp&quot;</span>
+        <span class="s1">android:layout_weight</span><span class="s2">=&quot;1&quot;</span>
+        <span class="s1">android:orientation</span><span class="s2">=&quot;vertical&quot;</span>
+        <span class="s1">android:padding</span><span class="s2">=&quot;8dp&quot;</span><span class="s0">&gt;</span>
+
+        <span class="s0">&lt;GridLayout</span>
+            <span class="s1">android:layout_width</span><span class="s2">=&quot;match_parent&quot;</span>
+            <span class="s1">android:layout_height</span><span class="s2">=&quot;600dp&quot;</span>
+            <span class="s1">android:columnCount</span><span class="s2">=&quot;2&quot;</span>
+            <span class="s1">android:padding</span><span class="s2">=&quot;8dp&quot;</span>
+            <span class="s1">android:rowCount</span><span class="s2">=&quot;2&quot;</span><span class="s0">&gt;</span>
+            <span class="s4">&lt;!-- Box 1 --&gt;</span>
+            <span class="s0">&lt;LinearLayout</span>
+                <span class="s1">android:id</span><span class="s2">=&quot;@+id/nvda&quot;</span>
+                <span class="s1">android:layout_width</span><span class="s2">=&quot;0dp&quot;</span>
+                <span class="s1">android:layout_height</span><span class="s2">=&quot;0dp&quot;</span>
+                <span class="s1">android:layout_rowWeight</span><span class="s2">=&quot;1&quot;</span>
+                <span class="s1">android:layout_columnWeight</span><span class="s2">=&quot;1&quot;</span>
+                <span class="s1">android:layout_margin</span><span class="s2">=&quot;4dp&quot;</span>
+                <span class="s1">android:background</span><span class="s2">=&quot;@android:color/white&quot;</span>
+                <span class="s1">android:orientation</span><span class="s2">=&quot;vertical&quot;</span><span class="s0">&gt;</span>
+
+                <span class="s0">&lt;ImageView</span>
+                    <span class="s1">android:layout_width</span><span class="s2">=&quot;match_parent&quot;</span>
+                    <span class="s1">android:layout_height</span><span class="s2">=&quot;0dp&quot;</span>
+                    <span class="s1">android:layout_weight</span><span class="s2">=&quot;2&quot;</span>
+                    <span class="s1">android:scaleType</span><span class="s2">=&quot;centerCrop&quot;</span>
+                    <span class="s1">android:src</span><span class="s2">=&quot;@drawable/nvd&quot; </span><span class="s0">/&gt;</span>
+
+                <span class="s0">&lt;TextView</span>
+                    <span class="s1">android:layout_width</span><span class="s2">=&quot;match_parent&quot;</span>
+                    <span class="s1">android:layout_height</span><span class="s2">=&quot;0dp&quot;</span>
+                    <span class="s1">android:layout_weight</span><span class="s2">=&quot;1&quot;</span>
+                    <span class="s1">android:gravity</span><span class="s2">=&quot;center&quot;</span>
+                    <span class="s1">android:text</span><span class="s2">=&quot;英伟达   推出  GB200NVL4 平台&quot;</span>
+                    <span class="s1">android:textSize</span><span class="s2">=&quot;16sp&quot;</span>
+                    <span class="s1">android:textStyle</span><span class="s2">=&quot;bold&quot; </span><span class="s0">/&gt;</span>
+            <span class="s0">&lt;/LinearLayout&gt;</span>
+
+            <span class="s4">&lt;!-- Box 2 --&gt;</span>
+            <span class="s0">&lt;LinearLayout</span>
+                <span class="s1">android:id</span><span class="s2">=&quot;@+id/xiaomi&quot;</span>
+                <span class="s1">android:layout_width</span><span class="s2">=&quot;0dp&quot;</span>
+                <span class="s1">android:layout_height</span><span class="s2">=&quot;0dp&quot;</span>
+                <span class="s1">android:layout_rowWeight</span><span class="s2">=&quot;1&quot;</span>
+                <span class="s1">android:layout_columnWeight</span><span class="s2">=&quot;1&quot;</span>
+                <span class="s1">android:layout_margin</span><span class="s2">=&quot;4dp&quot;</span>
+                <span class="s1">android:background</span><span class="s2">=&quot;@android:color/white&quot;</span>
+                <span class="s1">android:orientation</span><span class="s2">=&quot;vertical&quot;</span><span class="s0">&gt;</span>
+
+                <span class="s0">&lt;ImageView</span>
+                    <span class="s1">android:layout_width</span><span class="s2">=&quot;match_parent&quot;</span>
+                    <span class="s1">android:layout_height</span><span class="s2">=&quot;0dp&quot;</span>
+                    <span class="s1">android:layout_weight</span><span class="s2">=&quot;2&quot;</span>
+                    <span class="s1">android:scaleType</span><span class="s2">=&quot;centerCrop&quot;</span>
+                    <span class="s1">android:src</span><span class="s2">=&quot;@drawable/mi&quot; </span><span class="s0">/&gt;</span>
+
+                <span class="s0">&lt;TextView</span>
+                    <span class="s1">android:layout_width</span><span class="s2">=&quot;match_parent&quot;</span>
+                    <span class="s1">android:layout_height</span><span class="s2">=&quot;0dp&quot;</span>
+                    <span class="s1">android:layout_weight</span><span class="s2">=&quot;1&quot;</span>
+                    <span class="s1">android:gravity</span><span class="s2">=&quot;center&quot;</span>
+                    <span class="s1">android:text</span><span class="s2">=&quot;小米 REDMI Book 14/16 2025 笔记本 SKU 曝光&quot;</span>
+                    <span class="s1">android:textSize</span><span class="s2">=&quot;16sp&quot;</span>
+                    <span class="s1">android:textStyle</span><span class="s2">=&quot;bold&quot; </span><span class="s0">/&gt;</span>
+            <span class="s0">&lt;/LinearLayout&gt;</span>
+
+            <span class="s4">&lt;!-- Box 3 --&gt;</span>
+            <span class="s0">&lt;LinearLayout</span>
+                <span class="s1">android:id</span><span class="s2">=&quot;@+id/tlsy&quot;</span>
+                <span class="s1">android:layout_width</span><span class="s2">=&quot;0dp&quot;</span>
+                <span class="s1">android:layout_height</span><span class="s2">=&quot;0dp&quot;</span>
+                <span class="s1">android:layout_rowWeight</span><span class="s2">=&quot;1&quot;</span>
+                <span class="s1">android:layout_columnWeight</span><span class="s2">=&quot;1&quot;</span>
+                <span class="s1">android:layout_margin</span><span class="s2">=&quot;4dp&quot;</span>
+                <span class="s1">android:background</span><span class="s2">=&quot;@android:color/white&quot;</span>
+                <span class="s1">android:orientation</span><span class="s2">=&quot;vertical&quot;</span><span class="s0">&gt;</span>
+
+                <span class="s0">&lt;ImageView</span>
+                    <span class="s1">android:layout_width</span><span class="s2">=&quot;match_parent&quot;</span>
+                    <span class="s1">android:layout_height</span><span class="s2">=&quot;0dp&quot;</span>
+                    <span class="s1">android:layout_weight</span><span class="s2">=&quot;2&quot;</span>
+                    <span class="s1">android:scaleType</span><span class="s2">=&quot;centerCrop&quot;</span>
+                    <span class="s1">android:src</span><span class="s2">=&quot;@drawable/tsl&quot; </span><span class="s0">/&gt;</span>
+
+                <span class="s0">&lt;TextView</span>
+                    <span class="s1">android:layout_width</span><span class="s2">=&quot;match_parent&quot;</span>
+                    <span class="s1">android:layout_height</span><span class="s2">=&quot;0dp&quot;</span>
+                    <span class="s1">android:layout_weight</span><span class="s2">=&quot;1&quot;</span>
+                    <span class="s1">android:gravity</span><span class="s2">=&quot;center&quot;</span>
+                    <span class="s1">android:text</span><span class="s2">=&quot;曝特斯拉Model Y已开始限制配件采购&quot;</span>
+                    <span class="s1">android:textSize</span><span class="s2">=&quot;16sp&quot;</span>
+                    <span class="s1">android:textStyle</span><span class="s2">=&quot;bold&quot; </span><span class="s0">/&gt;</span>
+            <span class="s0">&lt;/LinearLayout&gt;</span>
+
+            <span class="s4">&lt;!-- Box 4 --&gt;</span>
+            <span class="s0">&lt;LinearLayout</span>
+                <span class="s1">android:id</span><span class="s2">=&quot;@+id/qualcomm&quot;</span>
+                <span class="s1">android:layout_width</span><span class="s2">=&quot;0dp&quot;</span>
+                <span class="s1">android:layout_height</span><span class="s2">=&quot;0dp&quot;</span>
+                <span class="s1">android:layout_rowWeight</span><span class="s2">=&quot;1&quot;</span>
+                <span class="s1">android:layout_columnWeight</span><span class="s2">=&quot;1&quot;</span>
+                <span class="s1">android:layout_margin</span><span class="s2">=&quot;4dp&quot;</span>
+                <span class="s1">android:background</span><span class="s2">=&quot;@android:color/white&quot;</span>
+                <span class="s1">android:orientation</span><span class="s2">=&quot;vertical&quot;</span><span class="s0">&gt;</span>
+
+                <span class="s0">&lt;ImageView</span>
+                    <span class="s1">android:layout_width</span><span class="s2">=&quot;match_parent&quot;</span>
+                    <span class="s1">android:layout_height</span><span class="s2">=&quot;0dp&quot;</span>
+                    <span class="s1">android:layout_weight</span><span class="s2">=&quot;2&quot;</span>
+                    <span class="s1">android:scaleType</span><span class="s2">=&quot;centerCrop&quot;</span>
+                    <span class="s1">android:src</span><span class="s2">=&quot;@drawable/qua&quot; </span><span class="s0">/&gt;</span>
+
+                <span class="s0">&lt;TextView</span>
+                    <span class="s1">android:layout_width</span><span class="s2">=&quot;match_parent&quot;</span>
+                    <span class="s1">android:layout_height</span><span class="s2">=&quot;0dp&quot;</span>
+                    <span class="s1">android:layout_weight</span><span class="s2">=&quot;1&quot;</span>
+                    <span class="s1">android:gravity</span><span class="s2">=&quot;center&quot;</span>
+                    <span class="s1">android:text</span><span class="s2">=&quot;两大芯片巨头反目，ARM输的彻底，高通大胜利！&quot;</span>
+                    <span class="s1">android:textSize</span><span class="s2">=&quot;16sp&quot;</span>
+                    <span class="s1">android:textStyle</span><span class="s2">=&quot;bold&quot; </span><span class="s0">/&gt;</span>
+            <span class="s0">&lt;/LinearLayout&gt;</span>
+        <span class="s0">&lt;/GridLayout&gt;</span>
+    <span class="s0">&lt;/LinearLayout&gt;</span>
+    <span class="s0">&lt;LinearLayout</span>
+        <span class="s1">android:layout_width</span><span class="s2">=&quot;match_parent&quot;</span>
+        <span class="s1">android:layout_height</span><span class="s2">=&quot;50dp&quot;</span>
+        <span class="s1">android:orientation</span><span class="s2">=&quot;horizontal&quot;</span>
+        <span class="s1">android:layout_gravity</span><span class="s2">=&quot;bottom&quot;</span>
+        <span class="s1">android:layout_marginTop</span><span class="s2">=&quot;16dp&quot;</span><span class="s0">&gt;</span>
+
+        <span class="s0">&lt;Button</span>
+            <span class="s1">android:id</span><span class="s2">=&quot;@+id/homeButton&quot;</span>
+            <span class="s1">android:layout_width</span><span class="s2">=&quot;0dp&quot;</span>
+            <span class="s1">android:layout_height</span><span class="s2">=&quot;wrap_content&quot;</span>
+            <span class="s1">android:layout_weight</span><span class="s2">=&quot;1&quot;</span>
+            <span class="s1">android:background</span><span class="s2">=&quot;@color/white&quot;</span>
+            <span class="s1">android:textColor</span><span class="s2">=&quot;#000000&quot;</span>
+            <span class="s1">android:text</span><span class="s2">=&quot;主页&quot;</span><span class="s0">/&gt;</span>
+
+        <span class="s0">&lt;Button</span>
+            <span class="s1">android:id</span><span class="s2">=&quot;@+id/myButton&quot;</span>
+            <span class="s1">android:layout_width</span><span class="s2">=&quot;0dp&quot;</span>
+            <span class="s1">android:layout_height</span><span class="s2">=&quot;wrap_content&quot;</span>
+            <span class="s1">android:layout_weight</span><span class="s2">=&quot;1&quot;</span>
+            <span class="s1">android:background</span><span class="s2">=&quot;@color/white&quot;</span>
+            <span class="s1">android:textColor</span><span class="s2">=&quot;#000000&quot;</span>
+            <span class="s1">android:text</span><span class="s2">=&quot;我的&quot;</span><span class="s0">/&gt;</span>
+    <span class="s0">&lt;/LinearLayout&gt;</span>
+
+<span class="s0">&lt;/androidx.coordinatorlayout.widget.CoordinatorLayout&gt;</span>
+</pre>
+</body>
+</html>
