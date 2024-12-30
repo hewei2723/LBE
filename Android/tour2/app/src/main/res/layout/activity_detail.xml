@@ -4,12 +4,11 @@
     android:layout_height="match_parent"
     android:padding="10dp"
     android:orientation="vertical">
-    <ImageView
-        android:id="@+id/overview_image"
-        android:contentDescription="image"
+    <VideoView
+        android:id="@+id/overview_video"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/t1"
+        android:layout_gravity="center"
         android:adjustViewBounds="true"
         />
     <TextView
