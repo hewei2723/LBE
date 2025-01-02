@@ -9,7 +9,6 @@ void start_2404(void)
 	scl = 0;
 	nop;
 }
-
 void stop_2404(void)
 {
 	sda = 0;
@@ -19,7 +18,6 @@ void stop_2404(void)
 	sda = 1;
 	nop;
 }
-
 void ack_2404(void)
 {
 	uchar i = 255;
