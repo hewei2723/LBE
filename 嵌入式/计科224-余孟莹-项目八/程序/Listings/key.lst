@@ -1,0 +1,137 @@
+C51 COMPILER V9.60.7.0   KEY                                                               11/08/2024 09:31:16 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE KEY
+OBJECT MODULE PLACED IN .\Objects\key.obj
+COMPILER INVOKED BY: D:\keil\C51\BIN\C51.EXE key.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\key.lst)
+                    - TABS(2) OBJECT(.\Objects\key.obj)
+
+line level    source
+
+   1          void key(void)
+   2          {
+   3   1        P2 = 0xef;
+*** ERROR C202 IN LINE 3 OF key.c: 'P2': undefined identifier
+   4   1        if(P2 == 0xee)
+*** ERROR C202 IN LINE 4 OF key.c: 'P2': undefined identifier
+   5   1        {
+   6   2          cp3++;
+*** ERROR C202 IN LINE 6 OF key.c: 'cp3': undefined identifier
+   7   2          if(cp3 >= 7)cp3 = 2;
+*** ERROR C202 IN LINE 7 OF key.c: 'cp3': undefined identifier
+*** ERROR C202 IN LINE 7 OF key.c: 'cp3': undefined identifier
+   8   2        }
+   9   1        while(P2 == 0xee);
+*** ERROR C202 IN LINE 9 OF key.c: 'P2': undefined identifier
+  10   1        //
+  11   1        if(P2 == 0xed)
+*** ERROR C202 IN LINE 11 OF key.c: 'P2': undefined identifier
+  12   1        {
+  13   2          if(cp3 == 2){hour++;if(hour >= 24)hour = 0;}
+*** ERROR C202 IN LINE 13 OF key.c: 'cp3': undefined identifier
+*** ERROR C202 IN LINE 13 OF key.c: 'hour': undefined identifier
+*** ERROR C202 IN LINE 13 OF key.c: 'hour': undefined identifier
+*** ERROR C202 IN LINE 13 OF key.c: 'hour': undefined identifier
+  14   2          if(cp3 == 3){min++;if(min >= 60)min = 0;}
+*** ERROR C202 IN LINE 14 OF key.c: 'cp3': undefined identifier
+*** ERROR C202 IN LINE 14 OF key.c: 'min': undefined identifier
+*** ERROR C202 IN LINE 14 OF key.c: 'min': undefined identifier
+*** ERROR C202 IN LINE 14 OF key.c: 'min': undefined identifier
+  15   2          if(cp3 == 4){sec++;if(sec >= 60)sec = 0;}
+*** ERROR C202 IN LINE 15 OF key.c: 'cp3': undefined identifier
+*** ERROR C202 IN LINE 15 OF key.c: 'sec': undefined identifier
+*** ERROR C202 IN LINE 15 OF key.c: 'sec': undefined identifier
+*** ERROR C202 IN LINE 15 OF key.c: 'sec': undefined identifier
+  16   2          if(cp3 == 5){hour_n++;if(hour_n >= 24)hour_n = 0;}
+*** ERROR C202 IN LINE 16 OF key.c: 'cp3': undefined identifier
+*** ERROR C202 IN LINE 16 OF key.c: 'hour_n': undefined identifier
+*** ERROR C202 IN LINE 16 OF key.c: 'hour_n': undefined identifier
+*** ERROR C202 IN LINE 16 OF key.c: 'hour_n': undefined identifier
+  17   2          if(cp3 == 6){min_n++;if(min_n >= 60)min_n = 0;}
+*** ERROR C202 IN LINE 17 OF key.c: 'cp3': undefined identifier
+*** ERROR C202 IN LINE 17 OF key.c: 'min_n': undefined identifier
+*** ERROR C202 IN LINE 17 OF key.c: 'min_n': undefined identifier
+*** ERROR C202 IN LINE 17 OF key.c: 'min_n': undefined identifier
+  18   2        }
+  19   1        while(P2 == 0xed);
+*** ERROR C202 IN LINE 19 OF key.c: 'P2': undefined identifier
+  20   1        //
+  21   1        if(P2 == 0xed)
+*** ERROR C202 IN LINE 21 OF key.c: 'P2': undefined identifier
+  22   1        {
+  23   2          if(cp3 == 2){hour++;if(hour >= 24)hour = 23;}
+*** ERROR C202 IN LINE 23 OF key.c: 'cp3': undefined identifier
+*** ERROR C202 IN LINE 23 OF key.c: 'hour': undefined identifier
+C51 COMPILER V9.60.7.0   KEY                                                               11/08/2024 09:31:16 PAGE 2   
+
+*** ERROR C202 IN LINE 23 OF key.c: 'hour': undefined identifier
+*** ERROR C202 IN LINE 23 OF key.c: 'hour': undefined identifier
+  24   2          if(cp3 == 3){min++;if(min >= 60)min = 59;}
+*** ERROR C202 IN LINE 24 OF key.c: 'cp3': undefined identifier
+*** ERROR C202 IN LINE 24 OF key.c: 'min': undefined identifier
+*** ERROR C202 IN LINE 24 OF key.c: 'min': undefined identifier
+*** ERROR C202 IN LINE 24 OF key.c: 'min': undefined identifier
+  25   2          if(cp3 == 4){sec++;if(sec >= 60)sec = 59;}
+*** ERROR C202 IN LINE 25 OF key.c: 'cp3': undefined identifier
+*** ERROR C202 IN LINE 25 OF key.c: 'sec': undefined identifier
+*** ERROR C202 IN LINE 25 OF key.c: 'sec': undefined identifier
+*** ERROR C202 IN LINE 25 OF key.c: 'sec': undefined identifier
+  26   2          if(cp3 == 5){hour_n++;if(hour_n >= 24)hour_n = 23;}
+*** ERROR C202 IN LINE 26 OF key.c: 'cp3': undefined identifier
+*** ERROR C202 IN LINE 26 OF key.c: 'hour_n': undefined identifier
+*** ERROR C202 IN LINE 26 OF key.c: 'hour_n': undefined identifier
+*** ERROR C202 IN LINE 26 OF key.c: 'hour_n': undefined identifier
+  27   2          if(cp3 == 6){min_n++;if(min_n >= 60)min_n = 23;}
+*** ERROR C202 IN LINE 27 OF key.c: 'cp3': undefined identifier
+*** ERROR C202 IN LINE 27 OF key.c: 'min_n': undefined identifier
+*** ERROR C202 IN LINE 27 OF key.c: 'min_n': undefined identifier
+*** ERROR C202 IN LINE 27 OF key.c: 'min_n': undefined identifier
+  28   2        }
+  29   1        while(P2 == 0xed);
+*** ERROR C202 IN LINE 29 OF key.c: 'P2': undefined identifier
+  30   1        //
+  31   1        if(P2 == 0xeb)
+*** ERROR C202 IN LINE 31 OF key.c: 'P2': undefined identifier
+  32   1        {
+  33   2          if(cp3 == 2){hour--;if(hour <= 0)hour = 0;}
+*** ERROR C202 IN LINE 33 OF key.c: 'cp3': undefined identifier
+*** ERROR C202 IN LINE 33 OF key.c: 'hour': undefined identifier
+*** ERROR C202 IN LINE 33 OF key.c: 'hour': undefined identifier
+*** ERROR C202 IN LINE 33 OF key.c: 'hour': undefined identifier
+  34   2          if(cp3 == 3){min--;if(min <= 0)min = 0;}
+*** ERROR C202 IN LINE 34 OF key.c: 'cp3': undefined identifier
+*** ERROR C202 IN LINE 34 OF key.c: 'min': undefined identifier
+*** ERROR C202 IN LINE 34 OF key.c: 'min': undefined identifier
+*** ERROR C202 IN LINE 34 OF key.c: 'min': undefined identifier
+  35   2          if(cp3 == 4){sec--;if(sec <= 0)sec = 0;}
+*** ERROR C202 IN LINE 35 OF key.c: 'cp3': undefined identifier
+*** ERROR C202 IN LINE 35 OF key.c: 'sec': undefined identifier
+*** ERROR C202 IN LINE 35 OF key.c: 'sec': undefined identifier
+*** ERROR C202 IN LINE 35 OF key.c: 'sec': undefined identifier
+  36   2          if(cp3 == 5){hour_n--;if(hour_n <= 0)hour_n = 0;}
+*** ERROR C202 IN LINE 36 OF key.c: 'cp3': undefined identifier
+*** ERROR C202 IN LINE 36 OF key.c: 'hour_n': undefined identifier
+*** ERROR C202 IN LINE 36 OF key.c: 'hour_n': undefined identifier
+*** ERROR C202 IN LINE 36 OF key.c: 'hour_n': undefined identifier
+  37   2          if(cp3 == 6){min_n--;if(min_n <= 0)min_n = 0;}
+*** ERROR C202 IN LINE 37 OF key.c: 'cp3': undefined identifier
+*** ERROR C202 IN LINE 37 OF key.c: 'min_n': undefined identifier
+*** ERROR C202 IN LINE 37 OF key.c: 'min_n': undefined identifier
+*** ERROR C202 IN LINE 37 OF key.c: 'min_n': undefined identifier
+  38   2        }
+  39   1        while(P2 == 0xeb);
+*** ERROR C202 IN LINE 39 OF key.c: 'P2': undefined identifier
+  40   1        //
+  41   1        if(P2 == 0xe7)
+*** ERROR C202 IN LINE 41 OF key.c: 'P2': undefined identifier
+  42   1        {
+  43   2          cp3 = 1;
+C51 COMPILER V9.60.7.0   KEY                                                               11/08/2024 09:31:16 PAGE 3   
+
+*** ERROR C202 IN LINE 43 OF key.c: 'cp3': undefined identifier
+  44   2        }
+  45   1        while(P2 == 0xe7);
+*** ERROR C202 IN LINE 45 OF key.c: 'P2': undefined identifier
+  46   1      }
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  75 ERROR(S)
