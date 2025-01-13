@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:orientation="vertical">
+    <VideoView
+        android:id="@+id/overview_video"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:adjustViewBounds="true"
+        />
+    <TextView
+        android:id="@+id/scene_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="景点名称"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:layout_marginTop="16dp"/>
+    <TextView
+        android:id="@+id/scene_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="这里是景点的详细描述"
+        android:textSize="16sp"
+        android:textAlignment="center"
+        android:layout_marginTop="8dp"/>
+</LinearLayout>

@@ -1,0 +1,102 @@
+C51 COMPILER V9.60.7.0   DISPLAY                                                           11/08/2024 09:31:16 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE DISPLAY
+OBJECT MODULE PLACED IN .\Objects\display.obj
+COMPILER INVOKED BY: D:\keil\C51\BIN\C51.EXE display.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\disp
+                    -lay.lst) TABS(2) OBJECT(.\Objects\display.obj)
+
+line level    source
+
+   1          unsigned char flash,cp1,cp3,cp4;
+   2          char hour_n,min_n,sec = 30,min = 30 ,hour = 12;
+   3          unsigned char seven_seg[] = {0xc0,0xf9,0xa4,0xb0,0x99,0x92,0x82,0xf8,0x80,0x90};
+   4          unsigned char b_s[] = {0x80,0x40,0x20,0x10,0x08,0x04,0x02,0x01};
+   5          unsigned char seg_num[8];
+   6          unsigned int cp;
+   7          sbit LE = P1^0;
+*** ERROR C202 IN LINE 7 OF display.c: 'P1': undefined identifier
+   8          void display(void)
+   9          {
+  10   1        if(cp3 == 0)
+  11   1        {
+  12   2          seg_num[0] = seven_seg[0];
+  13   2          seg_num[1] = seven_seg[6];  
+  14   2          seg_num[2] = seven_seg[3];
+  15   2          seg_num[3] = seven_seg[9];    
+  16   2          seg_num[4] = seven_seg[4];
+  17   2          seg_num[5] = seven_seg[8];  
+  18   2          seg_num[6] = seven_seg[3];
+  19   2          seg_num[7] = seven_seg[1];
+  20   2        }
+  21   1        if(cp3 == 1)
+  22   1        {
+  23   2          seg_num[0] = seven_seg[sec % 10];
+  24   2          seg_num[1] = seven_seg[sec / 10]; 
+  25   2          seg_num[2] = 0xbf | flash;
+  26   2          seg_num[3] = seven_seg[min % 10];   
+  27   2          seg_num[4] = seven_seg[min / 10];
+  28   2          seg_num[5] = 0xbf | flash;  
+  29   2          seg_num[6] = seven_seg[hour % 10];
+  30   2          seg_num[7] = seven_seg[hour / 10];
+  31   2        }
+  32   1        if(cp3 == 2)
+  33   1        {
+  34   2          seg_num[0] = seven_seg[sec % 10];
+  35   2          seg_num[1] = seven_seg[sec / 10]; 
+  36   2          seg_num[2] = 0xbf;
+  37   2          seg_num[3] = seven_seg[min % 10];   
+  38   2          seg_num[4] = seven_seg[min / 10];
+  39   2          seg_num[5] = 0xbf;  
+  40   2          seg_num[6] = seven_seg[hour % 10] | flash;
+  41   2          seg_num[7] = seven_seg[hour / 10] | flash;
+  42   2        } 
+  43   1        if(cp3 == 3)
+  44   1        {
+  45   2          seg_num[0] = seven_seg[sec % 10];
+  46   2          seg_num[1] = seven_seg[sec / 10]; 
+  47   2          seg_num[2] = 0xbf;
+  48   2          seg_num[3] = seven_seg[min % 10] | flash;   
+  49   2          seg_num[4] = seven_seg[min / 10] | flash;
+  50   2          seg_num[5] = 0xbf;  
+  51   2          seg_num[6] = seven_seg[hour % 10];
+  52   2          seg_num[7] = seven_seg[hour / 10];
+  53   2        } 
+C51 COMPILER V9.60.7.0   DISPLAY                                                           11/08/2024 09:31:16 PAGE 2   
+
+  54   1        if(cp3 == 4)
+  55   1        {
+  56   2          seg_num[0] = seven_seg[sec % 10] | flash;
+  57   2          seg_num[1] = seven_seg[sec / 10] | flash; 
+  58   2          seg_num[2] = 0xbf;
+  59   2          seg_num[3] = seven_seg[min % 10];   
+  60   2          seg_num[4] = seven_seg[min / 10];
+  61   2          seg_num[5] = 0xbf;  
+  62   2          seg_num[6] = seven_seg[hour % 10];
+  63   2          seg_num[7] = seven_seg[hour / 10];
+  64   2        }
+  65   1        if(cp3 == 5)
+  66   1        {
+  67   2            seg_num[0] = seven_seg[min_n % 10];
+  68   2          seg_num[1] = seven_seg[min_n / 10]; 
+  69   2          seg_num[2] = 0xbf;
+  70   2          seg_num[3] = seven_seg[hour_n % 10] | flash;    
+  71   2          seg_num[4] = seven_seg[hour_n / 10] | flash;
+  72   2          seg_num[5] = 0xbf;  
+  73   2          seg_num[6] = 0xff;
+  74   2          seg_num[7] = 0xff;
+  75   2        } 
+  76   1        if(cp3 == 6)
+  77   1        {
+  78   2            seg_num[0] = seven_seg[min_n % 10] | flash;
+  79   2          seg_num[1] = seven_seg[min_n / 10] | flash; 
+  80   2          seg_num[2] = 0xbf;
+  81   2          seg_num[3] = seven_seg[hour_n % 10];    
+  82   2          seg_num[4] = seven_seg[hour_n / 10];
+  83   2          seg_num[5] = 0xbf;  
+  84   2          seg_num[6] = 0xff;
+  85   2          seg_num[7] = 0xff;
+  86   2        }       
+  87   1      }
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  1 ERROR(S)

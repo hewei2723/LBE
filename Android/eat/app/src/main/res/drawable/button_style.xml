@@ -1,0 +1,5 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#804E4C4A"/> <!-- 模拟木块的颜色，80 是透明度，范围从00到FF -->
+    <corners android:radius="5dp"/> <!-- 方块的圆角 -->
+    <stroke android:color="#3E2A1F" android:width="2dp"/> <!-- 边框 -->
+</shape>

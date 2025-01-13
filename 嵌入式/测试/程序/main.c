@@ -1,9 +1,7 @@
 // main.c
 #include<reg51.h>
 #include<display.h>
-
 sbit LED = P1^7;
-
 void t0_isr(void) interrupt 1
 {
     TH0 = (65536 - 2000) / 256;
@@ -16,7 +14,6 @@ void t0_isr(void) interrupt 1
     cp1++;
     if(cp1 >= 8) cp1 = 0;
 }
-
 void t0_init(void)
 {
     TMOD = 0x01;
@@ -31,36 +28,31 @@ void main(void)
 {
     init_2404();
 	Read_Temperature();
-<<<<<<< HEAD
-	delay(10000);
-=======
-	delay(3000);
->>>>>>> f443aa59b64e13375a80cfe17fec50f134c7f5df
-//    write_add_dat_2404(1, 22);
-//    delay(300);
-//    write_add_dat_2404(2, 01);
-//    delay(300);
-//    write_add_dat_2404(3, 06);
-//    delay(300);
-//    write_add_dat_2404(4, 11);
-//    delay(300);
-//    write_add_dat_2404(5, 7);
-//    delay(300);
-//    write_add_dat_2404(6, 79);
-//    delay(300);
-//    num1 = read_add_dat_2404(1);
-//    delay(3000);
-//    num2 = read_add_dat_2404(2);
-//    delay(3000);
-//    num3 = read_add_dat_2404(3);
-//    delay(3000);
-//    num4 = read_add_dat_2404(4);
-//    delay(3000);
-//    num5 = read_add_dat_2404(5);
-//    delay(3000);
-//    num6 = read_add_dat_2404(6);
-//    delay(3000);
-
+	delay(30000);
+    write_add_dat_2404(1, 22);
+    delay(300);
+    write_add_dat_2404(2, 01);
+    delay(300);
+    write_add_dat_2404(3, 06);
+    delay(300);
+    write_add_dat_2404(4, 11);
+    delay(300);
+    write_add_dat_2404(5, 7);
+    delay(300);
+    write_add_dat_2404(6, 79);
+    delay(300);
+    num1 = read_add_dat_2404(1);
+    delay(3000);
+    num2 = read_add_dat_2404(2);
+    delay(3000);
+    num3 = read_add_dat_2404(3);
+    delay(3000);
+    num4 = read_add_dat_2404(4);
+    delay(3000);
+    num5 = read_add_dat_2404(5);
+    delay(3000);
+    num6 = read_add_dat_2404(6);
+    delay(3000);
     t0_init();
     while(1)
     {
@@ -76,8 +68,7 @@ void main(void)
         get_ds1302_time();
         key();
         if(hour == hour_n && min == min_n) 
-	LED = 0;
+				LED = 0;
         else LED = 1;
     }
 }
-

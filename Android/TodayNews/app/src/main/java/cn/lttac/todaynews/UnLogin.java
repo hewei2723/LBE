@@ -20,6 +20,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Objects;
 
 public class UnLogin extends Fragment {
     private EditText editUsername, editPassword;
@@ -92,7 +93,7 @@ public class UnLogin extends Fragment {
     private void fetchYiyanData() {
         new Thread(() -> {
             try {
-                URL url = new URL("http://news.api.lttac.cn/yiyan");
+                URL url = new URL("https://news.api.lttac.cn/yiyan");
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod("GET");
                 BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
@@ -103,7 +104,7 @@ public class UnLogin extends Fragment {
                 }
                 reader.close();
                 String yiyanText = result.toString();
-                getActivity().runOnUiThread(() -> yiyan.setText(yiyanText));
+                requireActivity().runOnUiThread(() -> yiyan.setText(yiyanText));
             } catch (Exception e) {
                 e.printStackTrace();
             }

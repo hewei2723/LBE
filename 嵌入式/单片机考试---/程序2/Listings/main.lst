@@ -1,0 +1,109 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              01/02/2025 16:47:48 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          #include <display.h>
+   3          #include <ds1302.c>
+   4          #include <intrins.h>
+   5          #include <at24c04.h>
+   6          #include <ds18b20.h>
+   7          #include <key.h>
+   8          sbit LED = P1^7;
+   9          void t0_isr(void) interrupt 1
+  10          {
+  11   1          TH0 = (65536 - 2000) / 256;  // 检查这个值是否正确
+  12   1          TL0 = (65536 - 2000) % 256;
+  13   1          cp++;
+  14   1          if (cp >= 250) { cp = 0; cp4++; flash = ~flash; cp5++; }
+  15   1          if (cp4 >= 2) { cp4 = 0; cp2++; if (cp2 >= 4) cp2 = 3; }
+  16   1          P0 = 0xff;
+  17   1          P0 = b_s[cp1]; LE = 1; LE = 0; P0 = seg_num[cp1];
+  18   1          cp1++;
+  19   1          if (cp1 >= 8) cp1 = 0;
+  20   1      }
+  21          
+  22          void t0_init(void)
+  23          {
+  24   1          TMOD = 0x01;
+  25   1          TH0 = (65536 - 2000) / 256;  // 检查这个值是否正确
+  26   1          TL0 = (65536 - 2000) % 256;
+  27   1          EA = 1;
+  28   1          ET0 = 1;
+  29   1          TR0 = 1;
+  30   1      }
+  31          
+  32          void main(void)
+  33          {
+  34   1          init_2404();
+  35   1          Read_Temperature();
+  36   1          delay(30000);
+  37   1          write_add_dat_2404(1, 22);
+  38   1          delay(300);
+  39   1          write_add_dat_2404(2, 01);
+  40   1          delay(300);
+  41   1          write_add_dat_2404(3, 06);
+  42   1          delay(300);
+  43   1          write_add_dat_2404(4, 11);
+  44   1          delay(300);
+  45   1          write_add_dat_2404(5, 7);
+  46   1          delay(300);
+  47   1          write_add_dat_2404(6, 79);
+  48   1          delay(300);
+  49   1          num1 = read_add_dat_2404(1);
+  50   1          delay(3000);
+  51   1          num2 = read_add_dat_2404(2);
+  52   1          delay(3000);
+  53   1          num3 = read_add_dat_2404(3);
+  54   1          delay(3000);
+C51 COMPILER V9.60.7.0   MAIN                                                              01/02/2025 16:47:48 PAGE 2   
+
+  55   1          num4 = read_add_dat_2404(4);
+  56   1          delay(3000);
+  57   1          num5 = read_add_dat_2404(5);
+  58   1          delay(3000);
+  59   1          num6 = read_add_dat_2404(6);
+  60   1          delay(3000);
+  61   1          
+  62   1          t0_init();
+  63   1          
+  64   1          while (1)
+  65   1          {
+  66   2              if (cp5 >= 2)
+  67   2              {
+  68   3                  cp5 = 0;
+  69   3                  temp = Read_Temperature();
+  70   3                  temp_dot = temp & 0x000f;
+  71   3                  temp_dot = temp_dot * 0.625;
+  72   3                  temp = temp >> 4;      
+  73   3              }
+  74   2              display();
+  75   2              get_ds1302_time();
+  76   2              key();
+  77   2              
+  78   2              if (hour == hour_n && min == min_n)
+  79   2                  LED = 0;
+  80   2              else
+  81   2                  LED = 1;
+  82   2          }
+  83   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   2037    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     53       9
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
