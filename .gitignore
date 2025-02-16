@@ -15,3 +15,5 @@ out
 *.sw*
 java/target
 *.iml
+/NLP/data
+/NLP/.data
