@@ -1,0 +1,53 @@
+# esphome项目节点
+esphome:
+  name: esp32-dev
+
+# 开发版
+esp32:
+  # 开发版版型
+  board: esp32dev
+
+# wifi节点
+wifi:
+  ssid: R3G
+  password: TxwsOnly1
+  ap:
+    ssid: esp32
+    password: 123456
+
+# 如果wifi连接失败，启动热点
+captive_portal: true
+
+# web服务器，生产环境建议禁用
+web_server:
+  port: 80
+
+# 是否打印日志
+logger:
+  level: debug
+
+# home assistant连接开发版的密码
+api:
+  password: '123456'
+
+# ota升级的密码
+ota:
+  - platform: esphome
+
+# 对外输出
+output:
+  # ID，全局唯一
+  - id: gpio_2
+    # 开发版平台
+    platform: gpio
+    # 输出的gpio口
+    pin: 2
+
+# 灯组件
+light:
+  # 平台，二进制
+  - platform: binary
+    # 输出，此处指向初始的ID
+    output: gpio_2
+    # 随便七个名字
+    name: "Esp32 Light"
