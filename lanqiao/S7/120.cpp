@@ -9,8 +9,17 @@
 */
 #include<bits/stdc++.h>
 using namespace std;
+typedef struct nums
+{
+    int a,b;
+    float c;
+}nums;
+
 int comp(int a,int b){
     return a>b;
+}
+int compNums( nums &a,nums b){
+    return a.c>b.c;
 }
 int gcd(int a,int b){
     while(b!=0){
@@ -20,16 +29,30 @@ int gcd(int a,int b){
     }
     return a;
 }
-void re(int a,int b){
-    int c=gcd(a,b);
-    a=a/c;
-    b=b/c;
+void re(int &son,int &mom){
+    int c=gcd(son,mom);
+    son=son/c;
+    mom=mom/c;
 }
 int main()
 {
-  // 请在此输入您的代码
-  int n=3;
-  vector<int>num={1250,200,32};
+  int n,tn;
+  vector<int>num;
+  vector<nums> numvec;
+  cin>>n;
+  for(int i=0;i<n;i++){
+    cin>>tn;
+    num.push_back(tn);
+  }
   sort(num.begin(),num.end(),comp);
+  //排序了最大的放到了最前面，最小的在最后面，不超过100个数，两两相比，找最大
+  for(int i=0;i<num.size()-1;i++){
+    float temp_num=num[i]/num[i+1];
+    nums temp_nums={num[i],num[i+1],temp_num};
+    numvec.push_back(temp_nums);
+  }
+  sort(numvec.begin(),numvec.end(),compNums);
+  re(numvec[0].a,numvec[0].b);
+  cout<<numvec[0].a<<"/"<<numvec[0].b;
   return 0;
 }
