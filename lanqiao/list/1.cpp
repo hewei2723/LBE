@@ -11,10 +11,11 @@ int main()
     };
     sort(nums.begin(),nums.end());
     for(int nn:nums){
-        cout<<nn;
+        cout<<nn<<" ";
     }
-    for(int i=nums.size();i>=0;i--){
-        cout<<nums[i];
+    cout<<"\n";
+    for(int i=nums.size()-1;i>=0;i--){
+        cout<<nums[i]<<" ";
     }
     return 0;
 }
