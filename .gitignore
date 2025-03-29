@@ -9,6 +9,7 @@ logs
 out
 # 忽略.env文件
 .env
+.venv
 # 忽略IDE的配置文件
 .idea/
 .vscode/
@@ -17,3 +18,4 @@ java/target
 *.iml
 /NLP/data
 /NLP/.data
+.exe

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
 5650 4542 3554 473 946 4114 3871 9073 90 4329 
 2758 7949 6113 5659 5245 7432 3051 4434 6704 3594 
@@ -21,4 +22,34 @@ int main(){
     {
         cout<<a[i]*a[i+1]<<"\n";
     }
+=======
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    int num1=0;
+    int num2=0;
+    while(~scanf("%d",&n))
+    {
+        while(1)
+        {
+            if(n%2==0)
+            {
+                num1++;
+                n/=2;
+            }
+            else if(n%5==0)
+            {
+                num2++;
+                n/=5;
+            }
+            else
+                break;
+        }
+        int num=min(num1,num2);
+        printf("%d",num);
+    }
+    return 0;
+>>>>>>> f817d5f60ef2060e04b87f9759295f5141c1b046
 }
